@@ -12,8 +12,16 @@ $config = [
         '@npm'   => '@vendor/npm-asset',
     ],
     'modules' => [
-        'admin' => [
+        'rbac' => [
             'class' => 'mdm\admin\Module',
+            'controllerMap' => [
+                'assignment' => [
+                   'class' => 'mdm\admin\controllers\AssignmentController',
+                   /* 'userClassName' => 'app\models\User', */
+                   'idField' => 'id',
+                   'usernameField' => 'username',
+               ],
+           ],
         ],
     ],
     'components' => [
