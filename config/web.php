@@ -22,6 +22,8 @@ $config = [
                    'usernameField' => 'username',
                ],
            ],
+            'layout' => 'left-menu',
+            'mainLayout' => '@app/views/layouts/main.php',
         ],
     ],
     'components' => [
