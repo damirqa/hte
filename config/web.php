@@ -39,7 +39,7 @@ $config = [
         ],
         'user' => [
             'identityClass' => 'mdm\admin\models\User',
-            'loginUrl' => ['admin/user/login'],
+            'loginUrl' => ['rbac/user/login'],
             'enableAutoLogin' => true,
         ],
         'errorHandler' => [
