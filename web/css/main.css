@@ -339,7 +339,7 @@ ul#w1 {
   margin-right: 15%; }
 
 .translucent-glass {
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(0, 0, 0, 0.5);
   -webkit-backdrop-filter: blur(2px);
           backdrop-filter: blur(2px);
   -moz-backdrop-filter: blur(2px);
