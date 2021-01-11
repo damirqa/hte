@@ -41,7 +41,7 @@ AppAsset::register($this);
             ['label' => 'Схема взаимодействия', 'url' => ['/site/scheme']],
             ['label' => 'Карьера', 'url' => ['/site/career']],
             ['label' => 'Контакты', 'url' => ['/site/contacts']],
-            ['label' => 'Мои профиль', 'url' => ['site/profile'], 'visible' => !Yii::$app->user->isGuest],
+            ['label' => 'Мои профиль', 'url' => ['profile/user'], 'visible' => !Yii::$app->user->isGuest],
 
             Yii::$app->user->isGuest ? (
                 ['label' => 'Войти', 'url' => ['/site/login'], 'options' => ['class' => 'button']]
