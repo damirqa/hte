@@ -2,12 +2,15 @@
 
 namespace app\controllers;
 
+//use mdm\admin\models\form\Login;
+//use mdm\admin\models\form\Signup;
 use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\web\Response;
 use yii\filters\VerbFilter;
-use app\models\LoginForm;
+use app\models\LoginForm as Login;
+use app\models\Signup;
 use app\models\ContactForm;
 
 class SiteController extends Controller
@@ -65,37 +68,52 @@ class SiteController extends Controller
     }
 
     /**
-     * Login action.
-     *
-     * @return Response|string
+     * Login
+     * @return string
      */
     public function actionLogin()
     {
-        if (!Yii::$app->user->isGuest) {
+        if (!Yii::$app->getUser()->isGuest) {
             return $this->goHome();
         }
 
-        $model = new LoginForm();
-        if ($model->load(Yii::$app->request->post()) && $model->login()) {
+        $model = new Login();
+        if ($model->load(Yii::$app->getRequest()->post()) && $model->login()) {
             return $this->goBack();
+        } else {
+            return $this->render('login', [
+                'model' => $model,
+            ]);
         }
-
-        $model->password = '';
-        return $this->render('login', [
-            'model' => $model,
-        ]);
     }
 
     /**
-     * Logout action.
-     *
-     * @return Response
+     * Logout
+     * @return string
      */
     public function actionLogout()
     {
-        Yii::$app->user->logout();
+        Yii::$app->getUser()->logout();
 
         return $this->goHome();
+    }
+
+    /**
+     * Signup new user
+     * @return string
+     */
+    public function actionSignup()
+    {
+        $model = new Signup();
+        if ($model->load(Yii::$app->getRequest()->post())) {
+            if ($user = $model->signup()) {
+                return $this->goHome();
+            }
+        }
+
+        return $this->render('signup', [
+            'model' => $model,
+        ]);
     }
 
     /**

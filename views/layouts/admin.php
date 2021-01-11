@@ -48,7 +48,7 @@ echo Nav::widget([
         Yii::$app->user->isGuest ? (
         ['label' => 'Войти', 'url' => ['/site/login'], 'options' => ['class' => 'button']]
         ) : (
-        ['label' => 'Выйти', 'url' => ['/site/logout']]
+        ['label' => 'Выйти', 'url' => ['/site/logout', 'post'], 'linkOptions' => ['data-method' => 'post']]
         )
     ],
 ]);

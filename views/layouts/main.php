@@ -41,12 +41,12 @@ AppAsset::register($this);
             ['label' => 'Схема взаимодействия', 'url' => ['/site/scheme']],
             ['label' => 'Карьера', 'url' => ['/site/career']],
             ['label' => 'Контакты', 'url' => ['/site/contacts']],
-            ['label' => 'Мои данные', 'url' => ['site/profile'], 'visible' => !Yii::$app->user->isGuest],
+            ['label' => 'Мои профиль', 'url' => ['site/profile'], 'visible' => !Yii::$app->user->isGuest],
 
             Yii::$app->user->isGuest ? (
                 ['label' => 'Войти', 'url' => ['/site/login'], 'options' => ['class' => 'button']]
             ) : (
-                ['label' => 'Выйти', 'url' => ['/site/logout']]
+                ['label' => 'Выйти', 'url' => ['/site/logout'], 'linkOptions' => ['data-method' => 'post']]
             )
         ],
     ]);
