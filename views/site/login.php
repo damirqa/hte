@@ -21,8 +21,8 @@ $this->params['breadcrumbs'][] = $this->title;
             <?= $form->field($model, 'password')->passwordInput() ?>
             <?= $form->field($model, 'rememberMe')->checkbox() ?>
             <div style="color:#999;margin:1em 0">
-                If you forgot your password you can <?= Html::a('reset it', ['user/request-password-reset']) ?>.
-                For new user you can <?= Html::a('signup', ['user/signup']) ?>.
+                Если Вы забыли пароль, то можете <?= Html::a('восстановить пароль', ['site/request-password-reset']) ?>. </br>
+                Если Вы новый пользователь, то можете <?= Html::a('зарегистрироваться', ['site/signup']) ?>.
             </div>
             <div class="form-group">
                 <?= Html::submitButton('Авторизоваться', ['class' => 'btn btn-primary', 'name' => 'login-button']) ?>

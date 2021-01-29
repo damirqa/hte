@@ -105,6 +105,12 @@ class SiteController extends Controller
         $model = new Signup();
         if ($model->load(Yii::$app->getRequest()->post())) {
             if ($user = $model->signup()) {
+
+                Yii::$app->db->createCommand()->insert('profile', [
+                    'id' => $user->getId(),
+                    'email' => $user->email
+                ])->execute();
+
                 return $this->goHome();
             }
         }
