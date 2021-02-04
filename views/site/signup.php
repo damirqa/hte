@@ -19,6 +19,7 @@ $this->params['breadcrumbs'][] = $this->title;
             <?php $form = ActiveForm::begin(['id' => 'form-signup']); ?>
             <?= $form->field($model, 'username') ?>
             <?= $form->field($model, 'email') ?>
+            <?= $form->field($model, 'role')->radioList(['Performer' => 'Исполнитель', 'Customer' => 'Заказчик']) ?>
             <?= $form->field($model, 'password')->passwordInput() ?>
             <?= $form->field($model, 'retypePassword')->passwordInput() ?>
             <div class="form-group">

@@ -5,6 +5,7 @@ namespace app\controllers;
 use Yii;
 use app\models\Profile;
 use app\models\ProfileSearch;
+use yii\db\Exception;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -33,16 +34,16 @@ class ProfileController extends Controller
      * Lists all Profile models.
      * @return mixed
      */
-    public function actionIndex()
-    {
-        $searchModel = new ProfileSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
-
-        return $this->render('index', [
-            'searchModel' => $searchModel,
-            'dataProvider' => $dataProvider,
-        ]);
-    }
+//    public function actionIndex()
+//    {
+//        $searchModel = new ProfileSearch();
+//        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+//
+//        return $this->render('index', [
+//            'searchModel' => $searchModel,
+//            'dataProvider' => $dataProvider,
+//        ]);
+//    }
 
     /**
      * Displays a single Profile model.
@@ -129,21 +130,24 @@ class ProfileController extends Controller
      * Показывает профиль текущего пользователя
      * @return mixed
      */
-    public function actionProfile() {
+    public function actionIndex() {
         if (Yii::$app->user->isGuest) return $this->redirect(['site/login']);
 
         $id = Yii::$app->getUser()->getId();
         $model = null;
+        $role = null;
 
         try {
             $model = $this->findModel($id);
+            $role = Yii::$app->db->createCommand('SELECT item_name FROM auth_assignment WHERE user_id=:id')->bindValue(':id', $id)->queryScalar();
         }
-         catch (NotFoundHttpException $e) {
+         catch (Exception $e) {
             echo "Ошибка формирования Вашего профиля. Сообщите нам об ошибке по почте." . $e;
         }
 
         return $this->render('profile', [
             'model' => $model,
+            'role' => $role
         ]);
     }
 }

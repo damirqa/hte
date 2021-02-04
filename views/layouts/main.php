@@ -41,7 +41,7 @@ AppAsset::register($this);
             ['label' => 'Схема взаимодействия', 'url' => ['/site/scheme']],
             ['label' => 'Карьера', 'url' => ['/site/career']],
             ['label' => 'Контакты', 'url' => ['/site/contacts']],
-            ['label' => 'Мои профиль', 'url' => ['profile/profile'], 'visible' => !Yii::$app->user->isGuest],
+            ['label' => 'Мои профиль', 'url' => ['profile/index'], 'visible' => !Yii::$app->user->isGuest],
 
             Yii::$app->user->isGuest ? (
                 ['label' => 'Войти', 'url' => ['/site/login'], 'options' => ['class' => 'button']]
@@ -64,9 +64,7 @@ AppAsset::register($this);
 
 <footer class="footer">
     <div class="container">
-        <p class="pull-left">&copy; My Company <?= date('Y') ?></p>
 
-        <p class="pull-right"><?= Yii::powered() ?></p>
     </div>
 </footer>
 

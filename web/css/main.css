@@ -240,15 +240,23 @@ html, body {
 body {
   font-family: SFProDisplay-Regular, sans-serif; }
 
-.button {
-  background-color: #608FFF !important;
-  border-radius: 10px !important; }
-  .button a {
-    color: #ffffff !important;
-    background-color: #608FFF !important; }
-    .button a:focus {
-      color: #ffffff !important;
-      background-color: #608FFF !important; }
+.a-btn {
+  display: inline-block;
+  border: 3px solid #608FFF;
+  border-radius: 7px;
+  width: 100%;
+  text-align: center;
+  color: #608FFF;
+  font-size: 18px;
+  padding: 6px 12px;
+  cursor: pointer; }
+  .a-btn:hover {
+    text-decoration: none;
+    background-color: #608FFF;
+    color: #FFFFFF;
+    -webkit-transition: .13s;
+    -o-transition: .13s;
+    transition: .13s; }
 
 ul#w1 {
   font-size: 16px;
@@ -293,7 +301,8 @@ ul#w1 {
 
 .logo {
   width: 200px;
-  height: auto; }
+  height: auto;
+  margin-left: 10px; }
 
 .home-page {
   font-family: SFProDisplay-Regular, sans-serif;
@@ -421,3 +430,23 @@ ol li {
       .our-team .company .tile img {
         width: 100%;
         padding: 15px; }
+
+.user-info {
+  display: inline-block;
+  width: 100%;
+  padding: 10px;
+  margin-top: 15px;
+  background-color: white;
+  border: 1px solid #f5f7fa;
+  border-radius: 5px;
+  -webkit-box-shadow: 0 0 15px #dde3ed;
+          box-shadow: 0 0 15px #dde3ed; }
+  .user-info .user-photo {
+    text-align: center; }
+    .user-info .user-photo img {
+      width: 96px;
+      height: auto; }
+  .user-info .profile-data {
+    margin-bottom: 3px; }
+    .user-info .profile-data:nth-last-child(2) {
+      margin-bottom: 7px; }
