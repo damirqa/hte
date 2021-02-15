@@ -17,7 +17,7 @@ class m210119_070158_create_profile extends Migration
             'surname' => $this->string(),
             'name' => $this->string(),
             'email' => $this->string(),
-            'gender' => $this->string()->defaultValue("MAN"),
+            'gender' => $this->string()->defaultValue("Мужской"),
             'birthday' => $this->date(),
             'telephone' => $this->string(),
             'site' => $this->string(),
