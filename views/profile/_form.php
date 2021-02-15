@@ -10,9 +10,7 @@ use yii\widgets\ActiveForm;
 
 <div class="profile-form">
 
-    <?php $form = ActiveForm::begin(); ?>
-
-    <?= $form->field($model, 'id')->textInput() ?>
+    <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]); ?>
 
     <?= $form->field($model, 'surname')->textInput(['maxlength' => true]) ?>
 
@@ -20,23 +18,21 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'email')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'gender')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'gender')->radioList(['Мужской' => 'Мужской', 'Женский' => 'Женский']) ?>
 
-    <?= $form->field($model, 'birthday')->textInput() ?>
+    <?= $form->field($model, 'birthday')->textInput(['maxlength' => true, 'type' => date]) ?>
 
-    <?= $form->field($model, 'telephone')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'telephone')->textInput(['maxlength' => 16, 'type' => 'tel', 'placeholder' => '+7(123)456-78-89']) ?>
 
     <?= $form->field($model, 'site')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'role')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'company')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'about')->textarea(['rows' => 6]) ?>
 
-    <?= $form->field($model, 'photo_link')->textarea(['rows' => 6]) ?>
-
     <?= $form->field($model, 'city')->textInput(['maxlength' => true]) ?>
+
+    <?= $form->field($model, 'imageFile')->fileInput() ?>
 
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>

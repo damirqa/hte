@@ -4,7 +4,7 @@ use app\models\Profile;
 $photo       = $model->photo_link;
 $surname     = ($model->surname == NULL)    ? "не заполнено" : $model->surname;
 $name        = ($model->name == NULL)       ? "не заполнено" : $model->name;
-$gender      = ($model->gender == "MAN")    ? "мужской"      : "женский";
+$gender      = $model->gender;
 $birthday    = ($model->birthday == NULL)   ? ""             : "День рождения: " . $model->birthday;
 $telephone   = ($model->telephone == NULL)  ? ""             : "Телефон: " . $model->telephone;
 $email       = ($model->email == NULL)      ? ""             : $model->email;
@@ -15,7 +15,7 @@ $city        = ($model->city == NULL)       ? ""             : "Город: " . 
 $about       = ($model->about == NULL)      ? "не заполнено" : $model->about;
 
 if ($photo == NULL) {
-    $photo = ($model->gender == "MAN") ? "user-male.png" : "user-female.png";
+    $photo = ($model->gender == "MAN") ? "../img/user-male.png" : "../img/user-female.png";
 }
 
 $role = $role == "User" ? "Пользователь" : "Заказчик";
@@ -24,7 +24,7 @@ $role = $role == "User" ? "Пользователь" : "Заказчик";
     <div class="row">
         <div class="col-md-4 place-for-user-info">
             <div class="user-info">
-                <div class="profile-data user-photo"><img src="../img/<?=$photo?>" alt="user-photo"></div>
+                <div class="profile-data user-photo"><img src="<?=$photo?>" alt="user-photo"></div>
                 <div class="profile-data">Фамилия: <?=$surname?></div>
                 <div class="profile-data">Имя: <?=$surname?></div>
                 <div class="profile-data">Пол: <?=$gender?></div>

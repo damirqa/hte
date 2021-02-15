@@ -3,6 +3,7 @@
 namespace app\models;
 
 use Yii;
+use yii\web\UploadedFile;
 
 /**
  * This is the model class for table "profile".
@@ -25,6 +26,8 @@ use Yii;
  */
 class Profile extends \yii\db\ActiveRecord
 {
+    public $imageFile;
+
     /**
      * {@inheritdoc}
      */
@@ -43,6 +46,7 @@ class Profile extends \yii\db\ActiveRecord
             [['about', 'photo_link'], 'string'],
             [['surname', 'name', 'email', 'gender', 'telephone', 'site', 'role', 'company', 'city'], 'string', 'max' => 255],
             [['id'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['id' => 'id']],
+            [['imageFile'], 'file']
         ];
     }
 
@@ -53,18 +57,19 @@ class Profile extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'surname' => 'Surname',
-            'name' => 'Name',
-            'email' => 'Email',
-            'gender' => 'Gender',
-            'birthday' => 'Birthday',
-            'telephone' => 'Telephone',
-            'site' => 'Site',
-            'role' => 'Role',
-            'company' => 'Company',
-            'about' => 'About',
-            'photo_link' => 'Photo Link',
-            'city' => 'City',
+            'surname' => 'Фамилия',
+            'name' => 'Имя',
+            'email' => 'Электронная почта',
+            'gender' => 'Пол',
+            'birthday' => 'День рождения',
+            'telephone' => 'Телефон',
+            'site' => 'Сайт',
+            'role' => 'Роль',
+            'company' => 'Компания',
+            'about' => 'О себе',
+            'photo_link' => 'Фото профиля',
+            'city' => 'Город',
+            'imageFile' => "Фото профиля"
         ];
     }
 

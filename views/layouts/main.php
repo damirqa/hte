@@ -41,6 +41,7 @@ AppAsset::register($this);
             ['label' => 'Схема взаимодействия', 'url' => ['/site/scheme']],
             ['label' => 'Карьера', 'url' => ['/site/career']],
             ['label' => 'Контакты', 'url' => ['/site/contacts']],
+            ['label' => 'Проекты', 'url' => ['/project/index']],
             ['label' => 'Мои профиль', 'url' => ['profile/index'], 'visible' => !Yii::$app->user->isGuest],
 
             Yii::$app->user->isGuest ? (
