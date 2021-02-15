@@ -42,13 +42,11 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'task_status')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'on_time')->textInput() ?>
+    <?= $form->field($model, 'on_time')->radioList(['Да' => 'Да, обязан выполнить вовремя', 'Нет' => 'Нет, допускаются задержки']) ?>
 
-    <?= $form->field($model, 'planned_execution_time')->textInput() ?>
+    <?= $form->field($model, 'planned_execution_time')->textInput(['type' => 'date']) ?>
 
-    <?= $form->field($model, 'actual_execution_time')->textInput() ?>
-
-    <?= $form->field($model, 'urgently')->textInput() ?>
+    <?= $form->field($model, 'urgently')->radioList(['Да' => 'Да', 'Нет' => 'Нет']) ?>
 
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>

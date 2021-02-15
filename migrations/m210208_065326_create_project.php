@@ -26,7 +26,7 @@ class m210208_065326_create_project extends Migration
             'on_time' => $this->boolean(),
             'planned_execution_time' => $this->date(),
             'actual_execution_time' => $this->date(),
-            'urgently' => $this->boolean()
+            'urgently' => $this->string()
         ]);
 
         $this->addForeignKey(
