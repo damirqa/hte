@@ -5,7 +5,7 @@ $photo       = $model->photo_link;
 $surname     = ($model->surname == NULL)    ? "не заполнено" : $model->surname;
 $name        = ($model->name == NULL)       ? "не заполнено" : $model->name;
 $gender      = $model->gender;
-$birthday    = ($model->birthday == NULL)   ? ""             : "День рождения: " . $model->birthday;
+$birthday    = ($model->birthday == NULL)   ? ""             : "День рождения: " . date_format(new DateTime($model->birthday), 'd.m.Y');
 $telephone   = ($model->telephone == NULL)  ? ""             : "Телефон: " . $model->telephone;
 $email       = ($model->email == NULL)      ? ""             : $model->email;
 $site        = ($model->site == NULL)       ? ""             : "Сайт: " . $model->site;
