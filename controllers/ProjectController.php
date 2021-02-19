@@ -38,6 +38,10 @@ class ProjectController extends Controller
         $searchModel = new ProjectSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
+//        echo '<pre>';
+//        var_dump($dataProvider);
+//        echo '</pre>';
+
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
@@ -67,6 +71,14 @@ class ProjectController extends Controller
         $model = new project();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            if (Yii::$app->getUser()->getIsGuest()) return $this->redirect('/site/login');
+
+            //var_dump($model);
+            $model->date = date("Y-m-d");
+            $model->customer_id = Yii::$app->getUser()->getId();
+            $model->task_status = "Открыт";
+
+            $model->save();
             return $this->redirect(['view', 'id' => $model->id]);
         }
 

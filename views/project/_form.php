@@ -40,8 +40,6 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'price')->textInput() ?>
 
-    <?= $form->field($model, 'task_status')->textInput(['maxlength' => true]) ?>
-
     <?= $form->field($model, 'on_time')->radioList(['Да' => 'Да, обязан выполнить вовремя', 'Нет' => 'Нет, допускаются задержки']) ?>
 
     <?= $form->field($model, 'planned_execution_time')->textInput(['type' => 'date']) ?>

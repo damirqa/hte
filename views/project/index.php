@@ -7,43 +7,52 @@ use yii\grid\GridView;
 /* @var $searchModel app\models\ProjectSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Projects';
+$this->title = 'Проекты';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="project-index">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+<div class="container">
+    <div class="project-index">
 
-    <p>
-        <?= Html::a('Create Project', ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
+        <h1><?= Html::encode($this->title) ?></h1>
 
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
+        <?php
+            if (!Yii::$app->getUser()->getIsGuest()) {
+                ?>
+                    <?= Html::a('Create Project', ['create'], ['class' => 'btn btn-success']) ?>
+                <?php
+            }
+        ?>
+        <button class="btn btn-warning search">Фильтр</button>
 
-    <?= GridView::widget([
-        'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
-        'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
 
-            'id',
-            'title',
-            'type',
-            'annotation',
-            'description:ntext',
-            //'date',
-            //'price',
-            //'customer_id',
-            //'performer_id',
-            //'task_status',
-            //'on_time:datetime',
-            //'planned_execution_time',
-            //'actual_execution_time',
-            //'urgently',
+        <?php  echo $this->render('_search', ['model' => $searchModel]); ?>
 
-            ['class' => 'yii\grid\ActionColumn'],
-        ],
-    ]); ?>
+            <?= GridView::widget([
+                'dataProvider' => $dataProvider,
+                'columns' => [
+                    ['class' => 'yii\grid\SerialColumn'],
+                    //'id',
+                    'title',
+                    'type',
+                    'annotation',
+                    'description:ntext',
+                    //'date',
+                    //'price',
+                    //'customer_id',
+                    //'performer_id',
+                    //'task_status',
+                    //'on_time:datetime',
+                    //'planned_execution_time',
+                    //'actual_execution_time',
+                    //'urgently',
 
+                    ['class' => 'yii\grid\ActionColumn', 'template' => '{view}',],
+                ],
+
+            ]); ?>
+
+
+    </div>
 
 </div>
