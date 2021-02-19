@@ -39,7 +39,7 @@ class m210219_125451_offer extends Migration
             'profile',
             'id',
             'CASCADE',
-            'UPDATE'
+            'CASCADE'
         );
     }
 
