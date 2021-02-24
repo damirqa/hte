@@ -17,6 +17,15 @@ $this->params['breadcrumbs'][] = $this->title;
         <h1><?= Html::encode($this->title) ?></h1>
 
         <?php
+            if (Yii::$app->getUser()->getIsGuest()) {
+                ?>
+                    <p>Если вы хотите создать проект, то Вам необходимо <a href="../site/login">авторизоваться</a>
+                    или <a href="../site/signup">зарегистрироваться</a>.</p>
+                <?php
+            }
+        ?>
+
+        <?php
             if (!Yii::$app->getUser()->getIsGuest()) {
                 ?>
                     <?= Html::a('Create Project', ['create'], ['class' => 'btn btn-success']) ?>
