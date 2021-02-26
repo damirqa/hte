@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 
+use app\models\Profile;
 use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
@@ -106,10 +107,16 @@ class SiteController extends Controller
         if ($model->load(Yii::$app->getRequest()->post())) {
             if ($user = $model->signup()) {
 
-                Yii::$app->db->createCommand()->insert('profile', [
-                    'id' => $user->getId(),
-                    'email' => $user->email
-                ])->execute();
+                $profile = new Profile();
+                $profile->id = $user->id;
+                $profile->email = $user->email;
+
+                $profile->save();
+
+//                Yii::$app->db->createCommand()->insert('profile', [
+//                    'id' => $user->getId(),
+//                    'email' => $user->email
+//                ])->execute();
 
                 return $this->goHome();
             }
