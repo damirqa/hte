@@ -15,7 +15,7 @@ $city        = ($model->city == NULL)       ? ""             : "Город: " . 
 $about       = ($model->about == NULL)      ? "не заполнено" : $model->about;
 
 if ($photo == NULL) {
-    $photo = ($model->gender == "MAN") ? "../img/user-male.png" : "../img/user-female.png";
+    $photo = ($model->gender == "Мужской") ? "../img/user-male.png" : "../img/user-female.png";
 }
 
 $role = $role == "User" ? "Пользователь" : "Заказчик";
