@@ -69,4 +69,15 @@ class Signup extends SignupForm
         }
         return null;
     }
+
+    public function attributeLabels()
+    {
+        return [
+            'username' => 'Логин',
+            'password' => 'Пароль',
+            'retypePassword' => 'Повторите пароль',
+            'email' => 'Электронная почта',
+            'role' => 'Роль'
+        ];
+    }
 }
