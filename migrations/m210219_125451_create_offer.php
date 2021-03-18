@@ -3,9 +3,9 @@
 use yii\db\Migration;
 
 /**
- * Class m210219_125451_offer
+ * Class m210219_125451_create_offer
  */
-class m210219_125451_offer extends Migration
+class m210219_125451_create_offer extends Migration
 {
     /**
      * {@inheritdoc}
@@ -19,6 +19,7 @@ class m210219_125451_offer extends Migration
             'bid' => $this->double(),
             'date' => $this->date(),
             'scheduled_time_performer' => $this->date(),
+            'status' => $this->string(),
             'text' => $this->string(),
         ]);
 
@@ -48,7 +49,7 @@ class m210219_125451_offer extends Migration
      */
     public function safeDown()
     {
-        echo "m210219_125451_offer cannot be reverted.\n";
+        echo "m210219_125451_create_offer cannot be reverted.\n";
 
         return false;
     }
@@ -62,7 +63,7 @@ class m210219_125451_offer extends Migration
 
     public function down()
     {
-        echo "m210219_125451_offer cannot be reverted.\n";
+        echo "m210219_125451_create_offer cannot be reverted.\n";
 
         return false;
     }
