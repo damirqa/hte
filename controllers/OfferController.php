@@ -60,11 +60,22 @@ class OfferController extends Controller
     /**
      * Creates a new Offer model.
      * If creation is successful, the browser will be redirected to the 'view' page.
+     * @param integer $project
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new Offer();
+        if (Yii::$app->getUser()->getIsGuest()) $this->redirect(['../site/login']);
+
+        if ($model = $this->findModelByParametrs($project, Yii::$app->getUser()->getId()) == null) {
+            $model = new Offer();
+            $model->id_project = $project;
+            $model->performer_id =  Yii::$app->getUser()->getId();
+            $model->date = date("Y-m-d");
+        }
+
+        //$model = $this->findModelByParametrs($project, Yii::$app->getUser()->getId()) !== null ? : new Offer();
+
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
@@ -112,16 +123,26 @@ class OfferController extends Controller
     /**
      * Finds the Offer model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
-     * @param integer $id
+     * @param integer $project
+     * @param integer $performer
      * @return Offer the loaded model
      * @throws NotFoundHttpException if the model cannot be found
+     */
+    protected function findModelByParametrs($project, $performer)
+    {
+        if ($model = Offer::find()->where(['id_project' => $project, 'performer_id' => $performer])->one())
+            return $model;
+        //throw new NotFoundHttpException('The requested page does not exist.');
+    }
+
+    /*
+     * @param integer $id
      */
     protected function findModel($id)
     {
         if (($model = Offer::findOne($id)) !== null) {
             return $model;
         }
-
         throw new NotFoundHttpException('The requested page does not exist.');
     }
 }

@@ -65,9 +65,9 @@ use yii\widgets\ActiveForm;
 
     <?php // echo $form->field($model, 'urgently') ?>
 
-    <div class="form-group">
-        <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>
-        <?= Html::resetButton('Reset', ['class' => 'btn btn-outline-secondary']) ?>
+    <div class="form-group project-filter-control-buttons">
+        <?= Html::submitButton('Search', ['class' => 'a-btn']) ?>
+        <?= Html::resetButton('Reset', ['class' => 'a-btn']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

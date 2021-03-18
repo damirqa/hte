@@ -203,19 +203,102 @@ ol
     &:nth-last-child(2)
       margin-bottom: 7px
 
-.project-view
-  background-color: #f2f4f6
-  border: 1px solid #F2F4F6
+.project-view, .offer-view, .offer-create
+  margin-top: 30px
   border-radius: 10px
+  box-shadow: 0 0 10px 7px #F2F4F6
 
-  .project-view-data
+  .project-view-data, .offer-view-data, .offer-create-data
     padding: 15px 25px
-    border-bottom: 1px solid #D0D0D0
+    border-bottom: 1px solid #F2F4F6
 
     &:nth-last-child(1)
       border-bottom: none
   h1
     margin: 0
+
+.project-view-add-info
+  margin-top: 40px
+  padding: 15px 25px
+  border: 1px solid #F2F4F6
+  border-radius: 10px
+  box-shadow: 0 0 10px 7px #F2F4F6
+
+.project-header, .offer-view-header, .offer-create-header
+  color: #FFFFFF
+  background-color: #608FFF
+  border: 1px solid #608FFF
+  border-radius: 10px 10px 3px 3px
+
+.project-control-buttons, .project-filter-control-buttons, .offer-control-buttons
+  display: flex
+  flex-direction: row
+  justify-content: space-between
+
+  a, button
+    &:first-child
+      margin-right: 13px
+
+    &:last-child
+      margin-left: 12px
+
+    &:focus
+      outline: none
+
+.offer-create-data
+  &:nth-child(2), &:nth-child(3)
+    padding: 0
+    border-bottom: none
+
+.project-filter-control-buttons
+  margin-top: 20px
+
+.project-search
+  margin-top: 20px
+
+.list-projects
+  margin-top: 30px
+  border-radius: 10px
+
+  .list-project
+    border: 1px solid #E0E0E0
+
+    h1
+      margin-left: 15px
+      margin-bottom: 20px
+      font-weight: 600
+      font-size: 32px
+
+    &:first-child
+      background-color: #608FFF
+      color: #FFFFFF
+      border-radius: 10px 10px 0 0
+
+    &:last-child
+      border-radius: 0 0 10px 10px
+
+    &:hover
+      background-color: #F8F9FA
+    a
+      color: #212934
+
+      &:hover
+        text-decoration: none
+
+      .list-project-header
+        font-family: SFProDisplay-Medium, sans-serif
+        font-size: 28px
+        font-weight: 600
+        color: rgba(0, 0, 0, .8)
+
+      .list-project-type
+        color: rgba(0, 0, 0, .7)
+
+      .list-project-annotation
+        color: rgba(0, 0, 0, .65)
+
+      .list-project-header, .list-project-type, .list-project-annotation
+        padding: 10px 15px 0px 15px
 
 body
   //background-color: #F5F7FA

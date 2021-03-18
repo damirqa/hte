@@ -2,9 +2,13 @@
 
 namespace app\controllers;
 
+use app\models\Offer;
+use app\models\OfferSearch;
 use Yii;
 use app\models\project;
 use app\models\ProjectSearch;
+use yii\db\Query;
+use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -33,19 +37,34 @@ class ProjectController extends Controller
      * Lists all project models.
      * @return mixed
      */
-    public function actionIndex()
+    public function actionIndex($id = 1)
     {
-        $searchModel = new ProjectSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        if (is_null($id) | !is_integer($id) | empty($id)) $id = 1;
 
-//        echo '<pre>';
-//        var_dump($dataProvider);
-//        echo '</pre>';
+        $count = Project::find()->where(['task_status' => 'Открыт'])->count();
+        $page_size = 5;
+        $pages = ceil($count / $page_size);
+
+        $projects = Project::find()
+            ->where(['task_status' => 'Открыт'])
+            ->orderBy('date DESC')
+            ->limit($page_size)
+            ->offset($id - 1)
+            ->all();
 
         return $this->render('index', [
-            'searchModel' => $searchModel,
-            'dataProvider' => $dataProvider,
+           'projects' => $projects,
+           'page' => $id,
+           'pages' => $pages
         ]);
+
+//        $searchModel = new ProjectSearch();
+//        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+
+//        return $this->render('index', [
+//            'searchModel' => $searchModel,
+//            'dataProvider' => $dataProvider,
+//        ]);
     }
 
     /**
@@ -56,8 +75,13 @@ class ProjectController extends Controller
      */
     public function actionView($id)
     {
+        $model = $this->findModel($id);
+
+        $offer = Offer::find()->where(['id_project' => $id, 'performer_id' => Yii::$app->getUser()->getId()])->one();
+
         return $this->render('view', [
-            'model' => $this->findModel($id),
+            'model' => $model,
+            'offer' => $offer
         ]);
     }
 

@@ -52,10 +52,10 @@ class Offer extends \yii\db\ActiveRecord
             'id' => 'ID',
             'id_project' => 'Id Project',
             'performer_id' => 'Performer ID',
-            'bid' => 'Bid',
+            'bid' => 'Цена',
             'date' => 'Date',
-            'scheduled_time_performer' => 'Scheduled Time Performer',
-            'text' => 'Text',
+            'scheduled_time_performer' => 'Дата выполнения',
+            'text' => 'Сообщение',
         ];
     }
 

@@ -242,6 +242,7 @@ body {
 
 .a-btn {
   display: inline-block;
+  background-color: #FFFFFF;
   border: 3px solid #608FFF;
   border-radius: 7px;
   width: 100%;
@@ -257,6 +258,10 @@ body {
     -webkit-transition: .13s;
     -o-transition: .13s;
     transition: .13s; }
+
+.form-control {
+  border-radius: 7px;
+  border: 2px solid #CCCCCC; }
 
 ul.navbar-nav.navbar-right.nav {
   font-size: 16px;
@@ -451,14 +456,94 @@ ol li {
     .user-info .profile-data:nth-last-child(2) {
       margin-bottom: 7px; }
 
-.project-view {
-  background-color: #f2f4f6;
-  border: 1px solid #F2F4F6;
-  border-radius: 10px; }
-  .project-view .project-view-data {
+.project-view, .offer-view, .offer-create {
+  margin-top: 30px;
+  border-radius: 10px;
+  -webkit-box-shadow: 0 0 10px 7px #F2F4F6;
+          box-shadow: 0 0 10px 7px #F2F4F6; }
+  .project-view .project-view-data, .project-view .offer-view-data, .project-view .offer-create-data, .offer-view .project-view-data, .offer-view .offer-view-data, .offer-view .offer-create-data, .offer-create .project-view-data, .offer-create .offer-view-data, .offer-create .offer-create-data {
     padding: 15px 25px;
-    border-bottom: 1px solid #D0D0D0; }
-    .project-view .project-view-data:nth-last-child(1) {
+    border-bottom: 1px solid #F2F4F6; }
+    .project-view .project-view-data:nth-last-child(1), .project-view .offer-view-data:nth-last-child(1), .project-view .offer-create-data:nth-last-child(1), .offer-view .project-view-data:nth-last-child(1), .offer-view .offer-view-data:nth-last-child(1), .offer-view .offer-create-data:nth-last-child(1), .offer-create .project-view-data:nth-last-child(1), .offer-create .offer-view-data:nth-last-child(1), .offer-create .offer-create-data:nth-last-child(1) {
       border-bottom: none; }
-  .project-view h1 {
+  .project-view h1, .offer-view h1, .offer-create h1 {
     margin: 0; }
+
+.project-view-add-info {
+  margin-top: 40px;
+  padding: 15px 25px;
+  border: 1px solid #F2F4F6;
+  border-radius: 10px;
+  -webkit-box-shadow: 0 0 10px 7px #F2F4F6;
+          box-shadow: 0 0 10px 7px #F2F4F6; }
+
+.project-header, .offer-view-header, .offer-create-header {
+  color: #FFFFFF;
+  background-color: #608FFF;
+  border: 1px solid #608FFF;
+  border-radius: 10px 10px 3px 3px; }
+
+.project-control-buttons, .project-filter-control-buttons, .offer-control-buttons {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between; }
+  .project-control-buttons a:first-child, .project-control-buttons button:first-child, .project-filter-control-buttons a:first-child, .project-filter-control-buttons button:first-child, .offer-control-buttons a:first-child, .offer-control-buttons button:first-child {
+    margin-right: 13px; }
+  .project-control-buttons a:last-child, .project-control-buttons button:last-child, .project-filter-control-buttons a:last-child, .project-filter-control-buttons button:last-child, .offer-control-buttons a:last-child, .offer-control-buttons button:last-child {
+    margin-left: 12px; }
+  .project-control-buttons a:focus, .project-control-buttons button:focus, .project-filter-control-buttons a:focus, .project-filter-control-buttons button:focus, .offer-control-buttons a:focus, .offer-control-buttons button:focus {
+    outline: none; }
+
+.offer-create-data:nth-child(2), .offer-create-data:nth-child(3) {
+  padding: 0;
+  border-bottom: none; }
+
+.project-filter-control-buttons {
+  margin-top: 20px; }
+
+.project-search {
+  margin-top: 20px; }
+
+.list-projects {
+  margin-top: 30px;
+  border-radius: 10px; }
+  .list-projects .list-project {
+    border: 1px solid #E0E0E0; }
+    .list-projects .list-project h1 {
+      margin-left: 15px;
+      margin-bottom: 20px;
+      font-weight: 600;
+      font-size: 32px; }
+    .list-projects .list-project:first-child {
+      background-color: #608FFF;
+      color: #FFFFFF;
+      border-radius: 10px 10px 0 0; }
+    .list-projects .list-project:last-child {
+      border-radius: 0 0 10px 10px; }
+    .list-projects .list-project:hover {
+      background-color: #F8F9FA; }
+    .list-projects .list-project a {
+      color: #212934; }
+      .list-projects .list-project a:hover {
+        text-decoration: none; }
+      .list-projects .list-project a .list-project-header {
+        font-family: SFProDisplay-Medium, sans-serif;
+        font-size: 28px;
+        font-weight: 600;
+        color: rgba(0, 0, 0, 0.8); }
+      .list-projects .list-project a .list-project-type {
+        color: rgba(0, 0, 0, 0.7); }
+      .list-projects .list-project a .list-project-annotation {
+        color: rgba(0, 0, 0, 0.65); }
+      .list-projects .list-project a .list-project-header, .list-projects .list-project a .list-project-type, .list-projects .list-project a .list-project-annotation {
+        padding: 10px 15px 0px 15px; }
