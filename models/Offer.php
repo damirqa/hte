@@ -8,7 +8,7 @@ use Yii;
  * This is the model class for table "offer".
  *
  * @property int $id
- * @property int|null $id_project
+ * @property int|null $project_id
  * @property int|null $performer_id
  * @property float|null $bid
  * @property string|null $date
@@ -34,12 +34,12 @@ class Offer extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['id_project', 'performer_id'], 'integer'],
+            [['project_id', 'performer_id'], 'integer'],
             [['bid'], 'number'],
             [['date', 'scheduled_time_performer'], 'safe'],
-            [['text'], 'string', 'max' => 255],
+            [['text', 'status'], 'string', 'max' => 255],
             [['performer_id'], 'exist', 'skipOnError' => true, 'targetClass' => Profile::className(), 'targetAttribute' => ['performer_id' => 'id']],
-            [['id_project'], 'exist', 'skipOnError' => true, 'targetClass' => Project::className(), 'targetAttribute' => ['id_project' => 'id']],
+            [['project_id'], 'exist', 'skipOnError' => true, 'targetClass' => Project::className(), 'targetAttribute' => ['project_id' => 'id']],
         ];
     }
 
@@ -50,12 +50,13 @@ class Offer extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'id_project' => 'Id Project',
+            'project_id' => 'Id Project',
             'performer_id' => 'Performer ID',
             'bid' => 'Цена',
             'date' => 'Date',
             'scheduled_time_performer' => 'Дата выполнения',
             'text' => 'Сообщение',
+            'status' => 'Статус'
         ];
     }
 
@@ -76,6 +77,6 @@ class Offer extends \yii\db\ActiveRecord
      */
     public function getProject()
     {
-        return $this->hasOne(Project::className(), ['id' => 'id_project']);
+        return $this->hasOne(Project::className(), ['id' => 'project_id']);
     }
 }

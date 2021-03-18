@@ -14,7 +14,7 @@ class m210219_125451_create_offer extends Migration
     {
         $this->createTable('offer', [
             'id' => $this->primaryKey(),
-            'id_project' => $this->integer(),
+            'project_id' => $this->integer(),
             'performer_id' => $this->integer(),
             'bid' => $this->double(),
             'date' => $this->date(),
@@ -26,7 +26,7 @@ class m210219_125451_create_offer extends Migration
         $this->addForeignKey(
             'fk-project',
             'offer',
-            'id_project',
+            'project_id',
             'project',
             'id',
             'CASCADE',

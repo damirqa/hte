@@ -20,7 +20,7 @@ use yii\widgets\ActiveForm;
             ],
     ]); ?>
 
-    <?= $form->field($model, 'id_project')->hiddenInput(['value' => $project_id])->label(false) ?>
+    <?= $form->field($model, 'project_id')->hiddenInput(['value' => $project_id])->label(false) ?>
 
     <?= $form->field($model, 'performer_id')->hiddenInput(['value' => $performer])->label(false) ?>
 

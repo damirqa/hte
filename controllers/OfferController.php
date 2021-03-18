@@ -69,7 +69,7 @@ class OfferController extends Controller
 
         if ($model = $this->findModelByParametrs($project, Yii::$app->getUser()->getId()) == null) {
             $model = new Offer();
-            $model->id_project = $project;
+            $model->project_id = $project;
             $model->performer_id =  Yii::$app->getUser()->getId();
             $model->date = date("Y-m-d");
         }
@@ -130,7 +130,7 @@ class OfferController extends Controller
      */
     protected function findModelByParametrs($project, $performer)
     {
-        if ($model = Offer::find()->where(['id_project' => $project, 'performer_id' => $performer])->one())
+        if ($model = Offer::find()->where(['project_id' => $project, 'performer_id' => $performer])->one())
             return $model;
         //throw new NotFoundHttpException('The requested page does not exist.');
     }

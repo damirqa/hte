@@ -77,7 +77,7 @@ class ProjectController extends Controller
     {
         $model = $this->findModel($id);
 
-        $offer = Offer::find()->where(['id_project' => $id, 'performer_id' => Yii::$app->getUser()->getId()])->one();
+        $offer = Offer::find()->where(['project_id' => $id, 'performer_id' => Yii::$app->getUser()->getId()])->one();
 
         return $this->render('view', [
             'model' => $model,

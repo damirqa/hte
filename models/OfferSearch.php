@@ -17,7 +17,7 @@ class OfferSearch extends Offer
     public function rules()
     {
         return [
-            [['id', 'id_project', 'performer_id'], 'integer'],
+            [['id', 'project_id', 'performer_id'], 'integer'],
             [['bid'], 'number'],
             [['date', 'scheduled_time_performer', 'text'], 'safe'],
         ];
@@ -60,7 +60,7 @@ class OfferSearch extends Offer
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
-            'id_project' => $this->id_project,
+            'project_id' => $this->project_id,
             'performer_id' => $this->performer_id,
             'bid' => $this->bid,
             'date' => $this->date,

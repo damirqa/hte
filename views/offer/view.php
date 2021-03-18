@@ -40,7 +40,7 @@ $this->params['breadcrumbs'][] = $this->title;
 //        'model' => $model,
 //        'attributes' => [
 //            'id',
-//            'id_project',
+//            'project_id',
 //            'performer_id',
 //            'bid',
 //            'date',
