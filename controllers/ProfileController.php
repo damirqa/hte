@@ -142,20 +142,10 @@ class ProfileController extends Controller
         if (Yii::$app->user->isGuest) return $this->redirect(['site/login']);
 
         $id = Yii::$app->getUser()->getId();
-        $model = null;
-        $role = null;
-
-        try {
-            $model = $this->findModel($id);
-            $role = Yii::$app->db->createCommand('SELECT item_name FROM auth_assignment WHERE user_id=:id')->bindValue(':id', $id)->queryScalar();
-        }
-         catch (Exception $e) {
-            echo "Ошибка формирования Вашего профиля. Сообщите нам об ошибке по почте." . $e;
-        }
+        $model = $this->findModel($id);
 
         return $this->render('profile', [
-            'model' => $model,
-            'role' => $role
+            'model' => $model
         ]);
     }
 }

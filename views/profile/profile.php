@@ -1,6 +1,8 @@
 <?php
 use app\models\Profile;
 
+/* @var $role string Role of user*/
+
 $photo       = $model->photo_link;
 $surname     = ($model->surname == NULL)    ? "не заполнено" : $model->surname;
 $name        = ($model->name == NULL)       ? "не заполнено" : $model->name;
@@ -9,7 +11,6 @@ $birthday    = ($model->birthday == NULL)   ? ""             : "День рож�
 $telephone   = ($model->telephone == NULL)  ? ""             : "Телефон: " . $model->telephone;
 $email       = ($model->email == NULL)      ? ""             : $model->email;
 $site        = ($model->site == NULL)       ? ""             : "Сайт: " . $model->site;
-//$role        = ($role->role == NULL)       ? "Ошибка"       : $model->role;
 $company     = ($model->company == NULL)    ? ""             : "Компания" . $model->company;
 $city        = ($model->city == NULL)       ? ""             : "Город: " . $model->city;
 $about       = ($model->about == NULL)      ? "не заполнено" : $model->about;
@@ -17,8 +18,6 @@ $about       = ($model->about == NULL)      ? "не заполнено" : $model
 if ($photo == NULL) {
     $photo = ($model->gender == "Мужской") ? "../img/user-male.png" : "../img/user-female.png";
 }
-
-$role = $role == "User" ? "Пользователь" : "Заказчик";
 ?>
 <div class="container">
     <div class="row">
@@ -31,7 +30,7 @@ $role = $role == "User" ? "Пользователь" : "Заказчик";
                 <div class="profile-data"><?=$birthday?></div>
                 <div class="profile-data"><?=$telephone?></div>
                 <div class="profile-data">Почта: <?=$email?></div>
-                <div class="profile-data">Статус: <?=$role?></div>
+                <div class="profile-data">Статус: <?=$model->role?></div>
                 <div class="profile-data"><?=$company?></div>
                 <div class="profile-data"><?=$city?></div>
                 <div class="profile-data">О себе: <?=$about?></div>

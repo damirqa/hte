@@ -110,13 +110,9 @@ class SiteController extends Controller
                 $profile = new Profile();
                 $profile->id = $user->id;
                 $profile->email = $user->email;
-
+                $role = Yii::$app->db->createCommand('SELECT item_name FROM auth_assignment WHERE user_id=:id')->bindValue(':id', $profile->id)->queryScalar();
+                $profile->role = $role == "Performer" ? "Исполнитель" : "Заказчик";
                 $profile->save();
-
-//                Yii::$app->db->createCommand()->insert('profile', [
-//                    'id' => $user->getId(),
-//                    'email' => $user->email
-//                ])->execute();
 
                 return $this->goHome();
             }
