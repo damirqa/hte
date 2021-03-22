@@ -21,19 +21,6 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="container">
 <!--    <h1>--><?//= Html::encode($this->title) ?><!--</h1>-->
 
-    <?php
-    if (Yii::$app->getUser()->getId() == $model->customer_id)  {
-        echo Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']);
-        echo Html::a('Delete', ['delete', 'id' => $model->id], [
-            'class' => 'btn btn-danger',
-            'data' => [
-                'confirm' => 'Are you sure you want to delete this item?',
-                'method' => 'post',
-            ],
-        ]);
-    }
-    ?>
-
     <div class="project-view">
         <div class="project-view-data project-header">
             <h1><?= Html::encode($this->title)?></h1>
@@ -65,14 +52,32 @@ $this->params['breadcrumbs'][] = $this->title;
         <div class="project-view-data">
             Файлы доступны после одобрения
         </div>
+<!--        ЗАЧЕМ ЭТО?-->
         <input type="text" name="project-id" value="5" disabled hidden>
+
+        <?php
+            if (!Yii::$app->getUser()->getIsGuest() && $model->customer_id == Yii::$app->getUser()->getId()) {
+                echo "<div class='project-control-buttons'>";
+                echo Html::a('Посмотреть предложения', ['/offer/offers-to-project', 'project' => $model->id], ['class' => 'a-btn']);
+                echo Html::a('Редактировать', ['update', 'id' => $model->id], ['class' => 'a-btn']);
+                echo Html::a('Удалить', ['delete', 'id' => $model->id], [
+                    'class' => 'a-btn',
+                    'data' => [
+                        'confirm' => 'Вы действительно хотите удалить?',
+                        'method' => 'post',
+                    ],
+                ]);
+                echo "</div>";
+
+            }
+        ?>
     </div>
 
 <!--    <div class="project-view-add-info">-->
         <?php
             if (Yii::$app->getUser()->getIsGuest()) {
                 ?>
-                    <div class="">Если Вы хотите предложить свою кандидатуру, то Вам необходимо <a href="../site/login">авторизоваться</a>
+                    <div class="unauthorized-info">Если Вы хотите предложить свою кандидатуру, то Вам необходимо <a href="../site/login">авторизоваться</a>
                         или <a href="../site/signup">зарегистрироваться</a>.
                     </div>
                 <?php
@@ -82,10 +87,12 @@ $this->params['breadcrumbs'][] = $this->title;
                 echo ($offer == null)
                     ? $this->render('/offer/create', ['model' => new \app\models\Offer(), 'project_id' => $model->id, 'performer' => Yii::$app->getUser()->getId()])
                     : $this->render('/offer/view', ['model' => $offer]) ;
-
-                //вместо рендера попробовать ридерект на нужный контроллер с необходимыми параметрами
             }
+
         ?>
+
+
+
 <!--        --><?php // echo $this->render('@app/views/offer/_search', ['model' => $searchModel]); ?>
 <!--        --><?//= GridView::widget([
 //            'dataProvider' => $dataProvider,

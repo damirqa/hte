@@ -188,7 +188,7 @@ ol
   background-color: white
   border: 1px solid rgba(245, 247, 250, 1)
   border-radius: 5px
-  box-shadow: 0 0 15px rgba(221, 227, 237, 1)
+  box-shadow: 0 4px 4px 0 rgba(145, 158, 171, .25), 0 16px 32px -4px rgba(145, 158, 171, .25)
 
   .user-photo
     text-align: center
@@ -204,9 +204,9 @@ ol
       margin-bottom: 7px
 
 .project-view, .offer-view, .offer-create
-  margin-top: 30px
+  margin-top: 15px
   border-radius: 10px
-  box-shadow: 0 0 10px 7px #F2F4F6
+  box-shadow: 0 4px 4px 0 rgba(145, 158, 171, .25), 0 16px 32px -4px rgba(145, 158, 171, .25)
 
   .project-view-data, .offer-view-data, .offer-create-data
     padding: 15px 25px
@@ -244,6 +244,21 @@ ol
 
     &:focus
       outline: none
+
+    &:focus
+      text-decoration: none
+
+
+.project-control-buttons
+  a, button
+    margin: 15px 25px
+    &:first-child
+      margin-right: 0
+
+    &:last-child
+      margin-left: 0
+
+
 
 .offer-create-data
   &:nth-child(2), &:nth-child(3)
@@ -299,6 +314,107 @@ ol
 
       .list-project-header, .list-project-type, .list-project-annotation
         padding: 10px 15px 0px 15px
+
+.project-search-filter
+  margin-bottom: 15px
+  font-size: 16px
+  background-color: #FFFFFF
+  border-radius: 10px
+  box-shadow: 0 4px 4px 0 rgba(145, 158, 171, .25), 0 16px 32px -4px rgba(145, 158, 171, .25)
+
+  .project-search-filter-header
+    padding: 15px
+    color: #000000
+    font-weight: 600
+    background-color: rgba(145, 158, 171, .5)
+    border-radius: 10px 10px 0 0
+
+  .project-search-filter-body
+    form
+      .project-search-filter-input
+        margin: 10px 15px
+        padding: 10px
+        border: 1px solid rgba(33, 43, 54, .25)
+        border-radius: 5px
+        color: rgba(33, 43, 54, .25)
+        width: calc(100% - 30px)
+
+        &:first-of-type
+          margin: 15px
+
+        &:last-of-type
+          margin: 15px
+
+        &:focus
+          color: #000000
+
+      .buttons-control-filter
+        display: flex
+        padding-bottom: 20px
+        flex-direction: row
+        justify-content: space-between
+
+        .btn-control-filer
+          width: 100%
+          text-align: center
+
+          &:hover
+            text-decoration: none
+            cursor: pointer
+
+        .btn-search, .btn-clear
+          font-weight: 600
+          color: #FFFFFF
+          padding: 10px
+          border-radius: 5px
+
+        .btn-search
+          background-color: darken(#75D11F, .25)
+          margin: 0 7px 0 15px
+
+          &:hover
+            background-color: darken(#75D11F, 4%)
+
+        .btn-clear
+          background-color: darken(#F9CA0C, .25)
+          margin: 0 15px 0 7px
+
+          &:hover
+            background-color: darken(#F9CA0C, 4%)
+
+.project-search-table
+  font-size: 16px !important
+  background-color: #FFFFFF
+  border-radius: 10px
+  box-shadow: 0 4px 4px 0 rgba(145, 158, 171, .25), 0 16px 32px -4px rgba(145, 158, 171, .25)
+
+  .project-search-table-header
+    background-color: rgba(145, 158, 171, .5)
+    font-weight: 600
+    color: #000000
+    border-radius: 10px 10px 0px 0px
+    padding: 15px 0
+
+  .project-search-table-body
+    .row
+      transition: .3s
+
+      a
+        color: #000000
+        div
+          padding: 15px
+
+      &:nth-child(even)
+        background-color: rgba(145, 158, 171, .1)
+
+      &:hover
+        background-color: rgba(96, 143, 255, .1)
+
+        &:last-child
+          border-radius: 0 0 10px 10px
+
+
+
 
 body
   //background-color: #F5F7FA

@@ -14,9 +14,6 @@ $this->params['breadcrumbs'][] = $this->title;
 
 <div class="container">
     <div class="project-index">
-
-<!--        <h1>--><?//= Html::encode($this->title) ?><!--</h1>-->
-
         <?php
             if (Yii::$app->getUser()->getIsGuest()) {
                 ?>
@@ -26,72 +23,75 @@ $this->params['breadcrumbs'][] = $this->title;
             }
         ?>
 <!--    class: project-control-buttons-->
-        <div class="">
-            <?php
-                if (!Yii::$app->getUser()->getIsGuest()) {
-                    ?>
-                        <?= Html::a('Создать проект', ['create'], ['class' => 'a-btn']) ?>
-                    <?php
-                }
-            ?>
-<!--            <a class="a-btn search">Фильтр</a>-->
-        </div>
-
-            <div class="list-projects">
-                <div class="list-project"><h1>Лента задач</h1></div>
-                <?php
-                    foreach ($projects as $project) {
-                ?>
-                <div class="list-project">
-                    <a href="../project/view?id=<?= $project->id ?>">
-                    <div class="list-project-header">
-                        <?= $project->title ?>
-                    </div>
-                    <div class="list-project-type">
-                        <strong>Тип работ:</strong> <?= $project->type ?>; <strong>Цена:</strong> <?= $project->price == "" ? "Договорная" : $project->price ?>
-                    </div>
-                    <div class="list-project-annotation">
-                        <p> <?= $project->annotation ?></p>
-                    </div>
-                    </a>
-                </div>
-                <?php
-                    }
-                ?>
-                <div class="list-project">Пагинация</div>
-            </div>
+<!--        <div class="">-->
+<!--            --><?php
+//                if (!Yii::$app->getUser()->getIsGuest()) {
+//                    ?>
+<!--                        --><?//= Html::a('Создать проект', ['create'], ['class' => 'a-btn']) ?>
+<!--                    --><?php
+//                }
+//            ?>
 
 
 <!--        --><?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
-<!--            --><?//= GridView::widget([
-//                'dataProvider' => $dataProvider,
-//                'columns' => [
-//                    ['class' => 'yii\grid\SerialColumn'],
-//                    //'id',
-//                    'title',
-//                    'type',
-//                    'annotation',
-//                    //'description:ntext',
-//                    //'date',
-//                    //'price',
-//                    //'customer_id',
-//                    //'performer_id',
-//                    //'task_status',
-//                    //'on_time:datetime',
-//                    //'planned_execution_time',
-//                    //'actual_execution_time',
-//                    //'urgently',
-//
-//                    ['class' => 'yii\grid\ActionColumn', 'template' => '{view} {update} {delete}',],
-//                ],
-//
-//            ]);
-//
-////            echo '<pre>';
-////            var_dump($dataProvider);
-////            print_r($array);
-////            echo '</pre>';?>
+
+        <div class="row">
+            <div class="col-md-9">
+                <div class="project-search-table">
+                    <div class="project-search-table-header">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-sm-2">Заголовок</div>
+                                <div class="col-sm-3">Тип работ</div>
+                                <div class="col-sm-2">Дата</div>
+                                <div class="col-sm-1">Статус</div>
+                                <div class="col-sm-4">Аннотация</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-search-table-body">
+                        <div class="container-fluid">
+                            <?php
+                                foreach ($projects as $project) {
+
+                                    echo "<div class='row'>";
+                                    echo "<a class='project-data-row' href='../project/view?id=" . $project->id . "'>";
+                                    echo "<div class='col-sm-2'>" . $project->title       . "</div>";
+                                    echo "<div class='col-sm-3'>" . $project->type        . "</div>";
+                                    echo "<div class='col-sm-2'>" . $project->date        . "</div>";
+                                    echo "<div class='col-sm-1'>" . $project->task_status . "</div>";
+                                    echo "<div class='col-sm-4'>" . $project->annotation  . "</div>";
+                                    echo "</a>";
+                                    echo "</div>";
+
+                                }
+                            ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="project-search-filter">
+                    <div class="project-search-filter-header">Фильтр</div>
+                    <div class="project-search-filter-body">
+                        <form>
+                            <input class="project-search-filter-input" type="text" placeholder="Название">
+                            <input class="project-search-filter-input" type="text" placeholder="Тип работ">
+                            <input class="project-search-filter-input" type="text" placeholder="Дата создания">
+                            <input class="project-search-filter-input" type="text" placeholder="Статус задачи">
+                            <div class="buttons-control-filter">
+                                <a class="btn-control-filer btn-search">Найти</a>
+                                <a class="btn-control-filer btn-clear">Очистить</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="create-project">
+                    <a class="a-btn reverse-color" href="../project/create">Создать проект</a>
+                </div>
+            </div>
+        </div>
 
     </div>
 
