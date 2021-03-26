@@ -266,10 +266,6 @@ body {
     background-color: #FFFFFF;
     color: #608FFF; }
 
-.form-control {
-  border-radius: 5px;
-  border: 2px solid #CCCCCC; }
-
 .unauthorized-info {
   padding: 15px 0; }
 
@@ -450,7 +446,6 @@ ol li {
   display: inline-block;
   width: 100%;
   padding: 10px;
-  margin-top: 15px;
   background-color: white;
   border: 1px solid #f5f7fa;
   border-radius: 5px;
@@ -656,3 +651,94 @@ ol li {
       background-color: rgba(96, 143, 255, 0.1); }
       .project-search-table .project-search-table-body .row:hover:last-child {
         border-radius: 0 0 10px 10px; }
+
+.profile-avatar {
+  border-radius: 10px;
+  -webkit-box-shadow: 0 4px 4px 0 rgba(145, 158, 171, 0.25), 0 16px 32px -4px rgba(145, 158, 171, 0.25);
+          box-shadow: 0 4px 4px 0 rgba(145, 158, 171, 0.25), 0 16px 32px -4px rgba(145, 158, 171, 0.25); }
+  .profile-avatar img {
+    width: 100%;
+    height: auto;
+    padding: 30px; }
+
+.profile-form {
+  font-family: SFProDisplay-Medium, sans-serif;
+  font-weight: 400 !important;
+  color: #212b36;
+  border-radius: 10px;
+  -webkit-box-shadow: 0 4px 4px 0 rgba(145, 158, 171, 0.25), 0 16px 32px -4px rgba(145, 158, 171, 0.25);
+          box-shadow: 0 4px 4px 0 rgba(145, 158, 171, 0.25), 0 16px 32px -4px rgba(145, 158, 171, 0.25); }
+  .profile-form .profile-row-data {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    padding: 15px 30px 0 30px; }
+    .profile-form .profile-row-data:nth-child(2) {
+      padding: 25px 30px 0 30px; }
+    .profile-form .profile-row-data:nth-child(7) {
+      padding: 15px 30px 25px 30px; }
+    .profile-form .profile-row-data:nth-last-child(3) .form-group:first-child {
+      margin-right: 0px; }
+    .profile-form .profile-row-data:nth-last-child(3) .form-group:last-child {
+      margin-left: 0px; }
+    .profile-form .profile-row-data .profile-item-data {
+      width: 100%;
+      padding: 10px !important;
+      border: 1px solid rgba(33, 43, 54, 0.25);
+      border-radius: 5px;
+      -webkit-transition: .2s;
+      -o-transition: .2s;
+      transition: .2s; }
+      .profile-form .profile-row-data .profile-item-data:focus {
+        border: 1px solid #608FFF;
+        outline: none; }
+        .profile-form .profile-row-data .profile-item-data:focus::-webkit-input-placeholder {
+          color: #608FFF; }
+        .profile-form .profile-row-data .profile-item-data:focus::-moz-placeholder {
+          color: #608FFF; }
+        .profile-form .profile-row-data .profile-item-data:focus:-ms-input-placeholder {
+          color: #608FFF; }
+        .profile-form .profile-row-data .profile-item-data:focus::-ms-input-placeholder {
+          color: #608FFF; }
+        .profile-form .profile-row-data .profile-item-data:focus::placeholder {
+          color: #608FFF; }
+  .profile-form button:focus {
+    outline: none; }
+  .profile-form .form-group {
+    font-family: SFProDisplay-Regular, sans-serif !important;
+    font-size: 16px;
+    width: 100%;
+    margin-bottom: 0px; }
+    .profile-form .form-group:first-child {
+      margin-right: 15px; }
+    .profile-form .form-group:last-child {
+      margin-left: 15px; }
+    .profile-form .form-group .control-label {
+      font-weight: 400; }
+  .profile-form input#profile-birthday {
+    font-size: 14px; }
+
+.site-login, .site-signup {
+  font-size: 16px;
+  padding: 30px;
+  margin: 30px auto 0 auto;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  border-radius: 10px;
+  -webkit-box-shadow: 0 4px 4px 0 rgba(145, 158, 171, 0.25), 0 16px 32px -4px rgba(145, 158, 171, 0.25);
+          box-shadow: 0 4px 4px 0 rgba(145, 158, 171, 0.25), 0 16px 32px -4px rgba(145, 158, 171, 0.25); }
+  .site-login h1, .site-signup h1 {
+    font-weight: 600; }
+  .site-login form #login-form, .site-login #signup-form, .site-signup form #login-form, .site-signup #signup-form {
+    padding: 15px; }

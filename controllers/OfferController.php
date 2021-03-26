@@ -78,7 +78,8 @@ class OfferController extends Controller
 
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+            return $this->redirect(['../project/view', 'id' => $project]);
+            //return $this->redirect(['view', 'id' => $model->id]);
         }
 
         return $this->render('create', [
@@ -144,5 +145,31 @@ class OfferController extends Controller
             return $model;
         }
         throw new NotFoundHttpException('The requested page does not exist.');
+    }
+
+    public function actionOffersToProject($project) {
+        if (Yii::$app->getUser()->getIsGuest()) $this->redirect(['../site/login']);
+
+        $offers = Offer::find()->where(['project_id' => $project])->all();
+
+        return $this->render('offers-to-project', [
+            'models' => $offers,
+            'project_id' => $project,
+            'author' => Yii::$app->getUser()->getId()]);
+    }
+
+    public function actionAccept($project_id, $offer_id) {
+        if (Yii::$app->getUser()->getIsGuest()) $this->redirect(['../site/login']);
+
+        $offer = $this->findModel($offer_id);
+
+        $project = Project::find()->where([‘id’ => $project_id])->one();
+        $project->status = "В процессе";
+        $project->performer_id = $offer->performer_id;
+        $project->save();
+
+        //Если будет добавлен статус к предложениям
+        // $offer->status = “Статус”;
+
     }
 }

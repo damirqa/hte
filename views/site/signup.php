@@ -16,7 +16,7 @@ $this->params['breadcrumbs'][] = $this->title;
         <p>Пожалуйста, заполните следующие поля для регистрации:</p>
         <?= Html::errorSummary($model)?>
         <div class="row">
-            <div class="col-lg-5">
+            <div class="col-lg-12">
                 <?php $form = ActiveForm::begin(['id' => 'form-signup']); ?>
                 <?= $form->field($model, 'username') ?>
                 <?= $form->field($model, 'email') ?>
@@ -24,7 +24,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <?= $form->field($model, 'password')->passwordInput() ?>
                 <?= $form->field($model, 'retypePassword')->passwordInput() ?>
                 <div class="form-group">
-                    <?= Html::submitButton('Зарегистрироваться', ['class' => 'btn btn-primary', 'name' => 'signup-button']) ?>
+                    <?= Html::submitButton('Зарегистрироваться', ['class' => 'a-btn reverse-color', 'name' => 'signup-button']) ?>
                 </div>
                 <?php ActiveForm::end(); ?>
             </div>
