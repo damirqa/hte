@@ -40,7 +40,7 @@ AppAsset::register($this);
             ['label' => 'Главная страница', 'url' => ['/site/index']],
             ['label' => 'Схема взаимодействия', 'url' => ['/site/scheme']],
             ['label' => 'Карьера', 'url' => ['/site/career']],
-            ['label' => 'Контакты', 'url' => ['/site/contacts']],
+            ['label' => 'Контакты', 'url' => ['/site/contact']],
             ['label' => 'Проекты', 'url' => ['/project/index']],
             ['label' => 'Мои профиль', 'url' => ['profile/index'], 'visible' => !Yii::$app->user->isGuest],
 

@@ -742,3 +742,37 @@ ol li {
     font-weight: 600; }
   .site-login form #login-form, .site-login #signup-form, .site-signup form #login-form, .site-signup #signup-form {
     padding: 15px; }
+
+.site-contact h1, .site-contact h2 {
+  font-weight: 600; }
+
+.site-contact .contact {
+  margin-bottom: 30px; }
+  .site-contact .contact .email, .site-contact .contact .mobile {
+    line-height: 1.9; }
+
+.site-contact .bank-detail {
+  line-height: 1.9; }
+
+.site-career {
+  line-height: 1.9; }
+  .site-career h1 {
+    font-weight: 600;
+    margin-bottom: 20px; }
+  .site-career .career-img {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+        -ms-flex-pack: center;
+            justify-content: center; }
+    .site-career .career-img img {
+      width: 60%;
+      height: auto; }
