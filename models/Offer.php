@@ -14,6 +14,7 @@ use Yii;
  * @property string|null $date
  * @property string|null $scheduled_time_performer
  * @property string|null $text
+ * @property string|null $status
  *
  * @property Profile $performer
  * @property Project $project

@@ -461,17 +461,17 @@ ol li {
     .user-info .profile-data:nth-last-child(2) {
       margin-bottom: 7px; }
 
-.project-view, .offer-view, .offer-create {
+.project-view, .offer-view, .offer-create, .offers-of-project-view {
   margin-top: 15px;
   border-radius: 10px;
   -webkit-box-shadow: 0 4px 4px 0 rgba(145, 158, 171, 0.25), 0 16px 32px -4px rgba(145, 158, 171, 0.25);
           box-shadow: 0 4px 4px 0 rgba(145, 158, 171, 0.25), 0 16px 32px -4px rgba(145, 158, 171, 0.25); }
-  .project-view .project-view-data, .project-view .offer-view-data, .project-view .offer-create-data, .offer-view .project-view-data, .offer-view .offer-view-data, .offer-view .offer-create-data, .offer-create .project-view-data, .offer-create .offer-view-data, .offer-create .offer-create-data {
+  .project-view .project-view-data, .project-view .offer-view-data, .project-view .offer-create-data, .project-view .offers-of-project-view-data, .offer-view .project-view-data, .offer-view .offer-view-data, .offer-view .offer-create-data, .offer-view .offers-of-project-view-data, .offer-create .project-view-data, .offer-create .offer-view-data, .offer-create .offer-create-data, .offer-create .offers-of-project-view-data, .offers-of-project-view .project-view-data, .offers-of-project-view .offer-view-data, .offers-of-project-view .offer-create-data, .offers-of-project-view .offers-of-project-view-data {
     padding: 15px 25px;
     border-bottom: 1px solid #F2F4F6; }
-    .project-view .project-view-data:nth-last-child(1), .project-view .offer-view-data:nth-last-child(1), .project-view .offer-create-data:nth-last-child(1), .offer-view .project-view-data:nth-last-child(1), .offer-view .offer-view-data:nth-last-child(1), .offer-view .offer-create-data:nth-last-child(1), .offer-create .project-view-data:nth-last-child(1), .offer-create .offer-view-data:nth-last-child(1), .offer-create .offer-create-data:nth-last-child(1) {
+    .project-view .project-view-data:nth-last-child(1), .project-view .offer-view-data:nth-last-child(1), .project-view .offer-create-data:nth-last-child(1), .project-view .offers-of-project-view-data:nth-last-child(1), .offer-view .project-view-data:nth-last-child(1), .offer-view .offer-view-data:nth-last-child(1), .offer-view .offer-create-data:nth-last-child(1), .offer-view .offers-of-project-view-data:nth-last-child(1), .offer-create .project-view-data:nth-last-child(1), .offer-create .offer-view-data:nth-last-child(1), .offer-create .offer-create-data:nth-last-child(1), .offer-create .offers-of-project-view-data:nth-last-child(1), .offers-of-project-view .project-view-data:nth-last-child(1), .offers-of-project-view .offer-view-data:nth-last-child(1), .offers-of-project-view .offer-create-data:nth-last-child(1), .offers-of-project-view .offers-of-project-view-data:nth-last-child(1) {
       border-bottom: none; }
-  .project-view h1, .offer-view h1, .offer-create h1 {
+  .project-view h1, .project-view h3, .offer-view h1, .offer-view h3, .offer-create h1, .offer-create h3, .offers-of-project-view h1, .offers-of-project-view h3 {
     margin: 0; }
 
 .project-view-add-info {
@@ -482,7 +482,7 @@ ol li {
   -webkit-box-shadow: 0 0 10px 7px #F2F4F6;
           box-shadow: 0 0 10px 7px #F2F4F6; }
 
-.project-header, .offer-view-header, .offer-create-header {
+.project-header, .offer-view-header, .offer-create-header, .offers-of-project-view-header {
   color: #FFFFFF;
   background-color: #608FFF;
   border: 1px solid #608FFF;
@@ -517,6 +517,33 @@ ol li {
     margin-right: 0; }
   .project-control-buttons a:last-child, .project-control-buttons button:last-child {
     margin-left: 0; }
+
+.offers-of-project-view {
+  margin: 30px 0; }
+
+.offer-description, .offer-bid, .offer-date {
+  margin-bottom: 10px; }
+
+.buttons-control-offers-project {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between; }
+  .buttons-control-offers-project .a-btn {
+    margin: 5px; }
+    .buttons-control-offers-project .a-btn:first-child {
+      margin-left: 0; }
+    .buttons-control-offers-project .a-btn:last-child {
+      margin-right: 0; }
 
 .offer-create-data:nth-child(2), .offer-create-data:nth-child(3) {
   padding: 0;

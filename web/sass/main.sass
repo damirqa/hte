@@ -202,18 +202,18 @@ ol
     &:nth-last-child(2)
       margin-bottom: 7px
 
-.project-view, .offer-view, .offer-create
+.project-view, .offer-view, .offer-create, .offers-of-project-view
   margin-top: 15px
   border-radius: 10px
   box-shadow: 0 4px 4px 0 rgba(145, 158, 171, .25), 0 16px 32px -4px rgba(145, 158, 171, .25)
 
-  .project-view-data, .offer-view-data, .offer-create-data
+  .project-view-data, .offer-view-data, .offer-create-data, .offers-of-project-view-data
     padding: 15px 25px
     border-bottom: 1px solid #F2F4F6
 
     &:nth-last-child(1)
       border-bottom: none
-  h1
+  h1, h3
     margin: 0
 
 .project-view-add-info
@@ -223,7 +223,7 @@ ol
   border-radius: 10px
   box-shadow: 0 0 10px 7px #F2F4F6
 
-.project-header, .offer-view-header, .offer-create-header
+.project-header, .offer-view-header, .offer-create-header, .offers-of-project-view-header
   color: #FFFFFF
   background-color: #608FFF
   border: 1px solid #608FFF
@@ -257,7 +257,25 @@ ol
     &:last-child
       margin-left: 0
 
+.offers-of-project-view
+  margin: 30px 0
 
+.offer-description, .offer-bid, .offer-date
+  margin-bottom: 10px
+
+.buttons-control-offers-project
+  display: flex
+  flex-direction: row
+  justify-content: space-between
+
+  .a-btn
+    margin: 5px
+
+    &:first-child
+      margin-left: 0
+
+    &:last-child
+      margin-right: 0
 
 .offer-create-data
   &:nth-child(2), &:nth-child(3)

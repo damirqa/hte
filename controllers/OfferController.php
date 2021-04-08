@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 
+use app\models\Project;
 use Yii;
 use app\models\Offer;
 use app\models\OfferSearch;
@@ -72,6 +73,7 @@ class OfferController extends Controller
             $model->project_id = $project;
             $model->performer_id =  Yii::$app->getUser()->getId();
             $model->date = date("Y-m-d");
+            $model->status = "Отправлено";
         }
 
         //$model = $this->findModelByParametrs($project, Yii::$app->getUser()->getId()) !== null ? : new Offer();
@@ -163,10 +165,12 @@ class OfferController extends Controller
 
         $offer = $this->findModel($offer_id);
 
-        $project = Project::find()->where([‘id’ => $project_id])->one();
-        $project->status = "В процессе";
+        $project = Project::find()->where(['id' => $project_id])->one();
+        $project->task_status = "В процессе";
         $project->performer_id = $offer->performer_id;
         $project->save();
+
+        return $this->redirect(Yii::$app->request->referrer);
 
         //Если будет добавлен статус к предложениям
         // $offer->status = “Статус”;

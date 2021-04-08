@@ -8,9 +8,11 @@ use yii\grid\GridView;
 /* @var $this yii\web\View */
 /* @var $model app\models\project */
 /* @var $offer app\models\offer */
+/* @var $offers app\models\offer */
 /* @var $searchModel app\models\ProjectSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 /* @var $view app\views\offer\view */
+
 
 $this->title = $model->title;
 $this->params['breadcrumbs'][] = ['label' => 'Projects', 'url' => ['index']];
@@ -55,6 +57,8 @@ $this->params['breadcrumbs'][] = $this->title;
 <!--        ЗАЧЕМ ЭТО?-->
         <input type="text" name="project-id" value="5" disabled hidden>
 
+        <?= $offer; ?>
+
         <?php
             if (!Yii::$app->getUser()->getIsGuest() && $model->customer_id == Yii::$app->getUser()->getId()) {
                 echo "<div class='project-control-buttons'>";
@@ -68,10 +72,58 @@ $this->params['breadcrumbs'][] = $this->title;
                     ],
                 ]);
                 echo "</div>";
-
             }
         ?>
+
     </div>
+
+
+    <?php
+        if (Yii::$app->getUser()->id == $model->customer_id) {
+            ?>
+
+            <div class="offers-of-project-view">
+                <div class="offers-of-project-view-data offers-of-project-view-header">
+                    <h3>Предложения</h3>
+                </div>
+                <?php
+                    foreach ($offers as $this_offer) {
+                        ?>
+                        <div class="offers-of-project-view-data">
+                            <div class="offer-description">
+                                Описание: <?= $this_offer->text ?>
+                            </div>
+                            <div class="offer-bid">
+                                Дата выполнения: <?= date_format(new DateTime($this_offer->scheduled_time_performer), 'd.m.Y') ?>
+                            </div>
+                            <div class="offer-date">
+                                Цена: <?= $this_offer->bid ?>
+                            </div>
+                            <div class="buttons-control-offers-project">
+                                <?= Html::a('Посмотреть профиль', ['/profile/view', 'id' => $this_offer->performer_id], ['class' => 'a-btn']) ?>
+                                <?php
+                                    if ($this_offer->status !=  ("Отклонен" || 'Отправлено')) {
+                                        echo Html::a('Принято', ['#'], ['class' => 'a-btn']);
+                                        echo Html::a('Отклонить', ['/profile/view', 'id' => $this_offer->performer_id], ['class' => 'a-btn']);
+                                    }
+                                    else {
+                                        echo Html::a('Принять', ['/offer/accept', 'project_id' => $model->id, 'offer_id' => $this_offer->id], ['class' => 'a-btn']);
+                                        echo Html::a('Отклонен', ['#'], ['class' => 'a-btn']);
+                                    }
+                                ?>
+                            </div>
+
+
+                        </div>
+                        <?php
+                    }
+                ?>
+
+            </div>
+
+            <?php
+        }
+    ?>
 
 <!--    <div class="project-view-add-info">-->
         <?php
