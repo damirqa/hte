@@ -44,7 +44,7 @@ class Project extends \yii\db\ActiveRecord
             [['description'], 'string'],
             [['date', 'planned_execution_time', 'actual_execution_time'], 'safe'],
             [['price'], 'number'],
-            [['customer_id', 'performer_id'], 'integer'],
+            [['customer_id', 'performer_id', 'offer_id'], 'integer'],
             [['title', 'type', 'annotation', 'task_status', 'urgently', 'on_time'], 'string', 'max' => 255],
             [['customer_id'], 'exist', 'skipOnError' => true, 'targetClass' => Profile::className(), 'targetAttribute' => ['customer_id' => 'id']],
         ];
@@ -65,6 +65,7 @@ class Project extends \yii\db\ActiveRecord
             'price' => 'Цена',
             'customer_id' => 'ИД заказчика',
             'performer_id' => 'ИД исполнителя',
+            'offer_id' => 'ИД предложения',
             'task_status' => 'Статус задачи',
             'on_time' => 'Исполнитель обязан выполнить задачу вовремя или допускаются задержки?',
             'planned_execution_time' => 'Дата завершения',

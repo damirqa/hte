@@ -202,7 +202,7 @@ ol
     &:nth-last-child(2)
       margin-bottom: 7px
 
-.project-view, .offer-view, .offer-create, .offers-of-project-view
+.project-view, .offer-view, .offer-create, .offers-of-project-view, .project-offers-count
   margin-top: 15px
   border-radius: 10px
   box-shadow: 0 4px 4px 0 rgba(145, 158, 171, .25), 0 16px 32px -4px rgba(145, 158, 171, .25)
@@ -252,10 +252,23 @@ ol
   a, button
     margin: 15px 25px
     &:first-child
-      margin-right: 0
+      margin-right: 10px
 
     &:last-child
-      margin-left: 0
+      margin-left: 10px
+
+.project-offers-info
+  margin-top: 30px
+  border-radius: 10px
+  color: #FFFFFF
+  background-color: #FF9E8B
+
+  a
+    color: #FFFFFF
+
+  .project-offers-data
+    padding: 15px 25px
+
 
 .offers-of-project-view
   margin: 30px 0
@@ -430,10 +443,45 @@ ol
         &:last-child
           border-radius: 0 0 10px 10px
 
+.project-offers-count
+  box-shadow: 0 7px 4px 0 rgba(145, 158, 171, .25), 0 16px 32px -4px rgba(145, 158, 171, .25)
+  color: #FFFFFF
+  margin-bottom: 30px
+
+.project-offers-zero
+  padding: 15px 25px
+  background-color: #FF9E8B
+
+.project-offers-not-accept
+  padding: 15px 25px
+  color: #333333
+  background-color: #FFCB68
+
+.project-offer-accept
+  background-color: #4BBC8E
+
+  a
+    color: #F9F871
+
+  .project-offer-accept-info
+    margin-top: 20px
+
+  .project-offer-accept-data
+    padding: 7px 25px
+    line-height: 1.7
+
+    &:nth-last-child(1)
+      padding: 7px 25px 15px 25px
+
+    &:nth-last-child(6)
+      padding: 15px 25px 7px 25px
+
+    &:nth-last-child(5)
+      margin-bottom: 15px
 
 .profile-avatar
   border-radius: 10px
-  box-shadow: 0 4px 4px 0 rgba(145, 158, 171, .25), 0 16px 32px -4px rgba(145, 158, 171, .25)
+  box-shadow: 0 4px 4px 0 rgba(145, 158, 171, .35), 0 16px 32px -4px rgba(145, 158, 171, .35) !important
 
   img
     width: 100%
@@ -555,9 +603,61 @@ ol
       width: 60%
       height: auto
 
+table #table
+
+table, .table-bordered
+
+  border: 1px solid #eee
+  thead, tbody, tfoot
+    tr
+      border-bottom-width: 0 !important
+      th, td
+        border: none !important
+
+.bootstrap-table, .bootstrap4
+
+
+  .fixed-table-toolbar
+
+
+  .fixed-table-container
+    order: -1
+    box-shadow: 0 4px 4px 0 rgba(145, 158, 171, .25), 0 16px 32px -4px rgba(145, 158, 171, .25)
+    border-radius: 10px
+
+    .fixed-table-header
+
+    .fixed-table-body
+      thead
+        background-color: #C8CED5
+        tr
+          th
+            &:first-child
+              border-top-left-radius: 10px
+            &:last-child
+              border-top-right-radius: 10px
+
+      tbody
+        tr
+          &:nth-child(even)
+            background-color: rgba(145, 158, 171, 0.1)
+
+          &:hover
+            background-color: rgba(96, 143, 255, 0.1)
+
+          th
+            margin: 10px
+          td
+            padding: 15px
 
 
 
+    .fixed-table-footer
+
+  .fixed-table-pagination
+
+.bootstrap-table .fixed-table-container .fixed-table-body
+  border-radius: 10px 10px 0 0
 
 body
   //background-color: #F5F7FA

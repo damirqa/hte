@@ -22,6 +22,7 @@ class m210208_065326_create_project extends Migration
             'price' => $this->double(),
             'customer_id' => $this->integer(),
             'performer_id' => $this->integer(),
+            'offer_id' => $this->integer(),
             'task_status' => $this->string(),
             'on_time' => $this->string(),
             'planned_execution_time' => $this->date(),

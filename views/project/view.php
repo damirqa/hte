@@ -1,9 +1,6 @@
 <?php
 
 use yii\helpers\Html;
-use yii\widgets\ActiveForm;
-use yii\widgets\DetailView;
-use yii\grid\GridView;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\project */
@@ -12,6 +9,7 @@ use yii\grid\GridView;
 /* @var $searchModel app\models\ProjectSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 /* @var $view app\views\offer\view */
+/* @var $performer \app\models\Profile*/
 
 
 $this->title = $model->title;
@@ -48,7 +46,7 @@ $this->params['breadcrumbs'][] = $this->title;
         <div></div>
 
         <div class="project-view-data">
-            Цена: <?php echo $model->price == NULL ? 'Договорная' : $model->price?>
+            Цена: <?php echo $model->price == NULL ? 'Договорная' : $model->price . " ₽"?>
         </div>
 
         <div class="project-view-data">
@@ -57,12 +55,10 @@ $this->params['breadcrumbs'][] = $this->title;
 <!--        ЗАЧЕМ ЭТО?-->
         <input type="text" name="project-id" value="5" disabled hidden>
 
-        <?= $offer; ?>
 
         <?php
             if (!Yii::$app->getUser()->getIsGuest() && $model->customer_id == Yii::$app->getUser()->getId()) {
                 echo "<div class='project-control-buttons'>";
-                echo Html::a('Посмотреть предложения', ['/offer/offers-to-project', 'project' => $model->id], ['class' => 'a-btn']);
                 echo Html::a('Редактировать', ['update', 'id' => $model->id], ['class' => 'a-btn']);
                 echo Html::a('Удалить', ['delete', 'id' => $model->id], [
                     'class' => 'a-btn',
@@ -77,55 +73,44 @@ $this->params['breadcrumbs'][] = $this->title;
 
     </div>
 
-
     <?php
-        if (Yii::$app->getUser()->id == $model->customer_id) {
+        if (is_null($offer) && $count == 0 && Yii::$app->getUser()->getId() == $model->customer_id) {
             ?>
-
-            <div class="offers-of-project-view">
-                <div class="offers-of-project-view-data offers-of-project-view-header">
-                    <h3>Предложения</h3>
+                <div class="project-offers-count project-offers-zero">
+                    У вас нет предложений
                 </div>
-                <?php
-                    foreach ($offers as $this_offer) {
-                        ?>
-                        <div class="offers-of-project-view-data">
-                            <div class="offer-description">
-                                Описание: <?= $this_offer->text ?>
-                            </div>
-                            <div class="offer-bid">
-                                Дата выполнения: <?= date_format(new DateTime($this_offer->scheduled_time_performer), 'd.m.Y') ?>
-                            </div>
-                            <div class="offer-date">
-                                Цена: <?= $this_offer->bid ?>
-                            </div>
-                            <div class="buttons-control-offers-project">
-                                <?= Html::a('Посмотреть профиль', ['/profile/view', 'id' => $this_offer->performer_id], ['class' => 'a-btn']) ?>
-                                <?php
-                                    if ($this_offer->status !=  ("Отклонен" || 'Отправлено')) {
-                                        echo Html::a('Принято', ['#'], ['class' => 'a-btn']);
-                                        echo Html::a('Отклонить', ['/profile/view', 'id' => $this_offer->performer_id], ['class' => 'a-btn']);
-                                    }
-                                    else {
-                                        echo Html::a('Принять', ['/offer/accept', 'project_id' => $model->id, 'offer_id' => $this_offer->id], ['class' => 'a-btn']);
-                                        echo Html::a('Отклонен', ['#'], ['class' => 'a-btn']);
-                                    }
-                                ?>
-                            </div>
-
-
-                        </div>
-                        <?php
-                    }
-                ?>
-
-            </div>
-
             <?php
         }
     ?>
 
-<!--    <div class="project-view-add-info">-->
+    <?php
+        if (is_null($offer) && $count != 0 && Yii::$app->getUser()->getId() == $model->customer_id) {
+            ?>
+                <div class="project-offers-count project-offers-not-accept">
+                    Количество предложений: <?= $count ?>, но Вы всё еще не приняли ни одного предложения... <a href="/offer/offers-to-project?project=<?= $model->id ?>">Посмотреть?</a>
+                </div>
+            <?php
+        }
+    ?>
+
+    <?php
+        if (!is_null($offer) && Yii::$app->getUser()->getId() == $model->customer_id    ) {
+            ?>
+                <div class="project-offers-count project-offer-accept">
+                    <div class="project-offer-accept-data">Количество предложений: <?= $count ?>, хотите <a href="/offer/offers-to-project?project=<?= $model->id ?>">посмотреть?</a></div>
+                    <div class="project-offer-accept-data">
+                        Вы приняли следующее предложение от <a href="/profile/view?id=<?= $performer->id ?>"><?= $performer->surname ?> <?= $performer->name ?></a>:
+                    </div>
+                    <div class="project-offer-accept-data">Описание: <?= $offer->text ?></div>
+                    <div class="project-offer-accept-data">Дата выполнения: <?= date_format(new DateTime($offer->date), 'd.m.Y') ?></div>
+                    <div class="project-offer-accept-data">Цена: <?= $offer->bid ?> ₽</div>
+                    <div class="project-offer-accept-data">Вы можете отказаться от данного предложения. <a href="#">Отказаться?</a></div>
+                </div>
+            <?php
+        }
+    ?>
+
+
         <?php
             if (Yii::$app->getUser()->getIsGuest()) {
                 ?>
@@ -142,32 +127,4 @@ $this->params['breadcrumbs'][] = $this->title;
             }
 
         ?>
-
-
-
-<!--        --><?php // echo $this->render('@app/views/offer/_search', ['model' => $searchModel]); ?>
-<!--        --><?//= GridView::widget([
-//            'dataProvider' => $dataProvider,
-//            'columns' => [
-//                ['class' => 'yii\grid\SerialColumn'],
-//                'id',
-//                'project_id',
-//                'performer_id',
-//                'bid',
-//                'date',
-//                //'date',
-//                //'price',
-//                //'customer_id',
-//                //'performer_id',
-//                //'task_status',
-//                //'on_time:datetime',
-//                //'planned_execution_time',
-//                //'actual_execution_time',
-//                //'urgently',
-//
-//                ['class' => 'yii\grid\ActionColumn', 'template' => '{view}',],
-//            ],
-//
-//        ]); ?>
-<!--    </div>-->
 </div>

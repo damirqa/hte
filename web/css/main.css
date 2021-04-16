@@ -461,17 +461,17 @@ ol li {
     .user-info .profile-data:nth-last-child(2) {
       margin-bottom: 7px; }
 
-.project-view, .offer-view, .offer-create, .offers-of-project-view {
+.project-view, .offer-view, .offer-create, .offers-of-project-view, .project-offers-count {
   margin-top: 15px;
   border-radius: 10px;
   -webkit-box-shadow: 0 4px 4px 0 rgba(145, 158, 171, 0.25), 0 16px 32px -4px rgba(145, 158, 171, 0.25);
           box-shadow: 0 4px 4px 0 rgba(145, 158, 171, 0.25), 0 16px 32px -4px rgba(145, 158, 171, 0.25); }
-  .project-view .project-view-data, .project-view .offer-view-data, .project-view .offer-create-data, .project-view .offers-of-project-view-data, .offer-view .project-view-data, .offer-view .offer-view-data, .offer-view .offer-create-data, .offer-view .offers-of-project-view-data, .offer-create .project-view-data, .offer-create .offer-view-data, .offer-create .offer-create-data, .offer-create .offers-of-project-view-data, .offers-of-project-view .project-view-data, .offers-of-project-view .offer-view-data, .offers-of-project-view .offer-create-data, .offers-of-project-view .offers-of-project-view-data {
+  .project-view .project-view-data, .project-view .offer-view-data, .project-view .offer-create-data, .project-view .offers-of-project-view-data, .offer-view .project-view-data, .offer-view .offer-view-data, .offer-view .offer-create-data, .offer-view .offers-of-project-view-data, .offer-create .project-view-data, .offer-create .offer-view-data, .offer-create .offer-create-data, .offer-create .offers-of-project-view-data, .offers-of-project-view .project-view-data, .offers-of-project-view .offer-view-data, .offers-of-project-view .offer-create-data, .offers-of-project-view .offers-of-project-view-data, .project-offers-count .project-view-data, .project-offers-count .offer-view-data, .project-offers-count .offer-create-data, .project-offers-count .offers-of-project-view-data {
     padding: 15px 25px;
     border-bottom: 1px solid #F2F4F6; }
-    .project-view .project-view-data:nth-last-child(1), .project-view .offer-view-data:nth-last-child(1), .project-view .offer-create-data:nth-last-child(1), .project-view .offers-of-project-view-data:nth-last-child(1), .offer-view .project-view-data:nth-last-child(1), .offer-view .offer-view-data:nth-last-child(1), .offer-view .offer-create-data:nth-last-child(1), .offer-view .offers-of-project-view-data:nth-last-child(1), .offer-create .project-view-data:nth-last-child(1), .offer-create .offer-view-data:nth-last-child(1), .offer-create .offer-create-data:nth-last-child(1), .offer-create .offers-of-project-view-data:nth-last-child(1), .offers-of-project-view .project-view-data:nth-last-child(1), .offers-of-project-view .offer-view-data:nth-last-child(1), .offers-of-project-view .offer-create-data:nth-last-child(1), .offers-of-project-view .offers-of-project-view-data:nth-last-child(1) {
+    .project-view .project-view-data:nth-last-child(1), .project-view .offer-view-data:nth-last-child(1), .project-view .offer-create-data:nth-last-child(1), .project-view .offers-of-project-view-data:nth-last-child(1), .offer-view .project-view-data:nth-last-child(1), .offer-view .offer-view-data:nth-last-child(1), .offer-view .offer-create-data:nth-last-child(1), .offer-view .offers-of-project-view-data:nth-last-child(1), .offer-create .project-view-data:nth-last-child(1), .offer-create .offer-view-data:nth-last-child(1), .offer-create .offer-create-data:nth-last-child(1), .offer-create .offers-of-project-view-data:nth-last-child(1), .offers-of-project-view .project-view-data:nth-last-child(1), .offers-of-project-view .offer-view-data:nth-last-child(1), .offers-of-project-view .offer-create-data:nth-last-child(1), .offers-of-project-view .offers-of-project-view-data:nth-last-child(1), .project-offers-count .project-view-data:nth-last-child(1), .project-offers-count .offer-view-data:nth-last-child(1), .project-offers-count .offer-create-data:nth-last-child(1), .project-offers-count .offers-of-project-view-data:nth-last-child(1) {
       border-bottom: none; }
-  .project-view h1, .project-view h3, .offer-view h1, .offer-view h3, .offer-create h1, .offer-create h3, .offers-of-project-view h1, .offers-of-project-view h3 {
+  .project-view h1, .project-view h3, .offer-view h1, .offer-view h3, .offer-create h1, .offer-create h3, .offers-of-project-view h1, .offers-of-project-view h3, .project-offers-count h1, .project-offers-count h3 {
     margin: 0; }
 
 .project-view-add-info {
@@ -514,9 +514,19 @@ ol li {
 .project-control-buttons a, .project-control-buttons button {
   margin: 15px 25px; }
   .project-control-buttons a:first-child, .project-control-buttons button:first-child {
-    margin-right: 0; }
+    margin-right: 10px; }
   .project-control-buttons a:last-child, .project-control-buttons button:last-child {
-    margin-left: 0; }
+    margin-left: 10px; }
+
+.project-offers-info {
+  margin-top: 30px;
+  border-radius: 10px;
+  color: #FFFFFF;
+  background-color: #FF9E8B; }
+  .project-offers-info a {
+    color: #FFFFFF; }
+  .project-offers-info .project-offers-data {
+    padding: 15px 25px; }
 
 .offers-of-project-view {
   margin: 30px 0; }
@@ -679,10 +689,41 @@ ol li {
       .project-search-table .project-search-table-body .row:hover:last-child {
         border-radius: 0 0 10px 10px; }
 
+.project-offers-count {
+  -webkit-box-shadow: 0 7px 4px 0 rgba(145, 158, 171, 0.25), 0 16px 32px -4px rgba(145, 158, 171, 0.25);
+          box-shadow: 0 7px 4px 0 rgba(145, 158, 171, 0.25), 0 16px 32px -4px rgba(145, 158, 171, 0.25);
+  color: #FFFFFF;
+  margin-bottom: 30px; }
+
+.project-offers-zero {
+  padding: 15px 25px;
+  background-color: #FF9E8B; }
+
+.project-offers-not-accept {
+  padding: 15px 25px;
+  color: #333333;
+  background-color: #FFCB68; }
+
+.project-offer-accept {
+  background-color: #4BBC8E; }
+  .project-offer-accept a {
+    color: #F9F871; }
+  .project-offer-accept .project-offer-accept-info {
+    margin-top: 20px; }
+  .project-offer-accept .project-offer-accept-data {
+    padding: 7px 25px;
+    line-height: 1.7; }
+    .project-offer-accept .project-offer-accept-data:nth-last-child(1) {
+      padding: 7px 25px 15px 25px; }
+    .project-offer-accept .project-offer-accept-data:nth-last-child(6) {
+      padding: 15px 25px 7px 25px; }
+    .project-offer-accept .project-offer-accept-data:nth-last-child(5) {
+      margin-bottom: 15px; }
+
 .profile-avatar {
   border-radius: 10px;
-  -webkit-box-shadow: 0 4px 4px 0 rgba(145, 158, 171, 0.25), 0 16px 32px -4px rgba(145, 158, 171, 0.25);
-          box-shadow: 0 4px 4px 0 rgba(145, 158, 171, 0.25), 0 16px 32px -4px rgba(145, 158, 171, 0.25); }
+  -webkit-box-shadow: 0 4px 4px 0 rgba(145, 158, 171, 0.35), 0 16px 32px -4px rgba(145, 158, 171, 0.35) !important;
+          box-shadow: 0 4px 4px 0 rgba(145, 158, 171, 0.35), 0 16px 32px -4px rgba(145, 158, 171, 0.35) !important; }
   .profile-avatar img {
     width: 100%;
     height: auto;
@@ -803,3 +844,36 @@ ol li {
     .site-career .career-img img {
       width: 60%;
       height: auto; }
+
+table, .table-bordered {
+  border: 1px solid #eee; }
+  table thead tr, table tbody tr, table tfoot tr, .table-bordered thead tr, .table-bordered tbody tr, .table-bordered tfoot tr {
+    border-bottom-width: 0 !important; }
+    table thead tr th, table thead tr td, table tbody tr th, table tbody tr td, table tfoot tr th, table tfoot tr td, .table-bordered thead tr th, .table-bordered thead tr td, .table-bordered tbody tr th, .table-bordered tbody tr td, .table-bordered tfoot tr th, .table-bordered tfoot tr td {
+      border: none !important; }
+
+.bootstrap-table .fixed-table-container, .bootstrap4 .fixed-table-container {
+  -webkit-box-ordinal-group: 0;
+  -webkit-order: -1;
+      -ms-flex-order: -1;
+          order: -1;
+  -webkit-box-shadow: 0 4px 4px 0 rgba(145, 158, 171, 0.25), 0 16px 32px -4px rgba(145, 158, 171, 0.25);
+          box-shadow: 0 4px 4px 0 rgba(145, 158, 171, 0.25), 0 16px 32px -4px rgba(145, 158, 171, 0.25);
+  border-radius: 10px; }
+  .bootstrap-table .fixed-table-container .fixed-table-body thead, .bootstrap4 .fixed-table-container .fixed-table-body thead {
+    background-color: #C8CED5; }
+    .bootstrap-table .fixed-table-container .fixed-table-body thead tr th:first-child, .bootstrap4 .fixed-table-container .fixed-table-body thead tr th:first-child {
+      border-top-left-radius: 10px; }
+    .bootstrap-table .fixed-table-container .fixed-table-body thead tr th:last-child, .bootstrap4 .fixed-table-container .fixed-table-body thead tr th:last-child {
+      border-top-right-radius: 10px; }
+  .bootstrap-table .fixed-table-container .fixed-table-body tbody tr:nth-child(even), .bootstrap4 .fixed-table-container .fixed-table-body tbody tr:nth-child(even) {
+    background-color: rgba(145, 158, 171, 0.1); }
+  .bootstrap-table .fixed-table-container .fixed-table-body tbody tr:hover, .bootstrap4 .fixed-table-container .fixed-table-body tbody tr:hover {
+    background-color: rgba(96, 143, 255, 0.1); }
+  .bootstrap-table .fixed-table-container .fixed-table-body tbody tr th, .bootstrap4 .fixed-table-container .fixed-table-body tbody tr th {
+    margin: 10px; }
+  .bootstrap-table .fixed-table-container .fixed-table-body tbody tr td, .bootstrap4 .fixed-table-container .fixed-table-body tbody tr td {
+    padding: 15px; }
+
+.bootstrap-table .fixed-table-container .fixed-table-body {
+  border-radius: 10px 10px 0 0; }

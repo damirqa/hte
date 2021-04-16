@@ -3,12 +3,9 @@
 namespace app\controllers;
 
 use app\models\Offer;
-use app\models\OfferSearch;
+use app\models\Profile;
 use Yii;
 use app\models\project;
-use app\models\ProjectSearch;
-use yii\db\Query;
-use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -87,13 +84,22 @@ class ProjectController extends Controller
         }
 
         if (Yii::$app->getUser()->getId() == $model->customer_id) {
-            $o
             $offers = Offer::find()->where(['project_id' => $model->id])->all();
+            $count_offers = Offer::find()->where(['project_id' => $model->id])->count();
+            $offer = null;
+            $performer = null;
 
+            if (!is_null($model->offer_id)) {
+                $offer = Offer::findOne($model->offer_id);
+                $performer = Profile::findOne($offer->performer_id);
+            }
 
             return $this->render('view', [
                 'model' => $model,
-                'offers' => $offers
+                'offer' => $offer,
+                'offers' => $offers,
+                'count' => $count_offers,
+                'performer' => $performer
             ]);
         }
     }
@@ -144,6 +150,24 @@ class ProjectController extends Controller
         ]);
     }
 
+    public function actionGetJson() {
+        $models = Project::findAll(['task_status'=>'Открыт']);
+        //$models = Project::find()->all();
+        $dataSson = [];
+        foreach ($models as $model) {
+            $dataSson[] = [
+                'title' => $model->title,
+                'type' => $model->type,
+                'annotation' => $model->annotation,
+                'description' => $model->description,
+                'date' => date_format(new \DateTime($model->date),"d.m.Y"),
+            ];
+        }
+        \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+
+        return $this->asJson($dataSson); //json_encode($dataSson);
+    }
+
     /**
      * Deletes an existing project model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
@@ -173,4 +197,6 @@ class ProjectController extends Controller
 
         throw new NotFoundHttpException('The requested page does not exist.');
     }
+
+
 }
