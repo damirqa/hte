@@ -150,12 +150,13 @@ class ProjectController extends Controller
         ]);
     }
 
-    public function actionGetJson() {
+    public function actionGetProjectsJson() {
         $models = Project::findAll(['task_status'=>'Открыт']);
         //$models = Project::find()->all();
         $dataSson = [];
         foreach ($models as $model) {
             $dataSson[] = [
+                'id' => $model->id,
                 'title' => $model->title,
                 'type' => $model->type,
                 'annotation' => $model->annotation,
@@ -180,6 +181,37 @@ class ProjectController extends Controller
         $this->findModel($id)->delete();
 
         return $this->redirect(['index']);
+    }
+
+    public function actionOffers($id) {
+        if (Yii::$app->getUser()->getIsGuest()) $this->redirect(['../site/login']);
+
+        $model = $this->findModel($id);
+        if (Yii::$app->getUser()->getId() == $model->customer_id) {
+            $offers = Offer::find()->where(['id' => $id])->all();
+            return $this->render('offers', [
+                'offers' => $offers,
+                'model' => $model,
+                'customer' => Yii::$app->getUser()->getId()]);
+        }
+    }
+
+    public function actionGetOffersJson($id) {
+        $offers = Offer::findAll(['project_id' => $id]);
+        $data = [];
+        foreach ($offers as $offer) {
+            $performer = Profile::find()->where(['id' => $offer->performer_id])->one();
+            $data[] = [
+                'performer_id' => $performer->id,
+                'performer' => $performer->surname . " " . $performer->name,
+                'text' => $offer->text,
+                'date' => date_format(new \DateTime($offer->date), "d.m.Y") ,
+                'bid' => $offer->bid,
+                'date-exec' => date_format(new \DateTime($offer->scheduled_time_performer), "d.m.Y")
+            ];
+        }
+        \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+        return $this->asJson($data);
     }
 
     /**

@@ -202,12 +202,12 @@ ol
     &:nth-last-child(2)
       margin-bottom: 7px
 
-.project-view, .offer-view, .offer-create, .offers-of-project-view, .project-offers-count
+.project-view, .offer-view, .offer-create, .offers-of-project-view, .project-offers-count, .project-update
   margin-top: 15px
   border-radius: 10px
   box-shadow: 0 4px 4px 0 rgba(145, 158, 171, .25), 0 16px 32px -4px rgba(145, 158, 171, .25)
 
-  .project-view-data, .offer-view-data, .offer-create-data, .offers-of-project-view-data
+  .project-view-data, .offer-view-data, .offer-create-data, .offers-of-project-view-data, .project-update-data
     padding: 15px 25px
     border-bottom: 1px solid #F2F4F6
 
@@ -223,7 +223,7 @@ ol
   border-radius: 10px
   box-shadow: 0 0 10px 7px #F2F4F6
 
-.project-header, .offer-view-header, .offer-create-header, .offers-of-project-view-header
+.project-header, .offer-view-header, .offer-create-header, .offers-of-project-view-header, .project-update-header
   color: #FFFFFF
   background-color: #608FFF
   border: 1px solid #608FFF
@@ -649,15 +649,16 @@ table, .table-bordered
             margin: 10px
           td
             padding: 15px
-
-
-
     .fixed-table-footer
 
   .fixed-table-pagination
 
+
 .bootstrap-table .fixed-table-container .fixed-table-body
   border-radius: 10px 10px 0 0
 
-body
-  //background-color: #F5F7FA
+td
+  a
+    &:hover
+      text-decoration: none
+

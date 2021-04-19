@@ -38,16 +38,16 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'description')->textarea(['rows' => 6]) ?>
 
+    <?= $form->field($model, 'planned_execution_time')->textInput(['type' => 'date']) ?>
+
     <?= $form->field($model, 'price')->textInput() ?>
 
     <?= $form->field($model, 'on_time')->radioList(['Да' => 'Да, обязан выполнить вовремя', 'Нет' => 'Нет, допускаются задержки']) ?>
 
-    <?= $form->field($model, 'planned_execution_time')->textInput(['type' => 'date']) ?>
-
     <?= $form->field($model, 'urgently')->radioList(['Да' => 'Да', 'Нет' => 'Нет']) ?>
 
     <div class="form-group">
-        <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
+        <?= Html::submitButton('Сохранить', ['class' => 'btn btn-success']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

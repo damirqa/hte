@@ -87,17 +87,17 @@ $this->params['breadcrumbs'][] = $this->title;
         if (is_null($offer) && $count != 0 && Yii::$app->getUser()->getId() == $model->customer_id) {
             ?>
                 <div class="project-offers-count project-offers-not-accept">
-                    Количество предложений: <?= $count ?>, но Вы всё еще не приняли ни одного предложения... <a href="/offer/offers-to-project?project=<?= $model->id ?>">Посмотреть?</a>
+                    Количество предложений: <?= $count ?>, но Вы всё еще не приняли ни одного предложения... <a href="/project/offers?id=<?= $model->id ?>">Посмотреть?</a>
                 </div>
             <?php
         }
     ?>
 
     <?php
-        if (!is_null($offer) && Yii::$app->getUser()->getId() == $model->customer_id    ) {
+        if (!is_null($offer) && Yii::$app->getUser()->getId() == $model->customer_id) {
             ?>
                 <div class="project-offers-count project-offer-accept">
-                    <div class="project-offer-accept-data">Количество предложений: <?= $count ?>, хотите <a href="/offer/offers-to-project?project=<?= $model->id ?>">посмотреть?</a></div>
+                    <div class="project-offer-accept-data">Количество предложений: <?= $count ?>, хотите <a href="/project/offers?id=<?= $model->id ?>">посмотреть?</a></div>
                     <div class="project-offer-accept-data">
                         Вы приняли следующее предложение от <a href="/profile/view?id=<?= $performer->id ?>"><?= $performer->surname ?> <?= $performer->name ?></a>:
                     </div>

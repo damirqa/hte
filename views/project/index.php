@@ -82,40 +82,22 @@ $this->params['breadcrumbs'][] = $this->title;
 
 
 <table id="table">
-<!--    <thead>-->
-<!--        <tr>-->
-<!--            <th data-field="title">Заголовок</th>-->
-<!--            <th data-field="type">Тип работ</th>-->
-<!--            <th data-field="date">Дата</th>-->
-<!--            <th data-field="annotation">Аннотация</th>-->
-<!--        </tr>-->
-<!--    </thead>-->
+    <thead>
+        <tr>
+            <th data-field="title">Заголовок</th>
+            <th data-field="type">Тип работ</th>
+            <th data-field="date">Дата</th>
+            <th data-field="annotation">Аннотация</th>
+            <th data-field="id" data-align="center" data-formatter="linkFormatter">Действия</th>
+        </tr>
+    </thead>
 </table>
 
 <script>
     var $table = $('#table')
 
-    $('#table').bootstrapTable({
-        columns: [{
-            title: 'ID',
-            field: 'title',
-        }, {
-            title: 'Item Name',
-            field: 'type'
-        }, {
-            title: 'Item Price',
-            field: 'date'
-        }, {
-            title: 'Item Price',
-            field: 'annotation'
-        }, {
-            title: 'Item Price',
-            field: 'description'
-        }, {
-            title: 'Item Price',
-            field: 'date'
-        }],
-        url: '/project/get-json',
+    $table.bootstrapTable({
+        url: '/project/get-projects-json',
         pagination: 'true',
         pageList: [5, 10 , 15],
         search: 'true',
@@ -128,6 +110,11 @@ $this->params['breadcrumbs'][] = $this->title;
         buttonsOrder: ['advancedSearch', 'clearAdvancedSearch', 'refresh']
 
     });
+
+    function linkFormatter(value, field, index, row) {
+        return "<a title='Открыть' href='/project/view?id="+value+"'>"+"<i class=\"fas fa-folder-open\"></i> "+"</a>"
+            + "<a title='Пожаловаться' href='/project/view?id="+value+"'>"+"<i class=\"fas fa-ban\"></i> "+"</a>";
+    }
 
     function buttons () {
         return {
@@ -147,6 +134,8 @@ $this->params['breadcrumbs'][] = $this->title;
 
         }
     }
+
+
 
 
 </script>

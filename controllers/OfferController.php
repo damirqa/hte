@@ -149,16 +149,16 @@ class OfferController extends Controller
         throw new NotFoundHttpException('The requested page does not exist.');
     }
 
-    public function actionOffersToProject($project) {
-        if (Yii::$app->getUser()->getIsGuest()) $this->redirect(['../site/login']);
-
-        $offers = Offer::find()->where(['project_id' => $project])->all();
-
-        return $this->render('offers-to-project', [
-            'models' => $offers,
-            'project_id' => $project,
-            'author' => Yii::$app->getUser()->getId()]);
-    }
+//    public function actionOffersToProject($project) {
+//        if (Yii::$app->getUser()->getIsGuest()) $this->redirect(['../site/login']);
+//
+//        $offers = Offer::find()->where(['project_id' => $project])->all();
+//
+//        return $this->render('offers-to-project', [
+//            'models' => $offers,
+//            'project_id' => $project,
+//            'author' => Yii::$app->getUser()->getId()]);
+//    }
 
     public function actionAccept($project_id, $offer_id) {
         if (Yii::$app->getUser()->getIsGuest()) $this->redirect(['../site/login']);
