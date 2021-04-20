@@ -40,8 +40,8 @@ $this->title = 'Предложения к проекту: ' . $model->title;
             + "<a title='Принять' href='/project/accept?p=<?= $model->id ?>&c=<?= $customer?>&o="+value+"'>"+"<i class=\"fas fa-check-circle\"></i> "+"</a>"
             + "<a title='Отклонить' href='/project/decline?p=<?= $model->id ?>&c=<?= $customer?>&o="+value+"'>"+"<i class=\"fas fa-times-circle\"></i> "+"</a>";
     }
-    
+
     function currencyFormatter(value) {
-        return value + " ₽";
+        return (value == "Договорная") ? "Договорная" : value + " ₽";
     }
 </script>
