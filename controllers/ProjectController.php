@@ -202,6 +202,7 @@ class ProjectController extends Controller
         foreach ($offers as $offer) {
             $performer = Profile::find()->where(['id' => $offer->performer_id])->one();
             $data[] = [
+                'id' => $offer->id,
                 'performer_id' => $performer->id,
                 'performer' => $performer->surname . " " . $performer->name,
                 'text' => $offer->text,
@@ -212,6 +213,22 @@ class ProjectController extends Controller
         }
         \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
         return $this->asJson($data);
+    }
+
+    public function actionAccept($p, $c, $o) {
+        if (Yii::$app->getUser()->getId() == $c) {
+            $offer = Offer::findOne($o);
+            $offer->status = 'Принят';
+            $offer->save();
+
+            $project = $this->findModel($p);
+            $project->performer_id = $offer->performer_id;
+            $project->offer_id = $offer->id;
+            $project->task_status = "В процессе";
+            $project->save();
+
+            return $this->redirect('/project/view?id=' . $p);
+        }
     }
 
     /**

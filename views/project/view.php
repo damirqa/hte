@@ -85,6 +85,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <?php
         if (is_null($offer) && $count != 0 && Yii::$app->getUser()->getId() == $model->customer_id) {
+            echo is_null($offer)
             ?>
                 <div class="project-offers-count project-offers-not-accept">
                     Количество предложений: <?= $count ?>, но Вы всё еще не приняли ни одного предложения... <a href="/project/offers?id=<?= $model->id ?>">Посмотреть?</a>
