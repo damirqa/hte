@@ -188,7 +188,7 @@ class ProjectController extends Controller
 
         $model = $this->findModel($id);
         if (Yii::$app->getUser()->getId() == $model->customer_id) {
-            $offers = Offer::find()->where(['id' => $id])->all();
+            $offers = Offer::find()->where(['id' => $id])->andWhere(['not', ['status' => 'Отклонен']])->all();
             return $this->render('offers', [
                 'offers' => $offers,
                 'model' => $model,
@@ -204,10 +204,10 @@ class ProjectController extends Controller
             $data[] = [
                 'id' => $offer->id,
                 'performer_id' => $performer->id,
-                'performer' => $performer->surname . " " . $performer->name,
+                'performer' => (!is_null($performer->surname) || !is_null($performer->name)) ? $performer->surname . " " . $performer->name : "Безымянный",
                 'text' => $offer->text,
                 'date' => date_format(new \DateTime($offer->date), "d.m.Y") ,
-                'bid' => $offer->bid,
+                'bid' => is_null($offer->bid) ? "Договорная" : $offer->bid,
                 'date-exec' => date_format(new \DateTime($offer->scheduled_time_performer), "d.m.Y")
             ];
         }
