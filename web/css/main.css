@@ -270,48 +270,42 @@ body {
   padding: 15px 0; }
 
 h1, .h1 {
-  font-size: 36px; }
-
-ul.navbar-nav.navbar-right.nav {
-  font-size: 16px;
-  padding: 15px 0;
-  margin: 0px; }
-  ul.navbar-nav.navbar-right.nav li {
-    padding: 0 15px; }
-
-.navbar-inverse {
-  background-color: #ffffff; }
-
-.navbar {
-  border: none;
+  font-size: 31px;
   margin: 0; }
 
-.navbar-header {
-  padding: 10px 0px; }
-  .navbar-header .navbar-brand {
-    height: 55px;
-    line-height: 0;
-    font-size: 0px;
-    padding: 0 0 0 15px; }
+h2, .h2 {
+  font-size: 27px;
+  margin: 0; }
 
-.navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .active > a:hover, .navbar-inverse .navbar-nav > .active > a:focus {
-  background-color: #ffffff;
-  color: #608FFF; }
-  .navbar-inverse .navbar-nav > .active > a:after, .navbar-inverse .navbar-nav > .active > a:hover:after, .navbar-inverse .navbar-nav > .active > a:focus:after {
-    display: block;
-    position: absolute;
-    content: "";
-    width: 100%;
-    left: 0px;
-    height: 2px;
-    bottom: 20%;
-    background-color: #608FFF; }
+h3, .h3 {
+  font-size: 24px;
+  margin: 0; }
 
-.navbar-inverse .navbar-nav > li > a {
-  color: #000000;
-  padding: 10px 0px; }
-  .navbar-inverse .navbar-nav > li > a:hover {
-    color: #608FFF; }
+h4, .h4 {
+  font-size: 21px;
+  margin: 0; }
+
+.footer {
+  margin-top: 15px;
+  height: 30px;
+  width: auto !important; }
+
+.bg-light {
+  background-color: #FFFFFF !important; }
+
+.collapse, .navbar-collapse {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+  -webkit-flex-direction: row-reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse; }
+
+a.nav-link {
+  color: #000000 !important;
+  font-size: 16px; }
+
+a.nav-link.active {
+  color: #608FFF !important; }
 
 .logo {
   width: 200px;

@@ -1,51 +1,62 @@
 @import "fonts"
 @import "base"
 
-ul.navbar-nav.navbar-right.nav
- font-size: 16px
- padding: 15px 0
- margin: 0px
- li
-   padding: 0 15px
+//ul.navbar-nav.navbar-right.nav
+// font-size: 16px
+// padding: 15px 0
+// margin: 0px
+// li
+//   padding: 0 15px
+//
+//.navbar-inverse
+//  background-color: #ffffff
+//
+//.navbar
+//  border: none
+//  margin: 0
+//
+//.navbar-header
+//  padding: 10px 0px
+//
+//  .navbar-brand
+//    height: 55px
+//    line-height: 0
+//    font-size: 0px
+//    padding: 0 0 0 15px
+//
+//.navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .active > a:hover, .navbar-inverse .navbar-nav > .active > a:focus
+//  background-color: #ffffff
+//  color: #608FFF
+//
+//  &:after
+//    display: block
+//    position: absolute
+//    content: ""
+//    width: 100%
+//    left: 0px
+//    height: 2px
+//    bottom: 20%
+//    background-color: #608FFF
+//
+//
+//.navbar-inverse .navbar-nav > li > a
+//  color: #000000
+//  padding: 10px 0px
+//
+//  &:hover
+//    color: #608FFF
+.bg-light
+  background-color: #FFFFFF !important
 
+.collapse, .navbar-collapse
+  flex-direction: row-reverse
 
-.navbar-inverse
-  background-color: #ffffff
+a.nav-link
+  color: #000000 !important
+  font-size: 16px
 
-.navbar
-  border: none
-  margin: 0
-
-.navbar-header
-  padding: 10px 0px
-
-  .navbar-brand
-    height: 55px
-    line-height: 0
-    font-size: 0px
-    padding: 0 0 0 15px
-
-.navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .active > a:hover, .navbar-inverse .navbar-nav > .active > a:focus
-  background-color: #ffffff
-  color: #608FFF
-
-  &:after
-    display: block
-    position: absolute
-    content: ""
-    width: 100%
-    left: 0px
-    height: 2px
-    bottom: 20%
-    background-color: #608FFF
-
-
-.navbar-inverse .navbar-nav > li > a
-  color: #000000
-  padding: 10px 0px
-
-  &:hover
-    color: #608FFF
+a.nav-link.active
+  color: #608FFF !important
 
 .logo
   width: 200px
