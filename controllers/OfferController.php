@@ -118,9 +118,13 @@ class OfferController extends Controller
      */
     public function actionDelete($id)
     {
-        $this->findModel($id)->delete();
+        $model = $this->findModel($id);
 
-        return $this->redirect(['index']);
+        if ($model->performer_id != Yii::$app->getUser()->getId()) $this->redirect(['../site/login']);
+
+        $project_id = $model->project_id;
+        $model->delete();
+        return $this->redirect(['../project/view', 'id' => $project_id]);
     }
 
     /**
