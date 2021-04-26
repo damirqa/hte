@@ -29,7 +29,8 @@ AppAsset::register($this);
         'brandLabel' => Html::img('@web/img/logo.svg', ['alt'=>Yii::$app->name, 'class' => 'logo']),
         'brandUrl' => Yii::$app->homeUrl,
         'options' => [
-            'class' => 'navbar navbar-inverse',
+            //'class' => 'navbar navbar-inverse',
+            'class' => 'navbar navbar-expand-lg navbar-light bg-light'
         ],
     ]);
     echo Nav::widget([
