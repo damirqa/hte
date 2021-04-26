@@ -26,9 +26,14 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'text')->textarea() ?>
 
-    <?= $form->field($model, 'scheduled_time_performer')->textInput(['type'=>'date']) ?>
-
-    <?= $form->field($model, 'bid')->textInput() ?>
+    <div class="row">
+        <div class="col-md-6 date-performer">
+            <?= $form->field($model, 'scheduled_time_performer')->textInput(['type'=>'date']) ?>
+        </div>
+        <div class="col-md-6 bid-performer">
+            <?= $form->field($model, 'bid')->textInput() ?>
+        </div>
+    </div>
 
     <div class="offer-create-data form-group">
         <?= Html::submitButton('Отправить', ['class' => 'a-btn']) ?>

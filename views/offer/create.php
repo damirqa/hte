@@ -15,7 +15,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <div class="offer-create">
 
         <div class="offer-create-data offer-create-header">
-            <h1><?= Html::encode($this->title) ?></h1>
+            <h3><?= Html::encode($this->title) ?></h3>
         </div>
 
         <?= $this->render('_form', [

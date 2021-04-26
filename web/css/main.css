@@ -531,6 +531,12 @@ ol li {
 .offer-description, .offer-bid, .offer-date {
   margin-bottom: 10px; }
 
+.offer-form .date-performer {
+  padding-right: 0; }
+
+.offer-form .bid-performer {
+  padding-left: 0; }
+
 .buttons-control-offers-project {
   display: -webkit-box;
   display: -webkit-flex;
