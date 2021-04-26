@@ -19,8 +19,6 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 
 <div class="container">
-<!--    <h1>--><?//= Html::encode($this->title) ?><!--</h1>-->
-
     <div class="project-view">
         <div class="project-view-data project-header">
             <h1><?= Html::encode($this->title)?></h1>
@@ -52,9 +50,6 @@ $this->params['breadcrumbs'][] = $this->title;
         <div class="project-view-data">
             Файлы доступны после одобрения
         </div>
-<!--        ЗАЧЕМ ЭТО?-->
-        <input type="text" name="project-id" value="5" disabled hidden>
-
 
         <?php
             if (!Yii::$app->getUser()->getIsGuest() && $model->customer_id == Yii::$app->getUser()->getId()) {
