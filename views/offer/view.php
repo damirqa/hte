@@ -11,6 +11,11 @@ $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>
 
+<?php
+    $date = is_null($model->date) ? 'Сроки не указаны' : date_format(new DateTime($model->date), "d.m.Y");
+    $bid = is_null($model->bid) ? 'Договорная' : $model->bid . ' руб.'
+?>
+
 
 <div class="offer-view">
 
@@ -19,8 +24,8 @@ $this->params['breadcrumbs'][] = $this->title;
         <div>Описание:</div>
         <?= $model->text ?>
     </div>
-    <div class="offer-view-data">Дата выполнения: <?= date_format(new DateTime($model->date), "d.m.Y") ?></div>
-    <div class="offer-view-data">Цена: <?= $model->bid?> руб.</div>
+    <div class="offer-view-data">Дата выполнения: <?= $date ?></div>
+    <div class="offer-view-data">Цена: <?= $bid ?></div>
     <div class="offer-view-data offer-control-buttons">
         <?= Html::a('Обновить', ['/offer/update', 'id' => $model->id], ['class' => 'a-btn']) ?>
         <?= Html::a('Удалить', ['/offer/delete', 'id' => $model->id], [
