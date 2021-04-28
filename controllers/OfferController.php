@@ -68,21 +68,31 @@ class OfferController extends Controller
     {
         if (Yii::$app->getUser()->getIsGuest()) $this->redirect(['../site/login']);
 
-        if ($model = $this->findModelByParametrs($project, Yii::$app->getUser()->getId()) == null) {
-            $model = new Offer();
-            $model->project_id = $project;
-            $model->performer_id =  Yii::$app->getUser()->getId();
-            $model->date = date("Y-m-d");
-            $model->status = "Отправлено";
+        $model = new Offer();
+
+        //Сделать проверку на существующий offer
+
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            $model->status = 'ssooo';
+            return $this->redirect(['../project/view', 'id' => $model->project_id]);
         }
 
+//        if ($model = $this->findModelByParametrs($project_id, Yii::$app->getUser()->getId()) == null) {
+//            $model = new Offer();
+//            $model->project_id = $project_id;
+//            $model->performer_id =  Yii::$app->getUser()->getId();
+//            $model->date = date("Y-m-d");
+//            $model->status = "Отправлено";
+//        }
+
+        //var_dump($model);
         //$model = $this->findModelByParametrs($project, Yii::$app->getUser()->getId()) !== null ? : new Offer();
 
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['../project/view', 'id' => $project]);
+        //if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        //    return $this->redirect(['../project/view', 'id' => $model->project_id]);
             //return $this->redirect(['view', 'id' => $model->id]);
-        }
+        //}
 
         return $this->render('create', [
             'model' => $model,
@@ -101,7 +111,8 @@ class OfferController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+            //return $this->redirect(Yii::$app->request->referrer);
+            return $this->goBack();
         }
 
         return $this->render('update', [

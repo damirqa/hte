@@ -6,6 +6,7 @@ use app\models\Offer;
 use app\models\Profile;
 use Yii;
 use app\models\project;
+use yii\helpers\Url;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -72,6 +73,7 @@ class ProjectController extends Controller
      */
     public function actionView($id)
     {
+        Url::remember();
         $model = $this->findModel($id);
 
         if (Yii::$app->getUser()->getId() != $model->customer_id) {

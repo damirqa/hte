@@ -12,13 +12,11 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 
 <?php
-    $date = is_null($model->date) ? 'Сроки не указаны' : date_format(new DateTime($model->date), "d.m.Y");
+    $date = is_null($model->scheduled_time_performer) ? 'Сроки не указаны' : date_format(new DateTime($model->date), "d.m.Y");
     $bid = is_null($model->bid) ? 'Договорная' : $model->bid . ' руб.'
 ?>
 
-
 <div class="offer-view">
-
     <div class="offer-view-data offer-view-header"><h1>Ваше предложение</h1></div>
     <div class="offer-view-data">
         <div>Описание:</div>
