@@ -547,7 +547,9 @@ ol li {
 
 .jconfirm-buttons {
   float: none !important;
-  margin: 0 15px; }
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 16px; }
   .jconfirm-buttons .btn.btn-default {
     font-size: 18px !important;
     font-weight: 400 !important;
