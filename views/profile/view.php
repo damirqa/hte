@@ -1,48 +1,72 @@
 <?php
+use app\models\Profile;
 
-use yii\helpers\Html;
-use yii\widgets\DetailView;
+/* @var $role string Role of user*/
 
-/* @var $this yii\web\View */
-/* @var $model app\models\Profile */
-
-$this->title = $model->name;
-$this->params['breadcrumbs'][] = ['label' => 'Profiles', 'url' => ['index']];
-$this->params['breadcrumbs'][] = $this->title;
-\yii\web\YiiAsset::register($this);
+if ($model->photo_link == NULL) {
+    $photo = ($model->gender == "Мужской") ? "../img/user-male.png" : "../img/user-female.png";
+}
 ?>
-<div class="profile-view">
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="profile-avatar">
+                <img src="<?= $photo ?>">
+            </div>
+        </div>
+        <div class="col-md-8 profile-data-user">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="data-label">Фамилия</div>
+                        <div class="place-data"><?= $model->surname ?></div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="data-label">Имя</div>
+                        <div class="place-data"><?= $model->name ?></div>
+                    </div>
+                </div>
 
-    <h1><?= Html::encode($this->title) ?></h1>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="data-label">День рождения</div>
+                        <div class="place-data"><?= date_format(new DateTime($model->birthday), "d.m.Y") ?></div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="data-label">Пол</div>
+                        <div class="place-data"><?= $model->gender ?></div>
+                    </div>
+                </div>
 
-    <p>
-        <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Delete', ['delete', 'id' => $model->id], [
-            'class' => 'btn btn-danger',
-            'data' => [
-                'confirm' => 'Are you sure you want to delete this item?',
-                'method' => 'post',
-            ],
-        ]) ?>
-    </p>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="data-label">Телефон</div>
+                        <div class="place-data"><?= $model->telephone ?></div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="data-label">Электонная почта</div>
+                        <div class="place-data"><?= $model->email ?></div>
+                    </div>
+                </div>
 
-    <?= DetailView::widget([
-        'model' => $model,
-        'attributes' => [
-            'id',
-            'surname',
-            'name',
-            'email:email',
-            'gender',
-            'birthday',
-            'telephone',
-            'site',
-            'role',
-            'company',
-            'about:ntext',
-            'photo_link:ntext',
-            'city',
-        ],
-    ]) ?>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="data-label">Компания</div>
+                        <div class="place-data"><?= $model->company ?></div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="data-label">Город</div>
+                        <div class="place-data"><?= $model->city ?></div>
+                    </div>
+                </div>
 
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="data-label">О себе</div>
+                        <div class="place-data about"><?= $model->about ?></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

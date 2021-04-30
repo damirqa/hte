@@ -820,6 +820,24 @@ ol li {
   .profile-form input#profile-birthday {
     font-size: 14px; }
 
+.profile-data-user {
+  border-radius: 10px;
+  -webkit-box-shadow: 0 4px 4px 0 rgba(145, 158, 171, 0.25), 0 16px 32px -4px rgba(145, 158, 171, 0.25);
+          box-shadow: 0 4px 4px 0 rgba(145, 158, 171, 0.25), 0 16px 32px -4px rgba(145, 158, 171, 0.25); }
+  .profile-data-user .row {
+    padding: 15px 0; }
+    .profile-data-user .row:first-child {
+      padding-top: 30px; }
+    .profile-data-user .row:last-child {
+      padding-bottom: 30px; }
+    .profile-data-user .row .place-data {
+      padding: 5px 15px;
+      border: 1px solid #cccccc;
+      border-radius: 5px;
+      min-height: 33px; }
+    .profile-data-user .row .about {
+      height: 150px; }
+
 .site-login, .site-signup {
   font-size: 16px;
   padding: 30px;
