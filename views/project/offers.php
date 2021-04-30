@@ -22,10 +22,12 @@ $this->title = 'Предложения к проекту: ' . $model->title;
                 <th data-field="bid" data-formatter="currencyFormatter">Цена</th>
                 <th data-field="date-exec">Дата выполнения</th>
                 <th data-field="id" data-align="center" data-formatter="linkFormatter">Действия</th>
+                <th data-field="performer_id" data-align="center" data-formatter="linkProfile">Связь</th>
             </tr>
             </thead>
         </table>
     </div>
+
 </div>
 
 <script>
@@ -33,12 +35,14 @@ $this->title = 'Предложения к проекту: ' . $model->title;
 
     $table.bootstrapTable({
         url: '/project/get-offers-json?id=<?= $model->id ?>'
-
     });
 
+    function linkProfile(value, field, index, row) {
+        return "<a title='Открыть профиль' href='/profile/view?id="+value+"'>"+"<i class=\"fas fa-address-card\"></i> "+"</a>"
+    }
+
     function linkFormatter(value, field, index, row) {
-        return "<a title='Отметить, что просмотрено' href='/project/see?p=<?= $model->id ?>&c=<?= $customer?>&o="+value+"'>"+"<i class=\"fas fa-eye\"></i> "+"</a>"
-            + "<a title='Принять' href='/project/accept?p=<?= $model->id ?>&c=<?= $customer?>&o="+value+"'>"+"<i class=\"fas fa-check-circle\"></i> "+"</a>"
+        return "<a title='Принять' href='/project/accept?p=<?= $model->id ?>&c=<?= $customer?>&o="+value+"'>"+"<i class=\"fas fa-check-circle\"></i> "+"</a>"
             + "<a title='Отклонить' href='/project/decline?p=<?= $model->id ?>&c=<?= $customer?>&o="+value+"'>"+"<i class=\"fas fa-times-circle\"></i> "+"</a>";
     }
 
