@@ -32,37 +32,11 @@ class ProjectController extends Controller
     }
 
     /**
-     * Lists all project models.
-     * @return mixed
+     * Проекты
      */
-    public function actionIndex($id = 1)
+    public function actionIndex()
     {
-        if (is_null($id) | !is_integer($id) | empty($id)) $id = 1;
-
-        $count = Project::find()->where(['task_status' => 'Открыт'])->count();
-        $page_size = 5;
-        $pages = ceil($count / $page_size);
-
-        $projects = Project::find()
-            ->where(['task_status' => 'Открыт'])
-            ->orderBy('date DESC')
-            ->limit($page_size)
-            ->offset($id - 1)
-            ->all();
-
-        return $this->render('index', [
-           'projects' => $projects,
-           'page' => $id,
-           'pages' => $pages
-        ]);
-
-//        $searchModel = new ProjectSearch();
-//        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
-
-//        return $this->render('index', [
-//            'searchModel' => $searchModel,
-//            'dataProvider' => $dataProvider,
-//        ]);
+        return  $this->render('index');
     }
 
     /**
@@ -195,6 +169,9 @@ class ProjectController extends Controller
                 'offers' => $offers,
                 'model' => $model,
                 'customer' => Yii::$app->getUser()->getId()]);
+        }
+        else {
+            return $this->goHome();
         }
     }
 

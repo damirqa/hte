@@ -9,8 +9,9 @@ $this->title = 'Предложения к проекту: ' . $model->title;
             $this->redirect(['../site/login'])
     ?>
 
-    <h1><?= $this->title?></h1>
-
+    <div class="offer-to-project-header">
+        <h1><?= $this->title?></h1>
+    </div>
     <div class="offers-to-project">
         <table id="table">
             <thead>

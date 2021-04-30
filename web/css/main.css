@@ -904,3 +904,6 @@ table, .table-bordered {
 
 td a:hover {
   text-decoration: none; }
+
+.offer-to-project-header {
+  padding: 15px 0; }
