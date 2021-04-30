@@ -80,7 +80,6 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <?php
         if (is_null($offer) && $count != 0 && Yii::$app->getUser()->getId() == $model->customer_id) {
-            echo is_null($offer)
             ?>
                 <div class="project-offers-count project-offers-not-accept">
                     Количество предложений: <?= $count ?>, но Вы всё еще не приняли ни одного предложения... <a href="/project/offers?id=<?= $model->id ?>">Посмотреть?</a>
@@ -124,3 +123,25 @@ $this->params['breadcrumbs'][] = $this->title;
 
         ?>
 </div>
+<script>
+    var editOffer = $.confirm({
+        title: 'Редактирование предложения',
+        lazyOpen: true,
+        useBootstrap: false,
+        boxWidth: '70%',
+        buttons: {
+            close: {
+                text: 'Закрыть'
+            }
+        }
+    });
+
+    $('.btn-update').click(function (e) {
+        e.preventDefault();
+        editOffer.content = 'url:' + $(this).attr('href');
+        editOffer.open();
+    });
+    $(document).ready(function () {
+
+    });
+</script>

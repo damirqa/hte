@@ -25,7 +25,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <div class="offer-view-data">Дата выполнения: <?= $date ?></div>
     <div class="offer-view-data">Цена: <?= $bid ?></div>
     <div class="offer-view-data offer-control-buttons">
-        <?= Html::a('Обновить', ['/offer/update', 'id' => $model->id], ['class' => 'a-btn']) ?>
+        <?= Html::a('Обновить', ['/offer/update', 'id' => $model->id], ['class' => 'a-btn btn-update']) ?>
         <?= Html::a('Удалить', ['/offer/delete', 'id' => $model->id], [
             'class' => 'a-btn',
             'data' => [
@@ -35,4 +35,6 @@ $this->params['breadcrumbs'][] = $this->title;
         ]) ?>
     </div>
 </div>
+
+
 

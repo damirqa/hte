@@ -23,7 +23,8 @@ class AppAsset extends AssetBundle
         'css/fontawesome.css',
         'css/solid.css',
         'css/main.css',
-        'css/bootstrap-table.min.css'
+        'css/bootstrap-table.min.css',
+        'css/jquery-confirm.min.css'
 
     ];
     public $js = [
@@ -31,6 +32,7 @@ class AppAsset extends AssetBundle
         'js/bootstrap-table.min.js',
         'js/extensions/toolbar/bootstrap-table-toolbar.js',
         'js/locale/bootstrap-table-ru-RU.js',
+        'js/jquery-confirm.min.js'
         //'js/all.min.js'
     ];
     public $depends = [

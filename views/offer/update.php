@@ -24,20 +24,30 @@ use yii\widgets\ActiveForm;
 
         <?= $form->field($model, 'performer_id')->hiddenInput(['value' => $performer])->label(false) ?>
 
-        <?= $form->field($model, 'text')->textarea() ?>
+
 
         <div class="row">
-            <div class="col-md-6 date-performer">
+            <div class="col"><?= $form->field($model, 'text')->textarea() ?></div>
+        </div>
+        <div class="row">
+            <div class="col">
                 <?= $form->field($model, 'scheduled_time_performer')->textInput(['type'=>'date']) ?>
             </div>
-            <div class="col-md-6 bid-performer">
+        </div>
+        <div class="row">
+            <div class="col">
                 <?= $form->field($model, 'bid')->textInput() ?>
             </div>
         </div>
-
-        <div class="offer-create-data form-group">
-            <?= Html::submitButton('Обновить', ['class' => 'a-btn']) ?>
+        <div class="row">
+            <div class="col">
+                <div class="offer-create-data form-group">
+                    <?= Html::submitButton('Обновить', ['class' => 'a-btn']) ?>
+                </div>
+            </div>
         </div>
+
+
 
         <?php ActiveForm::end(); ?>
     </div>
