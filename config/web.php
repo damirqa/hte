@@ -8,6 +8,11 @@ $config = [
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'language' => 'ru',
+    'on beforeRequest' => function ($event) {
+        Yii::$app->layout = Yii::$app->user->isGuest ?
+            '@app/views/layouts/admin.php' :
+            '@app/views/layouts/main.php';
+    },
     'aliases' => [
         '@bower' => '@vendor/bower-asset',
         '@npm'   => '@vendor/npm-asset',
