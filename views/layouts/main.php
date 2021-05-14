@@ -36,12 +36,18 @@ AppAsset::register($this);
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => [
-            ['label' => 'Главная страница', 'url' => ['/site/index']],
-            ['label' => 'Схема взаимодействия', 'url' => ['/site/scheme']],
-            ['label' => 'Карьера', 'url' => ['/site/career']],
-            ['label' => 'Контакты', 'url' => ['/site/contact']],
             ['label' => 'Проекты', 'url' => ['/project/index']],
-            ['label' => 'Мои профиль', 'url' => ['profile/index'], 'visible' => !Yii::$app->user->isGuest],
+            ['label' => 'Избранное', 'url' => ['/site/index']],
+            ['label' => 'Мои работы', 'url' => ['/site/index']],
+            ['label' => 'Информация', 'url' => ['/site/index']],
+            ['label' => 'Профиль', 'url' => ['profile/index'], 'visible' => !Yii::$app->user->isGuest],
+
+//            ['label' => 'Главная страница', 'url' => ['/site/index']],
+//            ['label' => 'Схема взаимодействия', 'url' => ['/site/scheme']],
+//            ['label' => 'Карьера', 'url' => ['/site/career']],
+//            ['label' => 'Контакты', 'url' => ['/site/contact']],
+//            ['label' => 'Проекты', 'url' => ['/project/index']],
+//            ['label' => 'Мои профиль', 'url' => ['profile/index'], 'visible' => !Yii::$app->user->isGuest],
 
             Yii::$app->user->isGuest ? (
                 ['label' => 'Войти', 'url' => ['/site/login'], 'options' => ['class' => 'button']]
