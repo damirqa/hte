@@ -10,7 +10,7 @@ $config = [
     'language' => 'ru',
     'on beforeRequest' => function ($event) {
         Yii::$app->layout = Yii::$app->user->isGuest ?
-            '@app/views/layouts/admin.php' :
+            '@app/views/layouts/guest.php' :
             '@app/views/layouts/main.php';
     },
     'aliases' => [
@@ -29,7 +29,7 @@ $config = [
                ],
            ],
             'layout' => 'left-menu',
-            'mainLayout' => '@app/views/layouts/admin.php',
+            'mainLayout' => '@app/views/layouts/guest.php',
         ],
     ],
     'components' => [
