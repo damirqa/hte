@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 
+use app\models\Project;
 use Yii;
 use app\models\Profile;
 use app\models\ProfileSearch;
@@ -147,5 +148,28 @@ class ProfileController extends Controller
         return $this->render('profile', [
             'model' => $model
         ]);
+    }
+
+    public function actionJobsJson() {
+        $models = Project::findAll(['customer_id' => Yii::$app->getUser()->getId()]);
+        $json = [];
+        foreach ($models as $model) {
+            $json[] = [
+                'id' => $model->id,
+                'title' => $model->title,
+                'type' => $model->type,
+                'annotation' => $model->annotation,
+                'description' => $model->description,
+                'date' => date_format(new \DateTime($model->date),"d.m.Y"),
+                'price' => $model->price,
+                'task_status' => $model->task_status
+            ];
+        }
+        \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+        return $this->asJson($json);
+    }
+
+    public function actionJobs() {
+        return $this->render('jobs');
     }
 }

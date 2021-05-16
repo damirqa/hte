@@ -38,7 +38,7 @@ AppAsset::register($this);
         'items' => [
             ['label' => 'Проекты', 'url' => ['/project/index']],
             ['label' => 'Избранное', 'url' => ['/site/index']],
-            ['label' => 'Мои работы', 'url' => ['/site/index']],
+            ['label' => 'Мои работы', 'url' => ['/profile/jobs']],
             ['label' => 'Информация', 'url' => ['/site/index']],
             ['label' => 'Профиль', 'url' => ['profile/index'], 'visible' => !Yii::$app->user->isGuest],
 
