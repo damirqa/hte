@@ -11,7 +11,7 @@
             <th data-field="annotation">Аннотация</th>
             <th data-field="description">Описание</th>
             <th data-field="task_status">Статус</th>
-            <th data-field="price">Стоимость</th>
+            <th data-field="price" data-formatter="priceFormatter">Стоимость</th>
             <th data-field="id" data-align="center" data-formatter="linkFormatter">Действия</th>
         </tr>
         </thead>
@@ -47,6 +47,15 @@
                 }
             },
 
+        }
+    }
+
+    function priceFormatter(value) {
+        if (value == null) {
+            return "Договорная"
+        }
+        else {
+            return value + ' ₽';
         }
     }
 </script>
