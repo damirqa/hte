@@ -58,4 +58,9 @@
             return value + ' ₽';
         }
     }
+
+    function linkFormatter(value) {
+        return '<a title="Изменить" href="/project/update?id=' + value + '">' + '<i class=\"fas fa-pen\"></i>' +  '</a> ' +
+               '<a title="Удалить" href="/project/delete?id=' + value + '">' + '<i class="fas fa-trash"></i>' + '</a>';
+    }
 </script>
