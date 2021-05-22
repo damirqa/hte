@@ -753,14 +753,17 @@ ol li {
     height: auto;
     padding: 30px; }
 
-.profile-form {
+.project-create h1, .profile-update h1 {
+  margin-bottom: 15px; }
+
+.profile-form, .project-form {
   font-family: SFProDisplay-Medium, sans-serif;
   font-weight: 400 !important;
   color: #212b36;
   border-radius: 10px;
   -webkit-box-shadow: 0 4px 4px 0 rgba(145, 158, 171, 0.25), 0 16px 32px -4px rgba(145, 158, 171, 0.25);
           box-shadow: 0 4px 4px 0 rgba(145, 158, 171, 0.25), 0 16px 32px -4px rgba(145, 158, 171, 0.25); }
-  .profile-form .profile-row-data {
+  .profile-form .profile-row-data, .profile-form .project-row-data, .project-form .profile-row-data, .project-form .project-row-data {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -774,16 +777,18 @@ ol li {
     -webkit-justify-content: space-between;
         -ms-flex-pack: justify;
             justify-content: space-between;
-    padding: 15px 30px 0 30px; }
-    .profile-form .profile-row-data:nth-child(2) {
-      padding: 25px 30px 0 30px; }
-    .profile-form .profile-row-data:nth-child(7) {
-      padding: 15px 30px 25px 30px; }
-    .profile-form .profile-row-data:nth-last-child(3) .form-group:first-child {
+    padding: 20px 30px 0 30px; }
+    .profile-form .profile-row-data:nth-child(2), .profile-form .project-row-data:nth-child(2), .project-form .profile-row-data:nth-child(2), .project-form .project-row-data:nth-child(2) {
+      padding: 20px 30px 0 30px; }
+    .profile-form .profile-row-data:nth-child(7), .profile-form .project-row-data:nth-child(7), .project-form .profile-row-data:nth-child(7), .project-form .project-row-data:nth-child(7) {
+      padding: 20px 30px 25px 30px; }
+    .profile-form .profile-row-data:nth-last-child(3) .form-group:first-child, .profile-form .project-row-data:nth-last-child(3) .form-group:first-child, .project-form .profile-row-data:nth-last-child(3) .form-group:first-child, .project-form .project-row-data:nth-last-child(3) .form-group:first-child {
       margin-right: 0px; }
-    .profile-form .profile-row-data:nth-last-child(3) .form-group:last-child {
+    .profile-form .profile-row-data:nth-last-child(3) .form-group:last-child, .profile-form .project-row-data:nth-last-child(3) .form-group:last-child, .project-form .profile-row-data:nth-last-child(3) .form-group:last-child, .project-form .project-row-data:nth-last-child(3) .form-group:last-child {
       margin-left: 0px; }
-    .profile-form .profile-row-data .profile-item-data {
+    .profile-form .profile-row-data .form-group label, .profile-form .project-row-data .form-group label, .project-form .profile-row-data .form-group label, .project-form .project-row-data .form-group label {
+      margin-bottom: .25rem; }
+    .profile-form .profile-row-data .profile-item-data, .profile-form .profile-row-data .project-item-data, .profile-form .profile-row-data select#project-type, .profile-form .project-row-data .profile-item-data, .profile-form .project-row-data .project-item-data, .profile-form .project-row-data select#project-type, .project-form .profile-row-data .profile-item-data, .project-form .profile-row-data .project-item-data, .project-form .profile-row-data select#project-type, .project-form .project-row-data .profile-item-data, .project-form .project-row-data .project-item-data, .project-form .project-row-data select#project-type {
       width: 100%;
       padding: 10px !important;
       border: 1px solid rgba(33, 43, 54, 0.25);
@@ -791,34 +796,52 @@ ol li {
       -webkit-transition: .2s;
       -o-transition: .2s;
       transition: .2s; }
-      .profile-form .profile-row-data .profile-item-data:focus {
+    .profile-form .profile-row-data select#project-type, .profile-form .project-row-data select#project-type, .project-form .profile-row-data select#project-type, .project-form .project-row-data select#project-type {
+      padding: 12px 10px !important; }
+      .profile-form .profile-row-data select#project-type:focus, .profile-form .project-row-data select#project-type:focus, .project-form .profile-row-data select#project-type:focus, .project-form .project-row-data select#project-type:focus {
         border: 1px solid #608FFF;
         outline: none; }
-        .profile-form .profile-row-data .profile-item-data:focus::-webkit-input-placeholder {
+        .profile-form .profile-row-data select#project-type:focus::-webkit-input-placeholder, .profile-form .project-row-data select#project-type:focus::-webkit-input-placeholder, .project-form .profile-row-data select#project-type:focus::-webkit-input-placeholder, .project-form .project-row-data select#project-type:focus::-webkit-input-placeholder {
           color: #608FFF; }
-        .profile-form .profile-row-data .profile-item-data:focus::-moz-placeholder {
+        .profile-form .profile-row-data select#project-type:focus::-moz-placeholder, .profile-form .project-row-data select#project-type:focus::-moz-placeholder, .project-form .profile-row-data select#project-type:focus::-moz-placeholder, .project-form .project-row-data select#project-type:focus::-moz-placeholder {
           color: #608FFF; }
-        .profile-form .profile-row-data .profile-item-data:focus:-ms-input-placeholder {
+        .profile-form .profile-row-data select#project-type:focus:-ms-input-placeholder, .profile-form .project-row-data select#project-type:focus:-ms-input-placeholder, .project-form .profile-row-data select#project-type:focus:-ms-input-placeholder, .project-form .project-row-data select#project-type:focus:-ms-input-placeholder {
           color: #608FFF; }
-        .profile-form .profile-row-data .profile-item-data:focus::-ms-input-placeholder {
+        .profile-form .profile-row-data select#project-type:focus::-ms-input-placeholder, .profile-form .project-row-data select#project-type:focus::-ms-input-placeholder, .project-form .profile-row-data select#project-type:focus::-ms-input-placeholder, .project-form .project-row-data select#project-type:focus::-ms-input-placeholder {
           color: #608FFF; }
-        .profile-form .profile-row-data .profile-item-data:focus::placeholder {
+        .profile-form .profile-row-data select#project-type:focus::placeholder, .profile-form .project-row-data select#project-type:focus::placeholder, .project-form .profile-row-data select#project-type:focus::placeholder, .project-form .project-row-data select#project-type:focus::placeholder {
           color: #608FFF; }
-  .profile-form button:focus {
+    .profile-form .profile-row-data select#profile-gender, .profile-form .project-row-data select#profile-gender, .project-form .profile-row-data select#profile-gender, .project-form .project-row-data select#profile-gender {
+      padding: 13px 10px !important; }
+  .profile-form .project-row-data:nth-child(3) .form-group, .project-form .project-row-data:nth-child(3) .form-group {
+    margin: 0; }
+  .profile-form .project-row-data:nth-child(4) .form-group, .project-form .project-row-data:nth-child(4) .form-group {
+    margin: 0; }
+  .profile-form .project-row-data:nth-child(7), .project-form .project-row-data:nth-child(7) {
+    padding: 20px 30px 0 30px; }
+    .profile-form .project-row-data:nth-child(7) .form-group, .project-form .project-row-data:nth-child(7) .form-group {
+      margin: 0; }
+  .profile-form .project-row-data:nth-child(8), .project-form .project-row-data:nth-child(8) {
+    padding: 25px 30px; }
+  .profile-form .project-row-data #project-on_time, .profile-form .project-row-data #project-urgently, .project-form .project-row-data #project-on_time, .project-form .project-row-data #project-urgently {
+    padding: 10px;
+    border: 1px solid rgba(33, 43, 54, 0.25);
+    border-radius: 5px; }
+    .profile-form .project-row-data #project-on_time label, .profile-form .project-row-data #project-urgently label, .project-form .project-row-data #project-on_time label, .project-form .project-row-data #project-urgently label {
+      margin: 0; }
+  .profile-form button:focus, .project-form button:focus {
     outline: none; }
-  .profile-form .form-group {
+  .profile-form .form-group, .project-form .form-group {
     font-family: SFProDisplay-Regular, sans-serif !important;
     font-size: 16px;
     width: 100%;
     margin-bottom: 0px; }
-    .profile-form .form-group:first-child {
+    .profile-form .form-group:first-child, .project-form .form-group:first-child {
       margin-right: 15px; }
-    .profile-form .form-group:last-child {
+    .profile-form .form-group:last-child, .project-form .form-group:last-child {
       margin-left: 15px; }
-    .profile-form .form-group .control-label {
+    .profile-form .form-group .control-label, .project-form .form-group .control-label {
       font-weight: 400; }
-  .profile-form input#profile-birthday {
-    font-size: 14px; }
 
 .profile-data-user {
   border-radius: 10px;

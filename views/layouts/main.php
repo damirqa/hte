@@ -36,6 +36,7 @@ AppAsset::register($this);
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => [
+            ['label' => 'Создать', 'url' => ['/project/create']],
             ['label' => 'Проекты', 'url' => ['/project/index']],
             ['label' => 'Избранное', 'url' => ['/site/index']],
             ['label' => 'Мои работы', 'url' => ['/profile/jobs']],

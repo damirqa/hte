@@ -12,9 +12,9 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'type')->dropDownList([
+    <div class="project-row-data">
+        <?= $form->field($model, 'title')->textInput(['maxlength' => true, 'class' => 'project-item-data']) ?>
+        <?= $form->field($model, 'type')->dropDownList([
             ' ' => 'Выберите необходимое',
             'Водоснабжение и водоотведение' => 'Водоснабжение и водоотведение',
             'Машиностроение' => 'Машиностроение',
@@ -32,22 +32,33 @@ use yii\widgets\ActiveForm;
             'Техническое обследование и обмеры' => 'Техническое обследование и обмеры',
             'Электроснабжение' => 'Электроснабжение',
         ],
-        ['options' => [' ' => ['Selected' => true, 'Disabled' => true]]]) ?>
+            ['options' => [' ' => ['Selected' => true, 'Disabled' => true]], 'class' => 'project-item-data']) ?>
+    </div>
 
-    <?= $form->field($model, 'annotation')->textInput(['maxlength' => true]) ?>
+    <div class="project-row-data">
+        <?= $form->field($model, 'annotation')->textInput(['maxlength' => true]) ?>
+    </div>
 
-    <?= $form->field($model, 'description')->textarea(['rows' => 6]) ?>
+    <div class="project-row-data">
+        <?= $form->field($model, 'description')->textarea(['rows' => 6]) ?>
+    </div>
 
-    <?= $form->field($model, 'planned_execution_time')->textInput(['type' => 'date']) ?>
+    <div class="project-row-data">
+        <?= $form->field($model, 'planned_execution_time')->textInput(['type' => 'date', 'class' => 'project-item-data']) ?>
 
-    <?= $form->field($model, 'price')->textInput() ?>
+        <?= $form->field($model, 'price')->textInput(['class' => 'project-item-data']) ?>
+    </div>
 
-    <?= $form->field($model, 'on_time')->radioList(['Да' => 'Да, обязан выполнить вовремя', 'Нет' => 'Нет, допускаются задержки']) ?>
+    <div class="project-row-data">
+        <?= $form->field($model, 'on_time')->radioList(['Да' => 'Да, обязан выполнить вовремя', 'Нет' => 'Нет, допускаются задержки']) ?>
+    </div>
 
-    <?= $form->field($model, 'urgently')->radioList(['Да' => 'Да', 'Нет' => 'Нет']) ?>
+    <div class="project-row-data">
+        <?= $form->field($model, 'urgently')->radioList(['Да' => 'Да', 'Нет' => 'Нет']) ?>
+    </div>
 
-    <div class="form-group">
-        <?= Html::submitButton('Сохранить', ['class' => 'btn btn-success']) ?>
+    <div class="project-row-data">
+        <?= Html::submitButton('Создать проект', ['class' => 'a-btn']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

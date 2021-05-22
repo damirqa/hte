@@ -10,7 +10,6 @@ $this->params['breadcrumbs'][] = ['label' => 'Projects', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="project-create">
-
     <div class="container">
         <h1><?= Html::encode($this->title) ?></h1>
 
