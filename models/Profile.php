@@ -43,10 +43,10 @@ class Profile extends \yii\db\ActiveRecord
     {
         return [
             [['birthday'], 'safe'],
-            [['about', 'photo_link'], 'string'],
+            [['about', ], 'string'],
             [['surname', 'name', 'email', 'gender', 'telephone', 'site', 'role', 'company', 'city'], 'string', 'max' => 255],
             [['id'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['id' => 'id']],
-            [['imageFile'], 'file']
+            [['imageFile'], 'file', 'extensions' => 'png, jpg, JPG']
         ];
     }
 

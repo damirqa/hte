@@ -36,6 +36,10 @@ use yii\widgets\ActiveForm;
         <?= $form->field($model, 'about')->textarea(['rows' => 6, 'autocomplete' => 'off', 'class' => 'profile-item-data']) ?>
     </div>
 
+    <div class="profile-row-data">
+        <?= $form->field($model, 'imageFile')->fileInput()?>
+    </div>
+
 <!--    --><?//= $form->field($model, 'site')->textInput(['maxlength' => true]) ?>
 <!--    -->
 <!--    --><?//= $form->field($model, 'imageFile')->fileInput() ?>

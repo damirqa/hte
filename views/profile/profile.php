@@ -6,6 +6,9 @@ use app\models\Profile;
 if ($model->photo_link == NULL) {
     $photo = ($model->gender == "Мужской") ? "../img/user-male.png" : "../img/user-female.png";
 }
+else {
+    $photo = $model->photo_link;
+}
 ?>
 <div class="container">
     <div class="row">

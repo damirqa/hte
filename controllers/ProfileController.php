@@ -2,19 +2,16 @@
 
 namespace app\controllers;
 
-use app\models\Project;
 use Yii;
 use app\models\Profile;
-use app\models\ProfileSearch;
-use yii\db\Exception;
+use app\models\Project;
+use yii\helpers\FileHelper;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\web\UploadedFile;
 
-/**
- * ProfileController implements the CRUD actions for Profile model.
- */
+
 class ProfileController extends Controller
 {
     /**
@@ -32,27 +29,6 @@ class ProfileController extends Controller
         ];
     }
 
-    /**
-     * Lists all Profile models.
-     * @return mixed
-     */
-//    public function actionIndex()
-//    {
-//        $searchModel = new ProfileSearch();
-//        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
-//
-//        return $this->render('index', [
-//            'searchModel' => $searchModel,
-//            'dataProvider' => $dataProvider,
-//        ]);
-//    }
-
-    /**
-     * Displays a single Profile model.
-     * @param integer $id
-     * @return mixed
-     * @throws NotFoundHttpException if the model cannot be found
-     */
     public function actionView($id)
     {
         return $this->render('view', [
@@ -60,17 +36,11 @@ class ProfileController extends Controller
         ]);
     }
 
-    /**
-     * Creates a new Profile model.
-     * If creation is successful, the browser will be redirected to the 'view' page.
-     * @return mixed
-     */
     public function actionCreate()
     {
         $model = new Profile();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
         }
 
         return $this->render('create', [
@@ -78,12 +48,6 @@ class ProfileController extends Controller
         ]);
     }
 
-    /**
-     * Updates an existing Profile model.
-     * If update is successful, the browser will be redirected to the 'view' page.
-     * @return mixed
-     * @throws NotFoundHttpException if the model cannot be found
-     */
     public function actionUpdate()
     {
         if (Yii::$app->user->isGuest) return $this->redirect(['site/login']);
@@ -93,11 +57,15 @@ class ProfileController extends Controller
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             if ($model->imageFile = UploadedFile::getInstance($model, 'imageFile')) {
-                $model->imageFile->saveAs('img/logo/' . $model->imageFile->baseName . '.' . $model->imageFile->extension);
-                $model->photo_link = '../img/logo/' . $model->imageFile->baseName . '.' . $model->imageFile->extension;
-                $model->save();
+                if (!file_exists('img/profile/' . $model->id)) {
+                    FileHelper::createDirectory('img/profile/' . $model->id);
+                }
+                $path = 'img/profile/' . $model->id . '/' . $model->imageFile->baseName . '.' . $model->imageFile->extension;
+                $model->imageFile->saveAs($path, false);
+                $model->photo_link = '../' . $path;
             }
-            return $this->redirect(['view', 'id' => $model->id]);
+            $model->save();
+            return $this->redirect(['index']);
         }
 
         return $this->render('update', [
@@ -105,13 +73,6 @@ class ProfileController extends Controller
         ]);
     }
 
-    /**
-     * Deletes an existing Profile model.
-     * If deletion is successful, the browser will be redirected to the 'index' page.
-     * @param integer $id
-     * @return mixed
-     * @throws NotFoundHttpException
-     */
     public function actionDelete($id)
     {
         $this->findModel($id)->delete();
@@ -119,13 +80,6 @@ class ProfileController extends Controller
         return $this->redirect(['index']);
     }
 
-    /**
-     * Finds the Profile model based on its primary key value.
-     * If the model is not found, a 404 HTTP exception will be thrown.
-     * @param integer $id
-     * @return Profile the loaded model
-     * @throws NotFoundHttpException if the model cannot be found
-     */
     protected function findModel($id)
     {
         if (($model = Profile::findOne($id)) !== null) {
@@ -135,10 +89,6 @@ class ProfileController extends Controller
         throw new NotFoundHttpException('The requested page does not exist.');
     }
 
-    /**
-     * Показывает профиль текущего пользователя
-     * @return mixed
-     */
     public function actionIndex() {
         if (Yii::$app->user->isGuest) return $this->redirect(['site/login']);
 
