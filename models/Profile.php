@@ -69,7 +69,7 @@ class Profile extends \yii\db\ActiveRecord
             'about' => 'О себе',
             'photo_link' => 'Фото профиля',
             'city' => 'Город',
-            'imageFile' => "Фото профиля"
+            'imageFile' => "Загрузить фото"
         ];
     }
 

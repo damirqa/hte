@@ -38,6 +38,7 @@ use yii\widgets\ActiveForm;
 
     <div class="profile-row-data">
         <?= $form->field($model, 'imageFile')->fileInput()?>
+        <?= Html::submitButton('Сохранить', ['class' => 'a-btn']) ?>
     </div>
 
 <!--    --><?//= $form->field($model, 'site')->textInput(['maxlength' => true]) ?>
@@ -45,7 +46,7 @@ use yii\widgets\ActiveForm;
 <!--    --><?//= $form->field($model, 'imageFile')->fileInput() ?>
 
     <div class="profile-row-data">
-        <?= Html::submitButton('Сохранить', ['class' => 'a-btn']) ?>
+
     </div>
 
     <div class="form-group">
