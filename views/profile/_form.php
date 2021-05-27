@@ -41,17 +41,11 @@ use yii\widgets\ActiveForm;
         <?= Html::submitButton('Сохранить', ['class' => 'a-btn']) ?>
     </div>
 
-<!--    --><?//= $form->field($model, 'site')->textInput(['maxlength' => true]) ?>
-<!--    -->
-<!--    --><?//= $form->field($model, 'imageFile')->fileInput() ?>
-
-    <div class="profile-row-data">
-
-    </div>
-
-    <div class="form-group">
-    </div>
-
     <?php ActiveForm::end(); ?>
-
 </div>
+
+<script>
+    $('#profile-imagefile').bind('change', function () {
+        console.log($(this).siblings('label').text($(this)[0].files[0].name));
+    })
+</script>
