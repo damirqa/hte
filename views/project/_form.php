@@ -58,6 +58,7 @@ use yii\widgets\ActiveForm;
     </div>
 
     <div class="project-row-data">
+        <?= $form->field($model, 'files[]')->fileInput(['multiple' => true])?>
         <?= Html::submitButton('Создать проект', ['class' => 'a-btn']) ?>
     </div>
 
