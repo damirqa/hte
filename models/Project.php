@@ -26,6 +26,8 @@ use Yii;
  */
 class Project extends \yii\db\ActiveRecord
 {
+    public $files;
+
     /**
      * {@inheritdoc}
      */
@@ -47,6 +49,7 @@ class Project extends \yii\db\ActiveRecord
             [['customer_id', 'performer_id', 'offer_id'], 'integer'],
             [['title', 'type', 'annotation', 'task_status', 'urgently', 'on_time'], 'string', 'max' => 255],
             [['customer_id'], 'exist', 'skipOnError' => true, 'targetClass' => Profile::className(), 'targetAttribute' => ['customer_id' => 'id']],
+            [['files'], 'file', 'extensions' => 'png, jpg, zip, rar, tar', 'maxFiles' => 10],
         ];
     }
 
@@ -71,6 +74,7 @@ class Project extends \yii\db\ActiveRecord
             'planned_execution_time' => 'Дата завершения',
             'actual_execution_time' => 'Фактическое Время Выполнения',
             'urgently' => 'Срочно',
+            'files' => 'Файлы проекта'
         ];
     }
 
