@@ -20,6 +20,7 @@ class m210208_065326_create_project extends Migration
             'description' => $this->text()->notNull(),
             'date'=> $this->date(),
             'price' => $this->double(),
+            'files_link' => $this->text(),
             'customer_id' => $this->integer(),
             'performer_id' => $this->integer(),
             'offer_id' => $this->integer(),
