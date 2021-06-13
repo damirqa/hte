@@ -14,6 +14,7 @@ use Yii;
  * @property string $description
  * @property string|null $date
  * @property float|null $price
+ * @property string $files_link
  * @property int|null $customer_id
  * @property int|null $performer_id
  * @property string|null $task_status
@@ -26,7 +27,7 @@ use Yii;
  */
 class Project extends \yii\db\ActiveRecord
 {
-    public $files;
+    public $imageFiles;
 
     /**
      * {@inheritdoc}
@@ -43,13 +44,13 @@ class Project extends \yii\db\ActiveRecord
     {
         return [
             [['title', 'type', 'annotation', 'description'], 'required'],
-            [['description'], 'string'],
+            [['description', 'files_link'], 'string'],
             [['date', 'planned_execution_time', 'actual_execution_time'], 'safe'],
             [['price'], 'number'],
             [['customer_id', 'performer_id', 'offer_id'], 'integer'],
             [['title', 'type', 'annotation', 'task_status', 'urgently', 'on_time'], 'string', 'max' => 255],
             [['customer_id'], 'exist', 'skipOnError' => true, 'targetClass' => Profile::className(), 'targetAttribute' => ['customer_id' => 'id']],
-            [['files'], 'file', 'extensions' => 'png, jpg, zip, rar, tar', 'maxFiles' => 10],
+            [['imageFiles'], 'file', 'extensions' => 'png, jpg, rar, zip', 'maxFiles' => 10],
         ];
     }
 
@@ -66,6 +67,7 @@ class Project extends \yii\db\ActiveRecord
             'description' => 'Описание',
             'date' => 'Дата создания',
             'price' => 'Цена',
+            'files_link' => 'Ссылки на файлы',
             'customer_id' => 'ИД заказчика',
             'performer_id' => 'ИД исполнителя',
             'offer_id' => 'ИД предложения',
@@ -74,7 +76,7 @@ class Project extends \yii\db\ActiveRecord
             'planned_execution_time' => 'Дата завершения',
             'actual_execution_time' => 'Фактическое Время Выполнения',
             'urgently' => 'Срочно',
-            'files' => 'Файлы проекта'
+            'imageFiles' => 'Файл проекта'
         ];
     }
 
