@@ -782,9 +782,9 @@ ol li {
       padding: 20px 30px 0 30px; }
     .profile-form .profile-row-data:nth-child(7), .profile-form .project-row-data:nth-child(7), .project-form .profile-row-data:nth-child(7), .project-form .project-row-data:nth-child(7) {
       padding: 20px 30px 25px 30px; }
-    .profile-form .profile-row-data:nth-last-child(2) .form-group:first-child, .profile-form .project-row-data:nth-last-child(2) .form-group:first-child, .project-form .profile-row-data:nth-last-child(2) .form-group:first-child, .project-form .project-row-data:nth-last-child(2) .form-group:first-child {
+    .profile-form .profile-row-data:nth-last-child(3) .form-group:first-child, .profile-form .project-row-data:nth-last-child(3) .form-group:first-child, .project-form .profile-row-data:nth-last-child(3) .form-group:first-child, .project-form .project-row-data:nth-last-child(3) .form-group:first-child {
       margin-right: 0px; }
-    .profile-form .profile-row-data:nth-last-child(2) .form-group:last-child, .profile-form .project-row-data:nth-last-child(2) .form-group:last-child, .project-form .profile-row-data:nth-last-child(2) .form-group:last-child, .project-form .project-row-data:nth-last-child(2) .form-group:last-child {
+    .profile-form .profile-row-data:nth-last-child(3) .form-group:last-child, .profile-form .project-row-data:nth-last-child(3) .form-group:last-child, .project-form .profile-row-data:nth-last-child(3) .form-group:last-child, .project-form .project-row-data:nth-last-child(3) .form-group:last-child {
       margin-left: 0px; }
     .profile-form .profile-row-data .form-group label, .profile-form .project-row-data .form-group label, .project-form .profile-row-data .form-group label, .project-form .project-row-data .form-group label {
       margin-bottom: .25rem; }
@@ -842,7 +842,7 @@ ol li {
       margin-left: 15px; }
     .profile-form .form-group .control-label, .project-form .form-group .control-label {
       font-weight: 400; }
-  .profile-form .field-profile-imagefile, .profile-form .field-project-files, .project-form .field-profile-imagefile, .project-form .field-project-files {
+  .profile-form .field-profile-imagefile, .profile-form .field-project-imagefiles, .project-form .field-profile-imagefile, .project-form .field-project-imagefiles {
     width: 100%;
     position: relative;
     border: 3px solid #608FFF;
@@ -856,17 +856,17 @@ ol li {
             align-self: center;
     padding: 6px 12px;
     cursor: pointer; }
-    .profile-form .field-profile-imagefile:hover, .profile-form .field-project-files:hover, .project-form .field-profile-imagefile:hover, .project-form .field-project-files:hover {
+    .profile-form .field-profile-imagefile:hover, .profile-form .field-project-imagefiles:hover, .project-form .field-profile-imagefile:hover, .project-form .field-project-imagefiles:hover {
       background-color: #608FFF;
       color: #FFFFFF;
       -webkit-transition: .13s;
       -o-transition: .13s;
       transition: .13s; }
-    .profile-form .field-profile-imagefile label, .profile-form .field-project-files label, .project-form .field-profile-imagefile label, .project-form .field-project-files label {
+    .profile-form .field-profile-imagefile label, .profile-form .field-project-imagefiles label, .project-form .field-profile-imagefile label, .project-form .field-project-imagefiles label {
       width: 100%;
       cursor: pointer;
       margin: 0 !important; }
-    .profile-form .field-profile-imagefile input#profile-imagefile, .profile-form .field-profile-imagefile input#project-files, .profile-form .field-project-files input#profile-imagefile, .profile-form .field-project-files input#project-files, .project-form .field-profile-imagefile input#profile-imagefile, .project-form .field-profile-imagefile input#project-files, .project-form .field-project-files input#profile-imagefile, .project-form .field-project-files input#project-files {
+    .profile-form .field-profile-imagefile input#profile-imagefile, .profile-form .field-profile-imagefile input#project-imagefiles, .profile-form .field-project-imagefiles input#profile-imagefile, .profile-form .field-project-imagefiles input#project-imagefiles, .project-form .field-profile-imagefile input#profile-imagefile, .project-form .field-profile-imagefile input#project-imagefiles, .project-form .field-project-imagefiles input#profile-imagefile, .project-form .field-project-imagefiles input#project-imagefiles {
       opacity: 0;
       visibility: hidden;
       position: absolute; }

@@ -10,7 +10,7 @@ use yii\widgets\ActiveForm;
 
 <div class="project-form">
 
-    <?php $form = ActiveForm::begin(); ?>
+    <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]); ?>
 
     <div class="project-row-data">
         <?= $form->field($model, 'title')->textInput(['maxlength' => true, 'class' => 'project-item-data']) ?>
@@ -58,10 +58,23 @@ use yii\widgets\ActiveForm;
     </div>
 
     <div class="project-row-data">
-        <?= $form->field($model, 'files[]')->fileInput(['multiple' => true])?>
+        <?= $form->field($model, 'imageFiles[]')->fileInput(['multiple' => true, 'accept' => 'files/*'])?>
         <?= Html::submitButton('Создать проект', ['class' => 'a-btn']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>
 
 </div>
+
+<script>
+    $('#project-imagefiles').bind('change', function () {
+        let countFiles = '';
+
+        if (this.files && this.files.length >= 1)
+            countFiles = this.files.length;
+
+        if (countFiles) {
+            $(this).siblings('label').text('Выбрано файлов: ' + countFiles)
+        }
+    })
+</script>
