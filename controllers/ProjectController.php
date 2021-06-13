@@ -7,10 +7,12 @@ use app\models\Profile;
 use Yii;
 use app\models\project;
 use yii\filters\AccessControl;
+use yii\helpers\FileHelper;
 use yii\helpers\Url;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\UploadedFile;
 
 /**
  * ProjectController implements the CRUD actions for project model.
@@ -91,31 +93,45 @@ class ProjectController extends Controller
         }
     }
 
-    /**
-     * Creates a new project model.
-     * If creation is successful, the browser will be redirected to the 'view' page.
-     * @return mixed
+
+    /*
+     * Создаем объект "Проект"
+     * Только для авторизованных пользователей.
      */
     public function actionCreate()
     {
-        $model = new project();
+        $model = new Project();                                                                                         // Создаем модель Project, чтобы записать данные из формы
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            if (Yii::$app->getUser()->getIsGuest()) return $this->redirect('/site/login');
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {                                               // Проверяем, что данные из формы загрузились сохранились в модели
+            if ($model->imageFiles = UploadedFile::getInstances($model, 'imageFiles')) {                        // Проверяем, что загружаемые файлы сохранились в переменной imageFiles модели Project
 
-            //var_dump($model);
-            $model->date = date("Y-m-d");
-            $model->customer_id = Yii::$app->getUser()->getId();
-            $model->task_status = "Открыт";
+                if (!file_exists('files/project/' . $model->id)) {                                              // Если отсутствует папка для хранения файлов проекта
+                    FileHelper::createDirectory('files/project/' . $model->id);                                    // Создаем папку для хранения файлов проекта
+                }
 
-            $model->save();
-            return $this->redirect(['view', 'id' => $model->id]);
+                $links = '';                                                                                            // Храним все ссылки на файлы
+
+                foreach ($model->imageFiles as $file) {                                                                 // Обрабатываем каждый файл
+                    $link = 'files/project/'  . $model->id . '/' . $file->baseName . '.' . $file->extension;            // Формируем ссылку на хранения файла
+                    $file->saveAs($link);                                                                               // Сохраняем файл по ссылке $link
+                    $links .= $link . ';';                                                                              // Ссылку сохраняем в месте для всех ссылок. Ссылки разделяются точкой с запятой
+                }
+                $model->files_link = $links;                                                                            // Записываем все ссылки в модель
+            }
+
+            $model->date = date("Y-m-d");                                                                        // Записываем дату создания проекта
+            $model->customer_id = Yii::$app->getUser()->getId();                                                        // Записываем ИД пользователя, как ИД заказчика
+            $model->task_status = "Открыт";                                                                             // Устанавливаем статус проекта
+
+            $model->save(false);                                                                             // Сохраняем изменения в модели
+            return $this->redirect(['view', 'id' => $model->id]);                                                       // Перенаправляем на только что созданную страницу
         }
 
-        return $this->render('create', [
+        return $this->render('create', [                                                                           // Если данные из формы не загрузились, то возвращаем форму модели
             'model' => $model,
         ]);
     }
+
 
     /**
      * Updates an existing project model.
@@ -129,6 +145,24 @@ class ProjectController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            if ($model->file_project = UploadedFile::getInstance($model,'file_project')) {
+                if (!file_exists('files/' . $model->id)) {
+                    FileHelper::createDirectory('files' . $model->id);
+                }
+
+                $links = '';
+
+                $path = 'files/' . $model->id . '/' . $model->file_project->baseName . '.' . $model->file_project->extension;
+                $model->saveAs($path, false);
+                $links = $links . $path;
+                $model->file_link = $links;
+            }
+
+            $model->date = date("Y-m-d");
+            $model->customer_id = Yii::$app->getUser()->getId();
+            $model->task_status = "Открыт";
+
+            $model->save();
             return $this->redirect(['view', 'id' => $model->id]);
         }
 
