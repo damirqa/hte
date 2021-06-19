@@ -48,7 +48,18 @@ $this->params['breadcrumbs'][] = $this->title;
         </div>
 
         <div class="project-view-data">
-            Файлы доступны после одобрения
+            Файлы проект: <br>
+            <?php
+                $links = explode(';', $model->files_link);
+
+                for ($i = 0; $i < count($links) - 1; $i++) {
+                    $ext = explode('.', $links[$i]);
+                    $file = explode('/', $links[$i]);
+
+                    echo '<a href="../'. $links[$i] .'"><div class="file-' . array_pop($ext) .
+                        '" title="' . array_pop($file) . '"></div></a>';
+                }
+            ?>
         </div>
 
         <?php
