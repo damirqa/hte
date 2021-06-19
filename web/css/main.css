@@ -293,6 +293,20 @@ h4, .h4 {
 .help-block {
   color: #FF5159; }
 
+.file-png, .file-jpg, .file-rar, .file-zip {
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+  margin: 10px 20px 0px 0px;
+  border: 1px solid lightgrey;
+  border-radius: 5px; }
+
+.file-png, .file-jpg {
+  background-image: url("../img/image.png"); }
+
+.file-rar, .file-zip {
+  background-image: url("../img/archive.png"); }
+
 .bg-light {
   background-color: #FFFFFF !important; }
 
@@ -724,7 +738,8 @@ ol li {
 
 .project-offers-zero {
   padding: 15px 25px;
-  background-color: #FF9E8B; }
+  background-color: #FFFFFF;
+  color: #212529; }
 
 .project-offers-not-accept {
   padding: 15px 25px;
