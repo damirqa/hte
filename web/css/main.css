@@ -829,6 +829,8 @@ ol li {
     border-radius: 5px; }
     .profile-form .project-row-data #project-on_time label, .profile-form .project-row-data #project-urgently label, .project-form .project-row-data #project-on_time label, .project-form .project-row-data #project-urgently label {
       margin: 0; }
+      .profile-form .project-row-data #project-on_time label:last-child, .profile-form .project-row-data #project-urgently label:last-child, .project-form .project-row-data #project-on_time label:last-child, .project-form .project-row-data #project-urgently label:last-child {
+        margin-left: 15px; }
   .profile-form button:focus, .project-form button:focus {
     outline: none; }
   .profile-form .form-group, .project-form .form-group {
