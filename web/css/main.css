@@ -290,6 +290,9 @@ h4, .h4 {
   height: 30px;
   width: auto !important; }
 
+.help-block {
+  color: #FF5159; }
+
 .bg-light {
   background-color: #FFFFFF !important; }
 
@@ -797,20 +800,7 @@ ol li {
       -o-transition: .2s;
       transition: .2s; }
     .profile-form .profile-row-data select#project-type, .profile-form .project-row-data select#project-type, .project-form .profile-row-data select#project-type, .project-form .project-row-data select#project-type {
-      padding: 12px 10px !important; }
-      .profile-form .profile-row-data select#project-type:focus, .profile-form .project-row-data select#project-type:focus, .project-form .profile-row-data select#project-type:focus, .project-form .project-row-data select#project-type:focus {
-        border: 1px solid #608FFF;
-        outline: none; }
-        .profile-form .profile-row-data select#project-type:focus::-webkit-input-placeholder, .profile-form .project-row-data select#project-type:focus::-webkit-input-placeholder, .project-form .profile-row-data select#project-type:focus::-webkit-input-placeholder, .project-form .project-row-data select#project-type:focus::-webkit-input-placeholder {
-          color: #608FFF; }
-        .profile-form .profile-row-data select#project-type:focus::-moz-placeholder, .profile-form .project-row-data select#project-type:focus::-moz-placeholder, .project-form .profile-row-data select#project-type:focus::-moz-placeholder, .project-form .project-row-data select#project-type:focus::-moz-placeholder {
-          color: #608FFF; }
-        .profile-form .profile-row-data select#project-type:focus:-ms-input-placeholder, .profile-form .project-row-data select#project-type:focus:-ms-input-placeholder, .project-form .profile-row-data select#project-type:focus:-ms-input-placeholder, .project-form .project-row-data select#project-type:focus:-ms-input-placeholder {
-          color: #608FFF; }
-        .profile-form .profile-row-data select#project-type:focus::-ms-input-placeholder, .profile-form .project-row-data select#project-type:focus::-ms-input-placeholder, .project-form .profile-row-data select#project-type:focus::-ms-input-placeholder, .project-form .project-row-data select#project-type:focus::-ms-input-placeholder {
-          color: #608FFF; }
-        .profile-form .profile-row-data select#project-type:focus::placeholder, .profile-form .project-row-data select#project-type:focus::placeholder, .project-form .profile-row-data select#project-type:focus::placeholder, .project-form .project-row-data select#project-type:focus::placeholder {
-          color: #608FFF; }
+      padding: 10px 10px !important; }
     .profile-form .profile-row-data select#profile-gender, .profile-form .project-row-data select#profile-gender, .project-form .profile-row-data select#profile-gender, .project-form .project-row-data select#profile-gender {
       padding: 13px 10px !important; }
   .profile-form .project-row-data:nth-child(3) .form-group, .project-form .project-row-data:nth-child(3) .form-group {
