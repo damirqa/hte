@@ -13,7 +13,7 @@ use yii\widgets\ActiveForm;
     <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]); ?>
 
     <div class="project-row-data">
-        <?= $form->field($model, 'title')->textInput(['maxlength' => true, 'class' => 'project-item-data']) ?>
+        <?= $form->field($model, 'title')->textInput(['maxlength' => true, 'class' => 'form-control project-item-data']) ?>
         <?= $form->field($model, 'type')->dropDownList([
             ' ' => 'Выберите необходимое',
             'Водоснабжение и водоотведение' => 'Водоснабжение и водоотведение',
@@ -32,7 +32,7 @@ use yii\widgets\ActiveForm;
             'Техническое обследование и обмеры' => 'Техническое обследование и обмеры',
             'Электроснабжение' => 'Электроснабжение',
         ],
-            ['options' => [' ' => ['Selected' => true, 'Disabled' => true]], 'class' => 'project-item-data']) ?>
+            ['options' => [' ' => ['Selected' => true, 'Disabled' => true]], 'class' => 'form-control project-item-data']) ?>
     </div>
 
     <div class="project-row-data">
@@ -44,9 +44,9 @@ use yii\widgets\ActiveForm;
     </div>
 
     <div class="project-row-data">
-        <?= $form->field($model, 'planned_execution_time')->textInput(['type' => 'date', 'class' => 'project-item-data']) ?>
+        <?= $form->field($model, 'planned_execution_time')->textInput(['type' => 'date', 'class' => 'form-control project-item-data']) ?>
 
-        <?= $form->field($model, 'price')->textInput(['class' => 'project-item-data']) ?>
+        <?= $form->field($model, 'price')->textInput(['class' => 'form-control project-item-data']) ?>
     </div>
 
     <div class="project-row-data">
