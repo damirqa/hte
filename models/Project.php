@@ -75,7 +75,7 @@ class Project extends \yii\db\ActiveRecord
             'on_time' => 'Исполнитель обязан выполнить задачу вовремя или допускаются задержки?',
             'planned_execution_time' => 'Дата завершения',
             'actual_execution_time' => 'Фактическое Время Выполнения',
-            'urgently' => 'Срочно',
+            'urgently' => 'Срочно?',
             'imageFiles' => 'Файл проекта'
         ];
     }
