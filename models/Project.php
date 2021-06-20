@@ -66,7 +66,7 @@ class Project extends \yii\db\ActiveRecord
             'annotation' => 'Аннотация',
             'description' => 'Описание',
             'date' => 'Дата создания',
-            'price' => 'Цена',
+            'price' => 'Цена, руб.',
             'files_link' => 'Ссылки на файлы',
             'customer_id' => 'ИД заказчика',
             'performer_id' => 'ИД исполнителя',
