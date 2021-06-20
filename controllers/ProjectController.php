@@ -147,35 +147,55 @@ class ProjectController extends Controller
     {
         $model = $this->findModel($id);
 
-        if ($model->customer_id == Yii::$app->getUser()->getId()) {                                                         // Проверяем, что пользователь является владельцем объекта Проект
-            if ($model->load(Yii::$app->request->post()) && $model->save()) {                                               // Загружаем данные из формы в модель и сохраняем в БД
-                if ($model->imageFiles = UploadedFile::getInstances($model,'imageFiles')) {                         // Проверяем, что есть загруженные файлы
+        if ($model->customer_id == Yii::$app->getUser()->getId()) {                                                     // Проверяем, что пользователь является владельцем объекта Проект
+            if ($model->load(Yii::$app->request->post()) && $model->save()) {                                           // Загружаем данные из формы в модель и сохраняем в БД
+                if ($model->imageFiles = UploadedFile::getInstances($model,'imageFiles')) {                     // Проверяем, что есть загруженные файлы
 
-                    if (!file_exists('files/project/' . $model->id)) {                                              // Если отсутствует папка для хранения файлов проекта
-                        FileHelper::createDirectory('files/project/' . $model->id);                                    // Создаем папку для хранения файлов проекта
+                    if (!file_exists('files/project/' . $model->id)) {                                          // Если отсутствует папка для хранения файлов проекта
+                        FileHelper::createDirectory('files/project/' . $model->id);                                // Создаем папку для хранения файлов проекта
                     }
 
-                    $links = '';                                                                                            // Храним все ссылки на файлы
+                    $links = '';                                                                                        // Храним все ссылки на файлы
 
-                    foreach ($model->imageFiles as $file) {                                                                 // Обрабатываем каждый файл
-                        $link = 'files/project/'  . $model->id . '/' . $file->baseName . '.' . $file->extension;            // Формируем ссылку на хранения файла
-                        $file->saveAs($link);                                                                               // Сохраняем файл по ссылке $link
-                        $links .= $link . ';';                                                                              // Ссылку сохраняем в месте для всех ссылок. Ссылки разделяются точкой с запятой
+                    foreach ($model->imageFiles as $file) {                                                             // Обрабатываем каждый файл
+                        $link = 'files/project/'  . $model->id . '/' . $file->baseName . '.' . $file->extension;        // Формируем ссылку на хранения файла
+                        $file->saveAs($link);                                                                           // Сохраняем файл по ссылке $link
+                        $links .= $link . ';';                                                                          // Ссылку сохраняем в месте для всех ссылок. Ссылки разделяются точкой с запятой
                     }
-                    $model->files_link = $links;                                                                            // Записываем все ссылки в модель
+                    $model->files_link = $links;                                                                        // Записываем все ссылки в модель
                 }
 
-                $model->save(false);                                                                             // Сохраняем модель
-                return $this->redirect(['view', 'id' => $model->id]);                                                       // Редирект на представление модели
+                $model->save(false);                                                                         // Сохраняем модель
+                return $this->redirect(['view', 'id' => $model->id]);                                                   // Редирект на представление модели
             }
 
-            return $this->render('update', [                                                                           // Если данные из формы не загружены, то возвращаем форму для загрузки
+            return $this->render('update', [                                                                       // Если данные из формы не загружены, то возвращаем форму для загрузки
                 'model' => $model,
             ]);
         }
         else {
-            throw new HttpException(403, 'Forbidden');                                                         // Выводим ошибку если это не владелец объекта Проект
+            throw new HttpException(403, 'Forbidden');                                                    // Выводим ошибку если это не владелец объекта Проект
         }
+    }
+
+    /**
+     * ИСПОЛЬЗУЕТСЯ
+     *
+     * Удаляет существующий проект
+     * Только для владельцев объекта Проект
+     */
+    public function actionDelete($id)
+    {
+        $model = $this->findModel($id);                                                                                 // Находим модель
+
+        if ($model->customer_id == Yii::$app->getUser()->getId()) {                                                     // Проверяем, что пользователь является владельцем
+            $model->delete();                                                                                           // Удаляем модель
+        }
+        else {
+            throw new HttpException(403, 'Forbidden');                                                    // Выводим ошибку, если пользователь не является владельцем
+        }
+
+        return $this->redirect(['index']);                                                                              // Редирект на главную страницу
     }
 
     public function actionGetProjectsJson() {
@@ -195,20 +215,6 @@ class ProjectController extends Controller
         \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
 
         return $this->asJson($dataSson); //json_encode($dataSson);
-    }
-
-    /**
-     * Deletes an existing project model.
-     * If deletion is successful, the browser will be redirected to the 'index' page.
-     * @param integer $id
-     * @return mixed
-     * @throws NotFoundHttpException if the model cannot be found
-     */
-    public function actionDelete($id)
-    {
-        $this->findModel($id)->delete();
-
-        return $this->redirect(['index']);
     }
 
     public function actionOffers($id) {
