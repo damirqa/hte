@@ -10,6 +10,7 @@ use yii\filters\AccessControl;
 use yii\helpers\FileHelper;
 use yii\helpers\Url;
 use yii\web\Controller;
+use yii\web\HttpException;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\web\UploadedFile;
@@ -136,41 +137,45 @@ class ProjectController extends Controller
 
 
     /**
-     * Updates an existing project model.
-     * If update is successful, the browser will be redirected to the 'view' page.
-     * @param integer $id
-     * @return mixed
-     * @throws NotFoundHttpException if the model cannot be found
+     * ИСПОЛЬЗУЕТСЯ
+     *
+     * Редактируем объект "Проект"
+     * Только для авторизованных людей
+     * Только для владельцев
      */
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            if ($model->file_project = UploadedFile::getInstance($model,'file_project')) {
-                if (!file_exists('files/' . $model->id)) {
-                    FileHelper::createDirectory('files' . $model->id);
+        if ($model->customer_id == Yii::$app->getUser()->getId()) {                                                         // Проверяем, что пользователь является владельцем объекта Проект
+            if ($model->load(Yii::$app->request->post()) && $model->save()) {                                               // Загружаем данные из формы в модель и сохраняем в БД
+                if ($model->imageFiles = UploadedFile::getInstances($model,'imageFiles')) {                         // Проверяем, что есть загруженные файлы
+
+                    if (!file_exists('files/project/' . $model->id)) {                                              // Если отсутствует папка для хранения файлов проекта
+                        FileHelper::createDirectory('files/project/' . $model->id);                                    // Создаем папку для хранения файлов проекта
+                    }
+
+                    $links = '';                                                                                            // Храним все ссылки на файлы
+
+                    foreach ($model->imageFiles as $file) {                                                                 // Обрабатываем каждый файл
+                        $link = 'files/project/'  . $model->id . '/' . $file->baseName . '.' . $file->extension;            // Формируем ссылку на хранения файла
+                        $file->saveAs($link);                                                                               // Сохраняем файл по ссылке $link
+                        $links .= $link . ';';                                                                              // Ссылку сохраняем в месте для всех ссылок. Ссылки разделяются точкой с запятой
+                    }
+                    $model->files_link = $links;                                                                            // Записываем все ссылки в модель
                 }
 
-                $links = '';
-
-                $path = 'files/' . $model->id . '/' . $model->file_project->baseName . '.' . $model->file_project->extension;
-                $model->saveAs($path, false);
-                $links = $links . $path;
-                $model->file_link = $links;
+                $model->save(false);                                                                             // Сохраняем модель
+                return $this->redirect(['view', 'id' => $model->id]);                                                       // Редирект на представление модели
             }
 
-            $model->date = date("Y-m-d");
-            $model->customer_id = Yii::$app->getUser()->getId();
-            $model->task_status = "Открыт";
-
-            $model->save();
-            return $this->redirect(['view', 'id' => $model->id]);
+            return $this->render('update', [                                                                           // Если данные из формы не загружены, то возвращаем форму для загрузки
+                'model' => $model,
+            ]);
         }
-
-        return $this->render('update', [
-            'model' => $model,
-        ]);
+        else {
+            throw new HttpException(403, 'Forbidden');                                                         // Выводим ошибку если это не владелец объекта Проект
+        }
     }
 
     public function actionGetProjectsJson() {
