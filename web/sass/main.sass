@@ -503,20 +503,6 @@ ol
     justify-content: space-between
     padding: 20px 30px 0 30px
 
-    &:nth-child(2)
-      padding: 20px 30px 0 30px
-
-    &:nth-child(7)
-      padding: 20px 30px 25px 30px
-
-    &:nth-last-child(3)
-      .form-group
-        &:first-child
-          margin-right: 0px
-
-        &:last-child
-          margin-left: 0px
-
     .form-group
       label
         margin-bottom: .25rem
@@ -535,8 +521,17 @@ ol
     select#profile-gender
       padding: 13px 10px !important
 
+  .profile-row-data
+    &:nth-child(6)
+      .form-group
+        margin: 0
+
+    &:nth-child(7)
+      padding: 20px 30px
+
   .project-row-data
     &:nth-child(3)
+      padding: 20px 30px 0 30px
       .form-group
         margin: 0
 
@@ -544,14 +539,16 @@ ol
       .form-group
         margin: 0
 
-    &:nth-child(7)
-      padding: 20px 30px 0 30px
+    &:nth-child(6)
+      .form-group
+        margin: 0
 
+    &:nth-child(7)
       .form-group
         margin: 0
 
     &:nth-child(8)
-      padding: 25px 30px
+      padding: 20px 30px
 
     #project-on_time, #project-urgently
       padding: 10px

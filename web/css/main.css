@@ -796,14 +796,6 @@ ol li {
         -ms-flex-pack: justify;
             justify-content: space-between;
     padding: 20px 30px 0 30px; }
-    .profile-form .profile-row-data:nth-child(2), .profile-form .project-row-data:nth-child(2), .project-form .profile-row-data:nth-child(2), .project-form .project-row-data:nth-child(2) {
-      padding: 20px 30px 0 30px; }
-    .profile-form .profile-row-data:nth-child(7), .profile-form .project-row-data:nth-child(7), .project-form .profile-row-data:nth-child(7), .project-form .project-row-data:nth-child(7) {
-      padding: 20px 30px 25px 30px; }
-    .profile-form .profile-row-data:nth-last-child(3) .form-group:first-child, .profile-form .project-row-data:nth-last-child(3) .form-group:first-child, .project-form .profile-row-data:nth-last-child(3) .form-group:first-child, .project-form .project-row-data:nth-last-child(3) .form-group:first-child {
-      margin-right: 0px; }
-    .profile-form .profile-row-data:nth-last-child(3) .form-group:last-child, .profile-form .project-row-data:nth-last-child(3) .form-group:last-child, .project-form .profile-row-data:nth-last-child(3) .form-group:last-child, .project-form .project-row-data:nth-last-child(3) .form-group:last-child {
-      margin-left: 0px; }
     .profile-form .profile-row-data .form-group label, .profile-form .project-row-data .form-group label, .project-form .profile-row-data .form-group label, .project-form .project-row-data .form-group label {
       margin-bottom: .25rem; }
     .profile-form .profile-row-data .profile-item-data, .profile-form .profile-row-data .project-item-data, .profile-form .profile-row-data select#project-type, .profile-form .project-row-data .profile-item-data, .profile-form .project-row-data .project-item-data, .profile-form .project-row-data select#project-type, .project-form .profile-row-data .profile-item-data, .project-form .profile-row-data .project-item-data, .project-form .profile-row-data select#project-type, .project-form .project-row-data .profile-item-data, .project-form .project-row-data .project-item-data, .project-form .project-row-data select#project-type {
@@ -818,16 +810,22 @@ ol li {
       padding: 10px 10px !important; }
     .profile-form .profile-row-data select#profile-gender, .profile-form .project-row-data select#profile-gender, .project-form .profile-row-data select#profile-gender, .project-form .project-row-data select#profile-gender {
       padding: 13px 10px !important; }
-  .profile-form .project-row-data:nth-child(3) .form-group, .project-form .project-row-data:nth-child(3) .form-group {
+  .profile-form .profile-row-data:nth-child(6) .form-group, .project-form .profile-row-data:nth-child(6) .form-group {
     margin: 0; }
+  .profile-form .profile-row-data:nth-child(7), .project-form .profile-row-data:nth-child(7) {
+    padding: 20px 30px; }
+  .profile-form .project-row-data:nth-child(3), .project-form .project-row-data:nth-child(3) {
+    padding: 20px 30px 0 30px; }
+    .profile-form .project-row-data:nth-child(3) .form-group, .project-form .project-row-data:nth-child(3) .form-group {
+      margin: 0; }
   .profile-form .project-row-data:nth-child(4) .form-group, .project-form .project-row-data:nth-child(4) .form-group {
     margin: 0; }
-  .profile-form .project-row-data:nth-child(7), .project-form .project-row-data:nth-child(7) {
-    padding: 20px 30px 0 30px; }
-    .profile-form .project-row-data:nth-child(7) .form-group, .project-form .project-row-data:nth-child(7) .form-group {
-      margin: 0; }
+  .profile-form .project-row-data:nth-child(6) .form-group, .project-form .project-row-data:nth-child(6) .form-group {
+    margin: 0; }
+  .profile-form .project-row-data:nth-child(7) .form-group, .project-form .project-row-data:nth-child(7) .form-group {
+    margin: 0; }
   .profile-form .project-row-data:nth-child(8), .project-form .project-row-data:nth-child(8) {
-    padding: 25px 30px; }
+    padding: 20px 30px; }
   .profile-form .project-row-data #project-on_time, .profile-form .project-row-data #project-urgently, .project-form .project-row-data #project-on_time, .project-form .project-row-data #project-urgently {
     padding: 10px;
     border: 1px solid rgba(33, 43, 54, 0.25);
