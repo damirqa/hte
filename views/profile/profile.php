@@ -3,6 +3,8 @@ use app\models\Profile;
 
 /* @var $role string Role of user*/
 
+$this->title = $model->surname . ' ' . $model->name;
+
 if ($model->photo_link == NULL) {
     $photo = ($model->gender == "Мужской") ? "../img/user-male.png" : "../img/user-female.png";
 }
