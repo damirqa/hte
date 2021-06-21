@@ -48,12 +48,46 @@ class ProfileController extends Controller
         ]);
     }
 
-    public function actionUpdate()
+    public function actionDelete($id)
     {
-        if (Yii::$app->user->isGuest) return $this->redirect(['site/login']);
-        $id = Yii::$app->getUser()->getId();
+        $this->findModel($id)->delete();
 
+        return $this->redirect(['index']);
+    }
+
+    /*
+     * ИСПОЛЬЗУЕТСЯ
+     */
+    private function findModel($id)
+    {
+        if (($model = Profile::findOne($id)) !== null) {
+            return $model;
+        }
+
+        throw new NotFoundHttpException('The requested page does not exist.');
+    }
+
+    /*
+     * ИСПОЛЬЗУЕТСЯ
+     *
+     * Возвращает профиль текущего профиля
+     */
+    public function actionIndex() {
+        $id = Yii::$app->getUser()->getId();
         $model = $this->findModel($id);
+
+        return $this->render('profile', [
+            'model' => $model
+        ]);
+    }
+
+    /*
+     * ИСПОЛЬЗУЕТСЯ
+     *
+     * Обновление профиля пользователя
+     */
+    public function actionUpdate() {
+        $model = $this->findModel(Yii::$app->getUser()->getId());
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             if ($model->imageFile = UploadedFile::getInstance($model, 'imageFile')) {
@@ -70,33 +104,6 @@ class ProfileController extends Controller
 
         return $this->render('update', [
             'model' => $model,
-        ]);
-    }
-
-    public function actionDelete($id)
-    {
-        $this->findModel($id)->delete();
-
-        return $this->redirect(['index']);
-    }
-
-    protected function findModel($id)
-    {
-        if (($model = Profile::findOne($id)) !== null) {
-            return $model;
-        }
-
-        throw new NotFoundHttpException('The requested page does not exist.');
-    }
-
-    public function actionIndex() {
-        if (Yii::$app->user->isGuest) return $this->redirect(['site/login']);
-
-        $id = Yii::$app->getUser()->getId();
-        $model = $this->findModel($id);
-
-        return $this->render('profile', [
-            'model' => $model
         ]);
     }
 
