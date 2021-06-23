@@ -241,7 +241,9 @@ class ProjectController extends Controller
             $data[] = [
                 'id' => $offer->id,
                 'performer_id' => $performer->id,
-                'performer' => (!is_null($performer->surname) || !is_null($performer->name)) ? $performer->surname . " " . $performer->name : "Безымянный",
+                'performer' => ($performer->surname != '' || $performer->name != '')
+                                    ? $performer->surname . " " . $performer->name
+                                    : explode('@', $performer->email)[0],
                 'text' => $offer->text,
                 'date' => date_format(new \DateTime($offer->date), "d.m.Y") ,
                 'bid' => is_null($offer->bid) ? "Договорная" : $offer->bid,
