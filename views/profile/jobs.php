@@ -60,7 +60,8 @@
     }
 
     function linkFormatter(value) {
-        return '<a title="Изменить" href="/project/update?id=' + value + '">' + '<i class=\"fas fa-pen\"></i>' +  '</a> ' +
+        return '<a title="Открыть" href="/project/view?id='+value+'">'+'<i class=\"fas fa-folder-open\"></i>' + '</a>' +
+                '<a title="Изменить" href="/project/update?id=' + value + '">' + '<i class=\"fas fa-pen\"></i>' +  '</a> ' +
                '<a title="Удалить" href="/project/delete?id=' + value + '">' + '<i class="fas fa-trash"></i>' + '</a>';
     }
 </script>
