@@ -747,7 +747,11 @@ ol li {
   background-color: #FFCB68; }
 
 .project-offer-accept {
-  background-color: #4BBC8E; }
+  border-radius: 10px;
+  background-color: #4BBC8E;
+  color: #FFFFFF;
+  padding: 7px 25px;
+  margin: 15px 0; }
   .project-offer-accept a {
     color: #F9F871; }
   .project-offer-accept .project-offer-accept-info {
