@@ -80,7 +80,11 @@ $this->params['breadcrumbs'][] = $this->title;
     </div>
 
     <?=
-        $this->render('@app/views/offer/_count.php', ['offer' => $offer, 'count' => $count]);
+        $this->render('@app/views/offer/_count.php', [
+                'model' => $model,
+                'offer' => $offer,
+                'count' => $count,
+                'performer' => $performer]);
     ?>
 
         <?php
