@@ -750,8 +750,10 @@ ol li {
   border-radius: 10px;
   background-color: #4BBC8E;
   color: #FFFFFF;
-  padding: 7px 25px;
-  margin: 15px 0; }
+  padding: 10px 25px;
+  margin: 15px 0;
+  -webkit-box-shadow: 0 4px 4px 0 rgba(145, 158, 171, 0.35), 0 16px 32px -4px rgba(145, 158, 171, 0.35) !important;
+          box-shadow: 0 4px 4px 0 rgba(145, 158, 171, 0.35), 0 16px 32px -4px rgba(145, 158, 171, 0.35) !important; }
   .project-offer-accept a {
     color: #F9F871; }
   .project-offer-accept .project-offer-accept-info {
