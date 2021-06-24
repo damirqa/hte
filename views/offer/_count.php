@@ -1,9 +1,11 @@
 <?php
     /* @var $offer \app\models\Offer */
+    /* @var $model \app\models\Project */
+    /* @var $performer \app\models\Profile */
 ?>
 
 <?php
-    if (!Yii::$app->getUser()->getIsGuest()) {
+    if (Yii::$app->getUser()->getId() == $model->customer_id) {
         if ($count == 0) {
             ?>
                 <div class="project-offers-count project-offers-zero">
@@ -23,6 +25,15 @@
         if (!is_null($offer)) {
             ?>
             <div class="project-offer-accept">Количество предложений: <?= $count ?>, хотите <a href="/project/offers?id=<?= $model->id ?>">посмотреть?</a></div>
+
+            <div class="project-offer-accept">
+                Вы приняли следующее предложение от <a href="/profile/view?id=<?= $performer->id ?>">
+                <?php
+                    echo ($performer->surname != '' || $performer->name != '')
+                        ? $performer->surname . ' ' . $performer->name
+                        : explode('@', $performer->email)[0]
+                ?></a>
+            </div>
 
             <div class="project-offers-count project-offer-accept">
                     <div class="project-offer-accept-data">
