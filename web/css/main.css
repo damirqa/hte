@@ -305,7 +305,9 @@ h4, .h4 {
   background-image: url("../img/image.png"); }
 
 .file-rar, .file-zip {
-  background-image: url("../img/archive.png"); }
+  background-image: url("../img/archive.png");
+  background-size: 90% 90%;
+  background-position: center; }
 
 .bg-light {
   background-color: #FFFFFF !important; }
@@ -475,17 +477,17 @@ ol li {
     .user-info .profile-data:nth-last-child(2) {
       margin-bottom: 7px; }
 
-.project-view, .offer-view, .offer-create, .offers-of-project-view, .project-offers-count, .project-update {
+.project-view, .offer-view, .offer-create, .offers-of-project-view, .project-update {
   margin-top: 15px;
   border-radius: 10px;
   -webkit-box-shadow: 0 4px 4px 0 rgba(145, 158, 171, 0.25), 0 16px 32px -4px rgba(145, 158, 171, 0.25);
           box-shadow: 0 4px 4px 0 rgba(145, 158, 171, 0.25), 0 16px 32px -4px rgba(145, 158, 171, 0.25); }
-  .project-view .project-view-data, .project-view .offer-view-data, .project-view .offer-create-data, .project-view .offers-of-project-view-data, .project-view .project-update-data, .offer-view .project-view-data, .offer-view .offer-view-data, .offer-view .offer-create-data, .offer-view .offers-of-project-view-data, .offer-view .project-update-data, .offer-create .project-view-data, .offer-create .offer-view-data, .offer-create .offer-create-data, .offer-create .offers-of-project-view-data, .offer-create .project-update-data, .offers-of-project-view .project-view-data, .offers-of-project-view .offer-view-data, .offers-of-project-view .offer-create-data, .offers-of-project-view .offers-of-project-view-data, .offers-of-project-view .project-update-data, .project-offers-count .project-view-data, .project-offers-count .offer-view-data, .project-offers-count .offer-create-data, .project-offers-count .offers-of-project-view-data, .project-offers-count .project-update-data, .project-update .project-view-data, .project-update .offer-view-data, .project-update .offer-create-data, .project-update .offers-of-project-view-data, .project-update .project-update-data {
+  .project-view .project-view-data, .project-view .offer-view-data, .project-view .offer-create-data, .project-view .offers-of-project-view-data, .project-view .project-update-data, .offer-view .project-view-data, .offer-view .offer-view-data, .offer-view .offer-create-data, .offer-view .offers-of-project-view-data, .offer-view .project-update-data, .offer-create .project-view-data, .offer-create .offer-view-data, .offer-create .offer-create-data, .offer-create .offers-of-project-view-data, .offer-create .project-update-data, .offers-of-project-view .project-view-data, .offers-of-project-view .offer-view-data, .offers-of-project-view .offer-create-data, .offers-of-project-view .offers-of-project-view-data, .offers-of-project-view .project-update-data, .project-update .project-view-data, .project-update .offer-view-data, .project-update .offer-create-data, .project-update .offers-of-project-view-data, .project-update .project-update-data {
     padding: 15px 25px;
     border-bottom: 1px solid #F2F4F6; }
-    .project-view .project-view-data:nth-last-child(1), .project-view .offer-view-data:nth-last-child(1), .project-view .offer-create-data:nth-last-child(1), .project-view .offers-of-project-view-data:nth-last-child(1), .project-view .project-update-data:nth-last-child(1), .offer-view .project-view-data:nth-last-child(1), .offer-view .offer-view-data:nth-last-child(1), .offer-view .offer-create-data:nth-last-child(1), .offer-view .offers-of-project-view-data:nth-last-child(1), .offer-view .project-update-data:nth-last-child(1), .offer-create .project-view-data:nth-last-child(1), .offer-create .offer-view-data:nth-last-child(1), .offer-create .offer-create-data:nth-last-child(1), .offer-create .offers-of-project-view-data:nth-last-child(1), .offer-create .project-update-data:nth-last-child(1), .offers-of-project-view .project-view-data:nth-last-child(1), .offers-of-project-view .offer-view-data:nth-last-child(1), .offers-of-project-view .offer-create-data:nth-last-child(1), .offers-of-project-view .offers-of-project-view-data:nth-last-child(1), .offers-of-project-view .project-update-data:nth-last-child(1), .project-offers-count .project-view-data:nth-last-child(1), .project-offers-count .offer-view-data:nth-last-child(1), .project-offers-count .offer-create-data:nth-last-child(1), .project-offers-count .offers-of-project-view-data:nth-last-child(1), .project-offers-count .project-update-data:nth-last-child(1), .project-update .project-view-data:nth-last-child(1), .project-update .offer-view-data:nth-last-child(1), .project-update .offer-create-data:nth-last-child(1), .project-update .offers-of-project-view-data:nth-last-child(1), .project-update .project-update-data:nth-last-child(1) {
+    .project-view .project-view-data:nth-last-child(1), .project-view .offer-view-data:nth-last-child(1), .project-view .offer-create-data:nth-last-child(1), .project-view .offers-of-project-view-data:nth-last-child(1), .project-view .project-update-data:nth-last-child(1), .offer-view .project-view-data:nth-last-child(1), .offer-view .offer-view-data:nth-last-child(1), .offer-view .offer-create-data:nth-last-child(1), .offer-view .offers-of-project-view-data:nth-last-child(1), .offer-view .project-update-data:nth-last-child(1), .offer-create .project-view-data:nth-last-child(1), .offer-create .offer-view-data:nth-last-child(1), .offer-create .offer-create-data:nth-last-child(1), .offer-create .offers-of-project-view-data:nth-last-child(1), .offer-create .project-update-data:nth-last-child(1), .offers-of-project-view .project-view-data:nth-last-child(1), .offers-of-project-view .offer-view-data:nth-last-child(1), .offers-of-project-view .offer-create-data:nth-last-child(1), .offers-of-project-view .offers-of-project-view-data:nth-last-child(1), .offers-of-project-view .project-update-data:nth-last-child(1), .project-update .project-view-data:nth-last-child(1), .project-update .offer-view-data:nth-last-child(1), .project-update .offer-create-data:nth-last-child(1), .project-update .offers-of-project-view-data:nth-last-child(1), .project-update .project-update-data:nth-last-child(1) {
       border-bottom: none; }
-  .project-view h1, .project-view h3, .offer-view h1, .offer-view h3, .offer-create h1, .offer-create h3, .offers-of-project-view h1, .offers-of-project-view h3, .project-offers-count h1, .project-offers-count h3, .project-update h1, .project-update h3 {
+  .project-view h1, .project-view h3, .offer-view h1, .offer-view h3, .offer-create h1, .offer-create h3, .offers-of-project-view h1, .offers-of-project-view h3, .project-update h1, .project-update h3 {
     margin: 0; }
 
 .project-view-add-info {
@@ -730,11 +732,12 @@ ol li {
       .project-search-table .project-search-table-body .row:hover:last-child {
         border-radius: 0 0 10px 10px; }
 
-.project-offers-count {
-  -webkit-box-shadow: 0 7px 4px 0 rgba(145, 158, 171, 0.25), 0 16px 32px -4px rgba(145, 158, 171, 0.25);
-          box-shadow: 0 7px 4px 0 rgba(145, 158, 171, 0.25), 0 16px 32px -4px rgba(145, 158, 171, 0.25);
-  color: #FFFFFF;
-  margin-bottom: 30px; }
+.project-offers-count, .project-offer-accept {
+  -webkit-box-shadow: 0 7px 4px 0 rgba(145, 158, 171, 0.25), 0 12px 28px -4px rgba(145, 158, 171, 0.25);
+          box-shadow: 0 7px 4px 0 rgba(145, 158, 171, 0.25), 0 12px 28px -4px rgba(145, 158, 171, 0.25);
+  border-radius: 10px;
+  padding: 15px 25px;
+  margin: 30px 0px; }
 
 .project-offers-zero {
   padding: 15px 25px;
@@ -742,31 +745,8 @@ ol li {
   color: #212529; }
 
 .project-offers-not-accept {
-  padding: 15px 25px;
   color: #333333;
   background-color: #FFCB68; }
-
-.project-offer-accept {
-  border-radius: 10px;
-  background-color: #4BBC8E;
-  color: #FFFFFF;
-  padding: 10px 25px;
-  margin: 15px 0;
-  -webkit-box-shadow: 0 4px 4px 0 rgba(145, 158, 171, 0.35), 0 16px 32px -4px rgba(145, 158, 171, 0.35) !important;
-          box-shadow: 0 4px 4px 0 rgba(145, 158, 171, 0.35), 0 16px 32px -4px rgba(145, 158, 171, 0.35) !important; }
-  .project-offer-accept a {
-    color: #F9F871; }
-  .project-offer-accept .project-offer-accept-info {
-    margin-top: 20px; }
-  .project-offer-accept .project-offer-accept-data {
-    padding: 7px 25px;
-    line-height: 1.7; }
-    .project-offer-accept .project-offer-accept-data:nth-last-child(1) {
-      padding: 7px 25px 15px 25px; }
-    .project-offer-accept .project-offer-accept-data:nth-last-child(6) {
-      padding: 15px 25px 7px 25px; }
-    .project-offer-accept .project-offer-accept-data:nth-last-child(5) {
-      margin-bottom: 15px; }
 
 .profile-avatar {
   border-radius: 10px;

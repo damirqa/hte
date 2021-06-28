@@ -24,7 +24,7 @@
 
         if (!is_null($offer)) {
             ?>
-            <div class="project-offer-accept">Количество предложений: <?= $count ?>, хотите <a href="/project/offers?id=<?= $model->id ?>">посмотреть?</a></div>
+            <div class="project-offers-count project-offers-zero">Количество предложений: <?= $count ?>, хотите <a href="/project/offers?id=<?= $model->id ?>">посмотреть?</a></div>
 
             <div class="project-offer-accept">
                 Вы приняли следующее предложение от <a href="/profile/view?id=<?= $performer->id ?>">
@@ -36,17 +36,9 @@
             </div>
 
             <div class="project-offers-count project-offer-accept">
-                    <div class="project-offer-accept-data">
-                        Вы приняли следующее предложение от <a href="/profile/view?id=<?= $performer->id ?>">
-                            <?php
-                            echo ($performer->surname != '' || $performer->name != '')
-                                ? $performer->surname . ' ' . $performer->name
-                                : explode('@', $performer->email)[0]
-                            ?></a>
-                    </div>
                     <div class="project-offer-accept-data">Описание: <?= $offer->text ?></div>
                     <div class="project-offer-accept-data">Дата выполнения: <?= date_format(new DateTime($offer->date), 'd.m.Y') ?></div>
-                    <div class="project-offer-accept-data">Цена: <?= $offer->bid ?> ₽</div>
+                    <div class="project-offer-accept-data">Цена: <?php  echo is_null($offer->bid) ? 'Договорная' : $offer->bid . ' руб.' ?></div>
                     <div class="project-offer-accept-data">Вы можете отказаться от данного предложения. <a href="#">Отказаться?</a></div>
                 </div>
             <?php
