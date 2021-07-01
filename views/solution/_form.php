@@ -10,7 +10,13 @@ use yii\widgets\ActiveForm;
 
 <div class="solution-form">
 
-    <?php $form = ActiveForm::begin(); ?>
+    <?php $form = ActiveForm::begin([
+        'fieldConfig' => [
+            'options'=> [
+                'class' => 'solution-create-data'
+            ],
+        ],
+    ]); ?>
 
     <?= $form->field($model, 'id_project')->textInput() ?>
 
@@ -22,8 +28,8 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'comment')->textarea(['rows' => 6]) ?>
 
-    <div class="form-group">
-        <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
+    <div class="solution-create-data form-group">
+        <?= Html::submitButton('Save', ['class' => 'a-btn']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>
