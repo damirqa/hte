@@ -4,6 +4,7 @@ namespace app\controllers;
 
 use app\models\Offer;
 use app\models\Profile;
+use app\models\Solution;
 use Yii;
 use app\models\project;
 use yii\filters\AccessControl;
@@ -66,10 +67,12 @@ class ProjectController extends Controller
 
         if (Yii::$app->getUser()->getId() != $model->customer_id) {
             $offer = Offer::find()->where(['project_id' => $id, 'performer_id' => Yii::$app->getUser()->getId()])->one();
+            $solution = Solution::find()->where(['id_project' => $id, 'id_performer' => Yii::$app->getUser()->getId()])->one();
 
             return $this->render('view', [
                 'model' => $model,
-                'offer' => $offer
+                'offer' => $offer,
+                'solution' => $solution
             ]);
         }
 
