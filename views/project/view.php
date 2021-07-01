@@ -6,6 +6,7 @@ use yii\helpers\Html;
 /* @var $model app\models\project */
 /* @var $offer app\models\offer */
 /* @var $offers app\models\offer */
+/* @var $solution app\models\solution */
 /* @var $searchModel app\models\ProjectSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 /* @var $view app\views\offer\view */
@@ -100,6 +101,10 @@ $this->params['breadcrumbs'][] = $this->title;
                 echo ($offer == null)
                     ? $this->render('/offer/create', ['model' => new \app\models\Offer(), 'project_id' => $model->id, 'performer' => Yii::$app->getUser()->getId()])
                     : $this->render('/offer/view', ['model' => $offer]) ;
+
+                echo ($solution == null)
+                    ? $this->render('/solution/create', ['model' => new \app\models\Solution(), 'id_project' => $model->id, 'id_performer' => Yii::$app->getUser()->getId()])
+                    : $this->render('/solution/view', ['model' => $solution]);
             }
 
         ?>
