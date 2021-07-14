@@ -13,11 +13,13 @@ use Yii;
  * @property string|null $date_change
  * @property string|null $status
  * @property string|null $comment
- *
+ * @property string $files_link
  * @property Project $project
  */
 class Solution extends \yii\db\ActiveRecord
 {
+    public $files;
+
     /**
      * {@inheritdoc}
      */
@@ -35,9 +37,10 @@ class Solution extends \yii\db\ActiveRecord
             [['id_project'], 'required'],
             [['id_project'], 'integer'],
             [['date_create', 'date_change'], 'safe'],
-            [['comment'], 'string'],
+            [['comment', 'files_link'], 'string'],
             [['status'], 'string', 'max' => 255],
             [['id_project'], 'exist', 'skipOnError' => true, 'targetClass' => Project::className(), 'targetAttribute' => ['id_project' => 'id']],
+            [['imageFiles'], 'file', 'extensions' => 'png, jpg, rar, zip', 'maxFiles' => 10],
         ];
     }
 
@@ -47,12 +50,13 @@ class Solution extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => 'ID',
-            'id_project' => 'Id Project',
-            'date_create' => 'Date Create',
-            'date_change' => 'Date Change',
-            'status' => 'Status',
-            'comment' => 'Comment',
+            'id' => 'ИД',
+            'id_project' => 'ИД Проекта',
+            'date_create' => 'Дата создания',
+            'date_change' => 'Дата редактирования',
+            'status' => 'Статус',
+            'files_link' => 'Ссылки на файлы',
+            'comment' => 'Коммент',
         ];
     }
 

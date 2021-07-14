@@ -19,6 +19,7 @@ class m210629_180342_create_solution extends Migration
             'date_create' => $this->date(),
             'date_change' => $this->date(),
             'status' => $this->string(),
+            'files_link' => $this->text(),
             'comment' => $this->text()
         ]);
 
