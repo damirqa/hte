@@ -89,6 +89,9 @@ $this->params['breadcrumbs'][] = $this->title;
     ?>
 
         <?php
+            /*
+             * Если пользователь является гостем, то необходимо показать ТОЛЬКО форму авторизации
+             */
             if (Yii::$app->getUser()->getIsGuest()) {
                 ?>
                     <div class="unauthorized-info">Если Вы хотите предложить свою кандидатуру, то Вам необходимо <a href="../site/login">авторизоваться</a>
@@ -97,14 +100,29 @@ $this->params['breadcrumbs'][] = $this->title;
                 <?php
             }
 
+            /*
+             * Если пользователь НЕ гость и НЕ является владельцем проекта
+             */
             if (!Yii::$app->getUser()->getIsGuest() && $model->customer_id != Yii::$app->getUser()->getId()) {
+
+                /*
+                 * Если предложение отсутствует, то выводим форму предложения решения
+                 * Иначе мы показываем решение
+                 */
                 echo ($offer == null)
                     ? $this->render('/offer/create', ['model' => new \app\models\Offer(), 'project_id' => $model->id, 'performer' => Yii::$app->getUser()->getId()])
                     : $this->render('/offer/view', ['model' => $offer]) ;
 
-                echo ($solution == null)
-                    ? $this->render('/solution/create', ['model' => new \app\models\Solution(), 'id_project' => $model->id, 'id_performer' => Yii::$app->getUser()->getId()])
-                    : $this->render('/solution/view', ['model' => $solution]);
+                /*
+                 * Если предложение ПРИНЯЛИ, а решение ОТСУТСТВУЕТ,
+                 * то необходимо вывести форму СОЗДАНИЯ
+                 */
+                if ($offer->status == 'Принят' && $solution == null) {
+                    echo $this->render('/solution/create', ['model' => new \app\models\Solution(), 'id_project' => $model->id, 'id_performer' => Yii::$app->getUser()->getId()]);
+                }
+                elseif ($offer->status == 'Принят' && $solution != null){
+                    $this->render('/solution/view', ['model' => $solution]);
+                }
             }
 
         ?>

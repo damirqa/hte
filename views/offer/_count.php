@@ -5,7 +5,14 @@
 ?>
 
 <?php
+    /*
+     * Выводим информацию о проекте для владельца задачи
+     */
     if (Yii::$app->getUser()->getId() == $model->customer_id) {
+
+        /*
+         * Если количество предложений ноль, то сообщаем об этом
+         */
         if ($count == 0) {
             ?>
                 <div class="project-offers-count project-offers-zero">
@@ -14,7 +21,11 @@
             <?php
         }
 
-        if (is_null($offer) && $count != 0) {
+        /*
+         * Если количество предложений БОЛЬШЕ нуля и предложение ПРИНЯТИ,
+         * то выводим количество предложений и просим посмотреть все предложения
+         */
+        if (is_null($offer) && $count > 0) {
             ?>
                 <div class="project-offers-count project-offers-not-accept">
                     Количество предложений: <?= $count ?>, но Вы всё еще не приняли ни одного предложения... <a href="/project/offers?id=<?= $model->id ?>">Посмотреть?</a>
@@ -22,6 +33,11 @@
             <?php
         }
 
+        /*
+         * Если предложение принято,
+         * то выводим сообщение, в котором сообщается чьё предложение мы приняли
+         * и выводим информацию об предложении
+         */
         if (!is_null($offer)) {
             ?>
             <div class="project-offers-count project-offers-zero">Количество предложений: <?= $count ?>, хотите <a href="/project/offers?id=<?= $model->id ?>">посмотреть?</a></div>
